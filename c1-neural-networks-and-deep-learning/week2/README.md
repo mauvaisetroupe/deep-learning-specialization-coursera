@@ -45,11 +45,25 @@ Concenring label we also use matrix notation. The dimension of the matrix is (1 
 > <img src="./images/w02-01-w02-01-Binary_Classification/img_2023-03-11_14-38-07.png">
 
 
-
-
-
 ## Logistic Regression
 
+ > <img src="./images/w02-02-Logistic_Regression/img_2023-03-11_14-47-23.png">
+
+
+$\hat{y}$ (y hat) is the prediction of y, is the probability of of y=1, given the input x
+> <img src="./images/w02-02-Logistic_Regression/img_2023-03-11_14-52-53.png">
+
+With w ($n_x$ dimension vector) and b (real number) as parameter, $\hat{y} = w^T.x + b$, with $w^T$ the w transpose (column instead of line for matrix multiplication compataibility)
+
+> <img src="./images/w02-02-Logistic_Regression/img_2023-03-11_14-59-28.png">
+
+This is linear regression, that is not correct for binary classification (0 < y < 1). That's why we use the sigmoid function
+
+> <img src="./images/w02-02-Logistic_Regression/img_2023-03-11_15-03-05.png">
+
+When we programmed neural networks, we'll usually keep the parameter W and parameter B separate, but there is another convention in which you merge w and b, introducing an extra feature $x_0=1$
+
+> <img src="./images/w02-02-Logistic_Regression/img_2023-03-11_15-04-02.png">
 
 ## Logistic Regression Cost Function
 
