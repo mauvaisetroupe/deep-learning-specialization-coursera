@@ -67,6 +67,25 @@ When we programmed neural networks, we'll usually keep the parameter W and param
 
 ## Logistic Regression Cost Function
 
+> <img src="./images/w02-03-Logistic_Regression_Cost_Function/img_2023-03-11_15-08-12.png">
+
+Logitic regression model
+
+> <img src="./images/w02-03-Logistic_Regression_Cost_Function/img_2023-03-11_15-11-46.png">
+
+With **loss function** or **error function** we can use to measure how well algorithm is performant.
+The following **square error** function doesn't fit for logistic regression, because it's not convex 
+
+> <img src="./images/w02-03-Logistic_Regression_Cost_Function/img_2023-03-11_15-15-06.png">
+
+That's why we introduce the following lost function
+
+> <img src="./images/w02-03-Logistic_Regression_Cost_Function/img_2023-03-11_15-19-11.png">
+
+Loss function is defined to a single train example. **Cost function** is for the whole set of training example
+
+> <img src="./images/w02-03-Logistic_Regression_Cost_Function/img_2023-03-11_15-27-32.png">
+
 ## Gradient Descent
 
 ## Derivatives
