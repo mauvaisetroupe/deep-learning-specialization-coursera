@@ -94,13 +94,19 @@ https://github.com/mauvaisetroupe/machine-learning-specialization-coursera/blob/
 
 > <img src="./images/w02-04-Gradient_Descent/img_2023-03-11_15-31-32.png">
 
-Inthe code, by convention we use dw and db 
+Inthe code, by convention we use **dw** and **db** 
 > <img src="./images/w02-04-Gradient_Descent/img_2023-03-11_15-40-28.png">
 
 
 ## Derivatives
 
+> <img src="./images/w02-05-Derivatives/img_2023-03-11_15-42-32.png">
+
 ## More Derivative Examples
+
+> <img src="./images/w02-06-More_Derivative_Examples/img_2023-03-11_15-42-40.png">
+
+> <img src="./images/w02-06-More_Derivative_Examples/img_2023-03-11_15-42-41.png">
 
 ## Computation Graph
 
