@@ -163,6 +163,8 @@ And so on..
 
 > <img src="./images/w02-10-Gradient_Descent_on_m_Examples/img_2023-03-11_17-36-35.png">
 
+One single step of gradient descent, with 2 loops (one for the training example, and another one for the features). This will be avoided by vectorization
+
 > <img src="./images/w02-10-Gradient_Descent_on_m_Examples/img_2023-03-11_17-36-37.png">
 
 ## Derivation of DL/dz (Optional)
