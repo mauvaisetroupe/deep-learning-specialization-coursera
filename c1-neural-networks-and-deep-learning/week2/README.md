@@ -110,6 +110,11 @@ Inthe code, by convention we use **dw** and **db**
 
 ## Computation Graph
 
+https://github.com/mauvaisetroupe/machine-learning-specialization-coursera/blob/c1e3ee9a248c4dfa2c129fc1d5bd7d5b64b71f78/c2-advanced-learning-algorithms/week2/README.md#computation-graph-optional
+
+> <img src="./images/w02-07-Computation_Graph/img_2023-03-11_15-47-28.png">
+
+
 ## Derivatives with a Computation Graph
 
 ## Logistic Regression Gradient Descent
