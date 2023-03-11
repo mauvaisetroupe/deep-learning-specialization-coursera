@@ -1,0 +1,6 @@
+w01-01-Welcome
+w01-02-What_is_a_Neural_Network
+w01-03-Supervised_Learning_with_Neural_Networks
+w01-04-Why_is_Deep_Learning_taking_off
+w01-05-About_this_Course
+w01-06-Geoffrey_Hinton_Interview
