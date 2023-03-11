@@ -152,9 +152,18 @@ And so on..
 
 > <img src="./images/w02-09-Logistic_Regression_Gradient_Descent/img_2023-03-11_16-18-28.png">
 
+
 > <img src="./images/w02-09-Logistic_Regression_Gradient_Descent/img_2023-03-11_16-18-31.png">
 
+
+> <img src="./images/w02-09-Logistic_Regression_Gradient_Descent/img_2023-03-11_17-34-10.png">
+
+
 ## Gradient Descent on m Examples
+
+> <img src="./images/w02-10-Gradient_Descent_on_m_Examples/img_2023-03-11_17-36-35.png">
+
+> <img src="./images/w02-10-Gradient_Descent_on_m_Examples/img_2023-03-11_17-36-37.png">
 
 ## Derivation of DL/dz (Optional)
 
