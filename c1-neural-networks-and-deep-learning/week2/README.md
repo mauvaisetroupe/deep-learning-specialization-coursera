@@ -117,7 +117,42 @@ https://github.com/mauvaisetroupe/machine-learning-specialization-coursera/blob/
 
 ## Derivatives with a Computation Graph
 
+https://github.com/mauvaisetroupe/machine-learning-specialization-coursera/blob/c1e3ee9a248c4dfa2c129fc1d5bd7d5b64b71f78/c2-advanced-learning-algorithms/week2/README.md#computation-graph-optional
+
+> <img src="./images/w02-08-Derivatives_with_a_Computation_Graph/img_2023-03-11_15-49-21.png">
+
+### dJ/dv
+
+> <img src="./images/w02-08-Derivatives_with_a_Computation_Graph/img_2023-03-11_15-57-29.png">
+> <img src="./images/w02-08-Derivatives_with_a_Computation_Graph/img_2023-03-11_15-57-37.png">
+
+### dJ/da
+
+> <img src="./images/w02-08-Derivatives_with_a_Computation_Graph/img_2023-03-11_15-58-16.png">
+> <img src="./images/w02-08-Derivatives_with_a_Computation_Graph/img_2023-03-11_15-58-28.png">
+
+### dJ/da = dJ/dv * dv/da
+
+And one way to break this down is to say that if you change a, then that will change v.
+And through changing v, that would change J. 
+
+> <img src="./images/w02-08-Derivatives_with_a_Computation_Graph/img_2023-03-11_16-06-16.png">
+
+> <img src="./images/w02-08-Derivatives_with_a_Computation_Graph/img_2023-03-11_16-05-20.png">
+
+Python convention, dJ/da is denoted da, dJ/dv is denoted dv
+
+> <img src="./images/w02-08-Derivatives_with_a_Computation_Graph/img_2023-03-11_16-10-43.png">
+
+And so on..
+
+> <img src="./images/w02-08-Derivatives_with_a_Computation_Graph/img_2023-03-11_15-49-25.png">
+
 ## Logistic Regression Gradient Descent
+
+> <img src="./images/w02-09-Logistic_Regression_Gradient_Descent/img_2023-03-11_16-18-28.png">
+
+> <img src="./images/w02-09-Logistic_Regression_Gradient_Descent/img_2023-03-11_16-18-31.png">
 
 ## Gradient Descent on m Examples
 
