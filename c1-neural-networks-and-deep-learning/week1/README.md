@@ -40,11 +40,6 @@ If we add other features (number of bedrooms, zip code, and wealth), we can cons
 
 > <img src="./images/w01-02-What_is_a_Neural_Network/img_2023-03-11_08-03-22.png">
 
-
-> <img src="./images/w01-02-What_is_a_Neural_Network/img_2023-03-11_08-07-01.png">
-
-## Supervised Learning with Neural Networks
-
 But when working with neural networks, you actually implements the following
 The job of the neural network is to predict the price, with features in inputs
 Notes that all units in the middle (calles hiddent units of neural networks) are connected to all features
@@ -52,6 +47,11 @@ Notes that all units in the middle (calles hiddent units of neural networks) are
 And rather than saying this first node represents family size and family size depends only on the features X1 and X2. Instead, we're going to let the neural network decide whatever this node to be. And we'll give the network all four input features to compute whatever it wants.
 
 Because every input feature is connected to every one of these circles in the middle. And the remarkable thing about neural networks is that, given enough data about x and y, given enough training examples with both x and y, neural networks are remarkably good at figuring out functions that accurately map from x to y.
+
+
+> <img src="./images/w01-02-What_is_a_Neural_Network/img_2023-03-11_08-07-01.png">
+
+## Supervised Learning with Neural Networks
 
 ## Why is Deep Learning taking off?
 
