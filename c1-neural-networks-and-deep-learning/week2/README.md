@@ -88,6 +88,16 @@ Loss function is defined to a single train example. **Cost function** is for the
 
 ## Gradient Descent
 
+https://github.com/mauvaisetroupe/machine-learning-specialization-coursera/blob/main/c1-supervised-ML-regression-and-classification/week1/README.md#gradient-descent
+
+> <img src="./images/w02-04-Gradient_Descent/img_2023-03-11_15-31-29.png">
+
+> <img src="./images/w02-04-Gradient_Descent/img_2023-03-11_15-31-32.png">
+
+Inthe code, by convention we use dw and db 
+> <img src="./images/w02-04-Gradient_Descent/img_2023-03-11_15-40-28.png">
+
+
 ## Derivatives
 
 ## More Derivative Examples
