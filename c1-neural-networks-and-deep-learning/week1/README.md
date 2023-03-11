@@ -86,8 +86,9 @@ The other reason that fast computation is important is that the development cycl
 
 ## About this Course
 
+> <img src="./images/w01-05-About_this_Course/img_2023-03-11_09-16-06.png">
 
-
+> <img src="./images/w01-05-About_this_Course/img_2023-03-11_09-16-08.png">
 
 
 # Heroes of Deep Learning
