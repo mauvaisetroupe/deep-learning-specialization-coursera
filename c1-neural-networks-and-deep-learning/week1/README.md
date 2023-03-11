@@ -74,6 +74,16 @@ Structured vs unstructured data.
 
 ## Why is Deep Learning taking off?
 
+Neural network need data and computer performance
+
+> <img src="./images/w01-04-Why_is_Deep_Learning_taking_off/img_2023-03-11_09-04-12.png">
+
+In the early days in their modern rise of deep learning, ability to train very large neural networks increased thanks to performance (CPU or GPU that enabled us to make a lot of progress) and data. But increasingly, especially in the last several years, we've seen tremendous algorithmic innovation (code run much faster)
+
+The other reason that fast computation is important is that the development cycle is much faster.
+
+> <img src="./images/w01-04-Why_is_Deep_Learning_taking_off/img_2023-03-11_09-04-15.png">
+
 ## About this Course
 
 
