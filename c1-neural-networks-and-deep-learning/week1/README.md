@@ -53,6 +53,25 @@ Because every input feature is connected to every one of these circles in the mi
 
 ## Supervised Learning with Neural Networks
 
+There's a lot of hype about neural networks, and perhaps some of that hype is justified. Today, almost all the economic value created by neural networks has been through one type of machine learning, called supervised learning.
+
+Supervised machine learning or more commonly, supervised learning, refers to algorithms that learn x to y or input to output mappings.
+
+The key characteristic of supervised learning is that you give your learning algorithm examples to learn from. For a given input x, you give the right answers (the correct label y ) It's by seeing correct pairs of input x and desired output label y that the learning algorithm learns to give a reasonably accurate prediction of the output.
+
+> <img src="./images/w01-03-Supervised_Learning_with_Neural_Networks/img_2023-03-11_08-51-39.png">
+
+- Standard Neural Network SNN
+- Convolutional Neural Network CNN often use for images.
+- Recurrent Neural Networks (RNN) are very good for one-dimensional sequence data that has a temporal component.
+
+> <img src="./images/w01-03-Supervised_Learning_with_Neural_Networks/img_2023-03-11_08-51-42.png">
+
+Structured vs unstructured data.
+
+> <img src="./images/w01-03-Supervised_Learning_with_Neural_Networks/img_2023-03-11_08-51-43.png">
+
+
 ## Why is Deep Learning taking off?
 
 ## About this Course
