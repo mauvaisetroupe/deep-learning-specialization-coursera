@@ -78,7 +78,7 @@ The following **square error** function doesn't fit for logistic regression, bec
 
 > <img src="./images/w02-03-Logistic_Regression_Cost_Function/img_2023-03-11_15-15-06.png">
 
-That's why we introduce the following lost function
+That's why we introduce the following loss function, called **cross entropy** 
 
 > <img src="./images/w02-03-Logistic_Regression_Cost_Function/img_2023-03-11_15-19-11.png">
 
