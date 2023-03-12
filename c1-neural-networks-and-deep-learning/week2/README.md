@@ -203,6 +203,12 @@ Broadcasting is an operation of matching the dimensions of differently shaped ar
 
 ## A Note on Python/Numpy Vectors
 
+The ability of python to allow you to use broadcasting operations and more generally, the great flexibility of the python numpy program language is, both a strength as well as a weakness of the programming language: 
+- it's a strength because they create expressivity of the language. A great flexibility of the language lets you get a lot done even with just a single line of code. 
+- cut also a weakness because broadcasting and flexibility, sometimes can introduce very subtle bugs. 
+
+> <img src="./images/w02-16-A_Note_on_Python_Numpy_Vectors/img_2023-03-12_16-50-17.png">
+
 ## Quick tour of Jupyter/iPython Notebooks
 
 ## Explanation of Logistic Regression Cost Function (Optional)
