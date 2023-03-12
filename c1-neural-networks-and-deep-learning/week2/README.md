@@ -171,7 +171,11 @@ Performance result
 
 ## More Vectorization Examples
 
+Example 2 : Matrix x vector
+
 > <img src="./images/w02-12-More_Vectorization_Examples/img_2023-03-11_17-50-36.png">
+
+Example 2 : apply operation (exponential, log, ...) on every element of this vector v
 
 > <img src="./images/w02-12-More_Vectorization_Examples/img_2023-03-11_17-50-39.png">
 
