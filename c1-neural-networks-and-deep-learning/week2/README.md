@@ -209,12 +209,11 @@ The ability of python to allow you to use broadcasting operations and more gener
 
 > <img src="./images/w02-16-A_Note_on_Python_Numpy_Vectors/img_2023-03-12_16-50-17.png">
 
-## Quick tour of Jupyter/iPython Notebooks
-
 ## Explanation of Logistic Regression Cost Function (Optional)
 
+> <img src="./images/w02-18-Explanation_of_Logistic_Regression_Cost_Function/img_2023-03-12_18-12-04.png">
 
-
+> <img src="./images/w02-18-Explanation_of_Logistic_Regression_Cost_Function/img_2023-03-12_18-12-06.png">
 
 # Heroes of Deep Learning
 
