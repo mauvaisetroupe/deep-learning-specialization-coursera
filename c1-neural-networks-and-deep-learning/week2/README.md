@@ -153,15 +153,21 @@ One single step of gradient descent, with 2 loops (one for the training example,
 
 > <img src="./images/w02-10-Gradient_Descent_on_m_Examples/img_2023-03-11_17-36-37.png">
 
-## Derivation of DL/dz (Optional)
-
-
-
 # Python and Vectorization
 
 ## Vectorization
 
+Vectorization is basically the art of getting rid of explicit for loops in your code. 
+
 > <img src="./images/w02-11-Vectorization/img_2023-03-11_17-48-38.png">
+
+Python code
+
+> <img src="./images/w02-11-Vectorization/img_2023-03-12_09-02-43.png">
+
+Performance result
+
+> <img src="./images/w02-11-Vectorization/img_2023-03-12_09-03-04.png">
 
 ## More Vectorization Examples
 
