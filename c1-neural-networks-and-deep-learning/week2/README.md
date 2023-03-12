@@ -187,6 +187,13 @@ Example 2 : apply operation (exponential, log, ...) on every element of this vec
 
 ## Vectorizing Logistic Regression's Gradient Output
 
+> <img src="./images/w02-14-Vectorizing_Logistic_Regression_Gradient_Output/img_2023-03-12_10-07-53.png">
+
+To implement multiple iterations as a gradient descent, we still need a for loop over the number of iterations. 
+
+> <img src="./images/w02-14-Vectorizing_Logistic_Regression_Gradient_Output/img_2023-03-12_10-07-56.png">
+
+
 ## Broadcasting in Python
 
 ## A Note on Python/Numpy Vectors
