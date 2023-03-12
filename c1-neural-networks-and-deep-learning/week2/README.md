@@ -194,7 +194,12 @@ To implement multiple iterations as a gradient descent, we still need a for loop
 > <img src="./images/w02-14-Vectorizing_Logistic_Regression_Gradient_Output/img_2023-03-12_10-07-56.png">
 
 
-## Broadcasting in Python
+## Broadcasting in Pyhton
+
+Broadcasting is an operation of matching the dimensions of differently shaped arrays in order to be able to perform further operations on those arrays (eg per-element arithmetic).
+
+> <img src="./images/w02-15-Broadcasting_in_Python/img_2023-03-12_16-01-24.png">
+
 
 ## A Note on Python/Numpy Vectors
 
