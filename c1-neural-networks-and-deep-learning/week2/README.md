@@ -183,6 +183,8 @@ Example 2 : apply operation (exponential, log, ...) on every element of this vec
 
 ## Vectorizing Logistic Regression
 
+> <img src="./images/w02-13-Vectorizing_Logistic_Regression/img_2023-03-12_10-05-05.png">
+
 ## Vectorizing Logistic Regression's Gradient Output
 
 ## Broadcasting in Python
