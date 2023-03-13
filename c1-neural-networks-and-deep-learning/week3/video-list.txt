@@ -1,0 +1,11 @@
+w03-01-Neural_Networks_Overview
+w03-02-Neural_Network_Representation
+w03-03-Computing_a_Neural_Networks_Output
+w03-04-Vectorizing_Across_Multiple_Examples
+w03-05-Explanation_for_Vectorized_Implementation
+w03-06-Activation_Functions
+w03-07-Why_do_you_need_Non-Linear_Activation_Functions
+w03-08-Derivatives_of_Activation_Functions
+w03-09-Gradient_Descent_for_Neural_Networks
+w03-10-Backpropagation_Intuition
+w03-11-Random_Initialization
