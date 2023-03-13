@@ -93,6 +93,8 @@ https://github.com/mauvaisetroupe/machine-learning-specialization-coursera/blob/
 
 > <img src="./images/w03-08-Derivatives_of_Activation_Functions/img_2023-03-13_22-35-18.png">
 
+Technically, derivative not defined in zero, but for algorithm, could consider g'(0)=0 
+
 > <img src="./images/w03-08-Derivatives_of_Activation_Functions/img_2023-03-13_22-35-21.png">
 
 > <img src="./images/w03-08-Derivatives_of_Activation_Functions/img_2023-03-13_22-35-23.png">
