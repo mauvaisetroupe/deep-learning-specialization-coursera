@@ -66,9 +66,36 @@ Instead of implementing a loop on differents training example, we build a matrix
 
 ## Activation Functions
 
+Also see : https://github.com/mauvaisetroupe/machine-learning-specialization-coursera/blob/main/c2-advanced-learning-algorithms/week2/README.md#choosing-activation-functions
+
+In the previous examples, we used sigmoid function. Sigmoid function is called an **activation function**.
+
+The **hyperbolic tangent** function (tanh) works almost always better than the sigmoid function (because centering the data around zero is efficient when training algorithm). One exception is for output layer on binary classification (prediction 0 or 1 given by sigmoid is more adapted).
+
+> <img src="./images/w03-06-Activation_Functions/img_2023-03-13_22-17-18.png">
+
+Rules of thumb for choosing activation functions : 
+- never use sigmoid activation function except for the output layer of binomial classification
+- prefere hyperbolic tangent
+- ReLU is the default choice (but )
+- or try Leaky ReLu $max(0.01*z,z)$
+
+> <img src="./images/w03-06-Activation_Functions/img_2023-03-13_22-17-21.png">
+
+
 ## Why do you need Non-Linear Activation Functions?
 
+https://github.com/mauvaisetroupe/machine-learning-specialization-coursera/blob/main/c2-advanced-learning-algorithms/week2/README.md#why-do-we-need-activation-functions
+
+> <img src="./images/w03-07-Why_do_you_need_Non-Linear_Activation_Functions/img_2023-03-13_22-23-56.png">s
+
 ## Derivatives of Activation Functions
+
+> <img src="./images/w03-08-Derivatives_of_Activation_Functions/img_2023-03-13_22-35-18.png">
+
+> <img src="./images/w03-08-Derivatives_of_Activation_Functions/img_2023-03-13_22-35-21.png">
+
+> <img src="./images/w03-08-Derivatives_of_Activation_Functions/img_2023-03-13_22-35-23.png">
 
 ## Gradient Descent for Neural Networks
 
