@@ -101,9 +101,43 @@ Technically, derivative not defined in zero, but for algorithm, could consider g
 
 ## Gradient Descent for Neural Networks
 
+> <img src="./images/w03-09-Gradient_Descent_for_Neural_Networks/img_2023-03-15_07-01-36.png">
+> <img src="./images/w03-09-Gradient_Descent_for_Neural_Networks/img_2023-03-15_07-01-38.png">
+
 ## Backpropagation Intuition (Optional)
 
+This slide for logistic regression explained here : https://github.com/mauvaisetroupe/deep-learning-specialization-coursera/tree/main/c1-neural-networks-and-deep-learning/week2#logistic-regression-gradient-descent
+
+> <img src="./images/w03-10-Backpropagation_Intuition/img_2023-03-15_07-02-17.png">
+
+We have exactly the same calculus for a neural network with two layers :
+
+> <img src="./images/w03-10-Backpropagation_Intuition/img_2023-03-15_07-02-20.png">
+
+Explanation of matrix usage to compute over all training examples (stacking them into a matrix) is here : https://github.com/mauvaisetroupe/deep-learning-specialization-coursera/tree/main/c1-neural-networks-and-deep-learning/week3#explanation-for-vectorized-implementation
+
+> <img src="./images/w03-10-Backpropagation_Intuition/img_2023-03-15_09-15-43.png">
+
+
+We've seen here the gradient decsent algorith here : https://github.com/mauvaisetroupe/deep-learning-specialization-coursera/tree/main/c1-neural-networks-and-deep-learning/week2#vectorizing-logistic-regressions-gradient-output
+
+> <img src="./images/w03-10-Backpropagation_Intuition/img_2023-03-15_12-13-43.png">
+
+If we apply derivation over all training examples to run gradient descent algorith, we obtain:
+
+> <img src="./images/w03-10-Backpropagation_Intuition/img_2023-03-15_09-15-51.png">
+
+
+
 ## Random Initialization
+
+If we initialize the weights to zero, all hidden units are symmetric. And no matter how long we're upgrading the center, all continue to compute exactly the same function. The solution to this is to initialize your parameters randomly. 
+
+> <img src="./images/w03-11-Random_Initialization/img_2023-03-15_12-19-16.png">
+
+We prefer to initialize the weights to very small random values. Because if you are using a tanh or sigmoid activation function, to avoid being in the flat parts of these functions
+
+> <img src="./images/w03-11-Random_Initialization/img_2023-03-15_12-19-18.png">
 
 
 
