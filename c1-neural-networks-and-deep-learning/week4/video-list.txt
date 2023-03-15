@@ -1,0 +1,8 @@
+w02-01-Deep_L-layer_Neural_Network
+w02-02-Forward_Propagation_in_a_Deep_Network
+w02-03-Getting_your_Matrix_Dimensions_Right
+w02-04-Why_Deep_Representations
+w02-05-Building_Blocks_of_Deep_Neural_Networks
+w02-06-Forward_and_Backward_Propagation
+w02-07-Parameters_vs_Hyperparameters
+w02-08-What_does_this_have_to_do_with_the_brain
