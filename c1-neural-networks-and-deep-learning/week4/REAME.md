@@ -13,8 +13,15 @@ Learning Objectives
 
 # Deep L-layer Neural Network
 
-
 ## Deep L-layer Neural Network
+
+Welcome to the fourth week of this course. By now, you've seen 
+- forward propagation and back propagation in the context of a neural network, with a single hidden layer, 
+- logistic regression, 
+- vectorization, 
+- and when it's important to initialize the ways randomly. 
+
+If you've done the past couple weeks homework, you've also implemented and seen some of these ideas work for yourself
 
 ## Forward Propagation in a Deep Network
 
