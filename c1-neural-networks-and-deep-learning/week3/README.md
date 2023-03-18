@@ -51,7 +51,7 @@ Vectorization using vectr and matrix for output layer with $x = a^{[0]}$
 
 We define :
 - $x^{(i)}$ the example # i 
-- $a^{[2](i)}$ the prediction # i 
+- and $a^{[2] (i)}$ the prediction # i 
 
 > <img src="./images/w03-04-Vectorizing_Across_Multiple_Examples/img_2023-03-13_21-22-09.png">
 
