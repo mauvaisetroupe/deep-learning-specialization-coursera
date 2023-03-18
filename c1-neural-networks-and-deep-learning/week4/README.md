@@ -65,6 +65,17 @@ Let's put together basic building blocks, forward propagation and back propagati
 
 ## Forward and Backward Propagation
 
+> <img src="./images/w02-06-Forward_and_Backward_Propagation/img_2023-03-18_14-56-35.png">
+
+> <img src="./images/w02-06-Forward_and_Backward_Propagation/img_2023-03-18_14-58-45.png">
+
+> <img src="./images/w02-06-Forward_and_Backward_Propagation/img_2023-03-18_15-13-33.png">
+
 ## Parameters vs Hyperparameters
 
+> <img src="./images/w02-07-Parameters_vs_Hyperparameters/img_2023-03-18_15-14-12.png">
+
+> <img src="./images/w02-07-Parameters_vs_Hyperparameters/img_2023-03-18_15-14-14.png">
 ## What does this have to do with the brain?
+
+> <img src="./images/w02-08-What_does_this_have_to_do_with_the_brain/img_2023-03-18_15-15-04.png">
