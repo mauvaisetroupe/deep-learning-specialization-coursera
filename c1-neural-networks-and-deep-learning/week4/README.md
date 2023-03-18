@@ -23,13 +23,45 @@ Welcome to the fourth week of this course. By now, you've seen
 
 If you've done the past couple weeks homework, you've also implemented and seen some of these ideas work for yourself
 
+- **shallow** model (one layer) vs **deep** model (5 hidden layer)
+
+> <img src="./images/w02-01-Deep_L-layer_Neural_Network/img_2023-03-18_09-00-45.png">
+
+Notation for deep neural network:
+- l the number of layer
+- $n^{[l]}$ = number of unit in layer l
+- $a^{[l]}$ = activation layer in layer l 
+- $a^{[l]} = g^{[l]}(z^{[l]})$  with g the activation function
+> <img src="./images/w02-01-Deep_L-layer_Neural_Network/img_2023-03-18_09-00-50.png">
+
 ## Forward Propagation in a Deep Network
+
+> <img src="./images/w02-02-Forward_Propagation_in_a_Deep_Network/img_2023-03-18_09-08-22.png">
 
 ## Getting your Matrix Dimensions Right
 
+> <img src="./images/w02-03-Getting_your_Matrix_Dimensions_Right/img_2023-03-18_09-10-01.png">
+
+> <img src="./images/w02-03-Getting_your_Matrix_Dimensions_Right/img_2023-03-18_09-10-07.png">
+
+> <img src="./images/w02-03-Getting_your_Matrix_Dimensions_Right/img_2023-03-18_10-14-11.png">
+
 ## Why Deep Representations?
 
+> <img src="./images/w02-04-Why_Deep_Representations/img_2023-03-18_10-16-39.png">
+
+> <img src="./images/w02-04-Why_Deep_Representations/img_2023-03-18_10-16-42.png">
+
+ Now, in addition to this reasons for preferring deep neural networks, to be perfectly honest, I think the other reasons the term deep learning has taken off is just branding. 
+
 ## Building Blocks of Deep Neural Networks
+
+
+Let's put together basic building blocks, forward propagation and back propagation to implement a deep neural network. 
+
+> <img src="./images/w02-05-Building_Blocks_of_Deep_Neural_Networks/img_2023-03-18_10-42-11.png">
+
+> <img src="./images/w02-05-Building_Blocks_of_Deep_Neural_Networks/img_2023-03-18_10-42-16.png">
 
 ## Forward and Backward Propagation
 
