@@ -216,6 +216,18 @@ Normalizing the inputs is important because it ensures that the cost function is
 
 ##  Vanishing / Exploding Gradients
 
+The Vanishing / Exploding gradients occurs when your derivatives become very small (vanishing) or very big (exploding)
+
+Demontration with a specific case : 
+- z=W.a (b=0) 
+- g(z)=z
+
+If W > I (Identity matrix - particular example...) the activation and gradients will explode
+
+And If W < I (Identity matrix) the activation and gradients will vanish.  
+
+> <img src="./images/w01-10-Vanishing_Exploding_Gradients/img_2023-03-19_17-54-38.png">
+
 ##  Weight Initialization for Deep Networks
 
 ##  Numerical Approximation of Gradients
