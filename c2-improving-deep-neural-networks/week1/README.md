@@ -80,6 +80,17 @@ L2 regularization is sometimes also called **weight decay** because it's just li
 
 ##  Why Regularization Reduces Overfitting?
 
+When lambda increases, the weights of matrices W tend to be set closer to zero.
+As a result, this simplified neural network becomes smaller and almost like a logistic regression unit stacked multiple layers deep. The network moves from the overfitting case to the high bias case.
+
+However, the intuition that many hidden units are completely zeroed out is not entirely accurate. Instead, all hidden units are still used, but their impact is significantly reduced.
+
+> <img src="./images/w01-05-Why_Regularization_Reduces_Overfitting/img_2023-03-19_10-24-17.png">
+
+When lambda is large, the weights of the network are penalized for being too large. smaller weights lead to smaller values of z. causing the TANH function to behave more linearly. This means that each layer of the network will behave more like linear regression, and the entire network will be essentially a linear function.
+
+> <img src="./images/w01-05-Why_Regularization_Reduces_Overfitting/img_2023-03-19_10-24-19.png">
+
 ##  Dropout Regularization
 
 ##  Understanding Dropout
