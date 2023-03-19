@@ -57,6 +57,20 @@ What does high bias and high variance look like? Example of classifier that is m
 
 ##  Basic Recipe for Machine Learning
 
+If your algorithm has a high bias, you can try 
+- increasing the size of the neural network by adding more layers 
+- increasing the size of the hidden units
+- running it for a longer time 
+- using different optimization algorithms. I
+
+f your algorithm has a high variance, you can try 
+- collecting more data 
+- applying regularization techniques. 
+
+It is recommended to try these methods iteratively until a low bias and low variance are achieved. In the past, there was a "Bias/variance tradeoff," but with the advent of deep learning, there are more options available to address this problem. 
+
+Training a bigger neural network is a viable option to consider.
+
 > <img src="./images/w01-03-Basic_Recipe_for_Machine_Learning/img_2023-03-19_09-55-29.png">
 
 # Regularizing your Neural Network
@@ -94,6 +108,13 @@ When lambda is large, the weights of the network are penalized for being too lar
 When using regularization in gradient descent, it is important to plot the cost function with the new regularization term, rather than just the old cost function without the regularization term (could have impact of the decreasing of the function)
 
 ##  Dropout Regularization
+
+> <img src="./images/w01-06-Dropout_Regularization/img_2023-03-19_13-53-53.png">
+
+> <img src="./images/w01-06-Dropout_Regularization/img_2023-03-19_13-53-55.png">
+
+> <img src="./images/w01-06-Dropout_Regularization/img_2023-03-19_13-53-58.png">
+
 
 ##  Understanding Dropout
 
