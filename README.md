@@ -25,7 +25,7 @@ SKILLS YOU WILL GAIN
 - Python Programming
 - Neural Network Architecture
 
-## Course 2 - Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization
+## [Course 2 - Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](./c2-improving-deep-neural-networks/README.md)
 
 [https://www.coursera.org/learn/deep-neural-network](./c2-improving-deep-neural-networks/README.md)
 
