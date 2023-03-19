@@ -18,6 +18,28 @@ Learning Objectives
 
 ##  Train / Dev / Test sets
 
+
+When training a neural network, you have to make a lot of decisions, (how many layers, how many hidden units, ...).
+In practice, applied machine learning is a highly iterative process, in which you often start with an idea and then you just have to code it up and try it, by running your code. 
+
+Intuitions from one domain or from one application area often do not transfer to other application areas
+
+> <img src="./images/w01-01-Train_Dev_Test_sets/img_2023-03-19_09-34-08.png">
+
+Development set is  used to see which of many different models performs best. And then after having done this long enough, when you have a final model that you want to evaluate, you can take the best model you have found and evaluate it on your test set in order to get an unbiased estimate of how well your algorithm is doing. S
+
+| Area | Range of data | Split|
+|---|---|---|
+|Previous area|100 - 100'000|60%-20%-20%|
+|Big Data area|1'000'000|98%-1%-1%|
+
+> <img src="./images/w01-01-Train_Dev_Test_sets/img_2023-03-19_09-34-10.png">
+
+The rule of thumb I'd encourage you to follow, in this case, is to make sure that the dev and test sets come from the same distribution.
+
+> <img src="./images/w01-01-Train_Dev_Test_sets/img_2023-03-19_09-34-13.png">
+
+
 ##  Bias / Variance
 
 ##  Basic Recipe for Machine Learning
