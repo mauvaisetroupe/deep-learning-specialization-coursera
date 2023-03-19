@@ -1,0 +1,15 @@
+w01-01-Train_Dev_Test_sets
+w01-02-Bias_Variance
+w01-03-Basic_Recipe_for_Machine_Learning
+w01-04-Regularization
+w01-05-Why_Regularization_Reduces_Overfitting
+w01-06-Dropout_Regularization
+w01-07-Understanding_Dropout
+w01-08-Other_Regularization_Methods
+w01-09-Normalizing_Inputs
+w01-10-Vanishing_Exploding_Gradients
+w01-11-Weight_Initialization_for_Deep_Networks
+w01-12-Numerical_Approximation_of_Gradients
+w01-13-Gradient_Checking
+w01-14-Gradient_Checking_Implementation_Notes
+w01-15-Yoshua_Bengio_Interview
