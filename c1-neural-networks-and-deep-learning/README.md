@@ -9,6 +9,12 @@ In the first course of the Deep Learning Specialization, you will study the foun
 By the end, you will be familiar with the significant technological trends driving the rise of deep learning; build, train, and apply fully connected deep neural networks; implement efficient (vectorized) neural networks; identify key parameters in a neural network’s architecture; and apply deep learning to your own applications
 
 
+#DeepLearning
+#ArtificialNeuralNetwork
+#Backpropagation
+#PythonProgramming
+#NeuralNetworkArchitecture
+
 ## [Week1 - Introduction to deep leatning](./week1/README.md)
 
 
