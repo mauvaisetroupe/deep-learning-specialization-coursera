@@ -57,7 +57,7 @@ What does high bias and high variance look like? Example of classifier that is m
 
 ##  Basic Recipe for Machine Learning
 
-
+> <img src="./images/w01-03-Basic_Recipe_for_Machine_Learning/img_2023-03-19_09-55-29.png">
 
 # Regularizing your Neural Network
 
