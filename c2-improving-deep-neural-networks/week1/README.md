@@ -185,12 +185,34 @@ Although this technique doesn't produce data that is as good as real independent
 
 Early stopping is a commonly used technique in machine learning to prevent overfitting. The approach involves plotting the training set and development set cost together for each iteration. At a certain iteration, the development set cost will stop decreasing and start increasing. The best parameters for the model are determined by selecting the point at which the training set error and development set error are at their lowest (i.e., the point with the lowest training cost and the lowest development cost).
 
+- Inconvenient : Early stopping technique simultaneously tries to minimize the cost function and overfit issues, which contradicts the orthogonalization approach (clear separation between minmizing J and managing overfiting)
+- Advantage: you don't need to search a hyperparameter like in other regularization approaches (lambda in L2 regularization).
+
 > <img src="./images/w01-08-Other_Regularization_Methods/img_2023-03-19_17-24-27.png">
+
+
 
 
 # Setting Up your Optimization Problem
 
 ##  Normalizing Inputs
+
+Normalizing the inputs can significantly accelerate the training process of a machine learning model.
+
+Normalization involves several steps:
+1. calculate the mean of the training set
+2. the mean is subtracted from each input, which centers the inputs around 0
+3. the variance of the training set is calculated
+4. finally, the variance is normalized by dividing each input by the variance
+
+These steps should be applied to training, dev, and testing sets (but using mean and variance of the train set).
+
+> <img src="./images/w01-09-Normalizing_Inputs/img_2023-03-19_17-43-04.png">
+
+Normalizing the inputs is important because it ensures that the cost function is not elongated and inconsistent in shape. As a result, optimization is faster and more efficient.
+
+> <img src="./images/w01-09-Normalizing_Inputs/img_2023-03-19_17-43-05.png">
+
 
 ##  Vanishing / Exploding Gradients
 
