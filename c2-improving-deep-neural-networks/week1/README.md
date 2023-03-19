@@ -91,6 +91,8 @@ When lambda is large, the weights of the network are penalized for being too lar
 
 > <img src="./images/w01-05-Why_Regularization_Reduces_Overfitting/img_2023-03-19_10-24-19.png">
 
+When using regularization in gradient descent, it is important to plot the cost function with the new regularization term, rather than just the old cost function without the regularization term (could have impact of the decreasing of the function)
+
 ##  Dropout Regularization
 
 ##  Understanding Dropout
