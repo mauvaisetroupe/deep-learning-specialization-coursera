@@ -114,8 +114,8 @@ The dropout regularization eliminates randomly some neurons/weights on each iter
 > <img src="./images/w01-06-Dropout_Regularization/img_2023-03-19_13-53-53.png">
 
 The most common way to implement dropout is a technique called **inverted dropout**. 
-
 Number keep.prob is the probability that a given hidden unit will be kept. So keep.prob = 0.8, then this means that there's a 0.2 chance of eliminating any hidden unit. 
+
 
 ```python 
 import numpy as np
@@ -160,8 +160,16 @@ Vector d[l] is used for forward and back propagation and is the same for them, b
 
 > <img src="./images/w01-06-Dropout_Regularization/img_2023-03-19_13-53-58.png">
 
-
 ##  Understanding Dropout
+
+
+- A unit can't rely on anyone feature because anyone feature could go away at random
+- Dropout can formally be shown to be an adaptive form of L2 regularization.
+- Dropout can have different keep_prob per layer
+- Dropout is a common regularization technique used in Computer Vision (CV) research due to the large input size of the data and the limited amount of available data, which often leads to overfitting. Therefore, many researchers in CV use dropout to mitigate this issue.
+- One potential drawback of using dropout in a neural network is that the cost function J may not be well-defined, making it difficult to debug by plotting J against iteration. To address this, one approach is to temporarily disable dropout by setting all keep_probs to 1, run the code, and ensure that J monotonically decreases. Then, dropout can be re-enabled for further training.
+> <img src="./images/w01-07-Understanding_Dropout/img_2023-03-19_17-00-31.png">
+
 
 ##  Other Regularization Methods
 
