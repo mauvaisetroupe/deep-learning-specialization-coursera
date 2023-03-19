@@ -173,6 +173,19 @@ Vector d[l] is used for forward and back propagation and is the same for them, b
 
 ##  Other Regularization Methods
 
+If you are over fitting getting more training data can help, but getting more training data can be expensive and sometimes you just can't get more data. 
+
+Data augmentation is a technique commonly used in computer vision to increase the size of a dataset. 
+
+For instance, in computer vision, flipping all images horizontally or applying random rotations and distortions can generate additional data instances. Similarly, in Optical Character Recognition (OCR), random rotations and distortions can be imposed on digits or letters to create more data. 
+
+Although this technique doesn't produce data that is as good as real independent data, it can still be employed as a regularization technique.
+
+> <img src="./images/w01-08-Other_Regularization_Methods/img_2023-03-19_17-24-25.png">
+
+Early stopping is a commonly used technique in machine learning to prevent overfitting. The approach involves plotting the training set and development set cost together for each iteration. At a certain iteration, the development set cost will stop decreasing and start increasing. The best parameters for the model are determined by selecting the point at which the training set error and development set error are at their lowest (i.e., the point with the lowest training cost and the lowest development cost).
+
+> <img src="./images/w01-08-Other_Regularization_Methods/img_2023-03-19_17-24-27.png">
 
 
 # Setting Up your Optimization Problem
