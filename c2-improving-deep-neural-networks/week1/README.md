@@ -42,6 +42,19 @@ The rule of thumb I'd encourage you to follow, in this case, is to make sure tha
 
 ##  Bias / Variance
 
+Bias and Variance is one of those concepts that's easily learned but difficult to master. 
+
+> <img src="./images/w01-02-Bias_Variance/img_2023-03-19_09-49-15.png">
+
+Assumimg that humans achieve 0% errors, 15% is not a good score (**Bayes error rate**)
+
+> <img src="./images/w01-02-Bias_Variance/img_2023-03-19_09-49-17.png">
+
+What does high bias and high variance look like? Example of classifier that is mostly linear, and therefore, underfits the data (we're drawing this is purple), but if somehow your classifier does some weird things, then it is actually overfitting parts of the data as well.
+
+> <img src="./images/w01-02-Bias_Variance/img_2023-03-19_09-49-19.png">
+
+
 ##  Basic Recipe for Machine Learning
 
 
