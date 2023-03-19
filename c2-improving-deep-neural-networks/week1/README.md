@@ -63,6 +63,21 @@ What does high bias and high variance look like? Example of classifier that is m
 
 ##  Regularization
 
+For logistic regression
+
+- L2 regularization : $Loss = Error(Y - \widehat{Y}) +  \frac{\lambda}{2m}   \sum_1^n w_i^{2}$
+- L1 regularization : $Loss = Error(Y - \widehat{Y}) +  \frac{\lambda}{2m}   \sum_1^n |w_i|$
+
+Lambda is a reserved keyword in python (use lambd instead)
+
+> <img src="./images/w01-04-Regularization/img_2023-03-19_09-56-34.png">
+
+We introduce the frobenius norm  : $\sum_{i=1}^{n^{[l]}}\sum_{j=1}^{n^{l-1}}(w_{ij}^{[l]})^2$
+L2 regularization has an impact onthe calculation od dW
+L2 regularization is sometimes also called **weight decay** because it's just like the ordinary gradient descent, where you update w by subtracting alpha, times the original gradient you got from backprop. But now you're also, you know, multiplying w by a factor little bit less than 1
+
+> <img src="./images/w01-04-Regularization/img_2023-03-19_09-56-36.png">
+
 ##  Why Regularization Reduces Overfitting?
 
 ##  Dropout Regularization
