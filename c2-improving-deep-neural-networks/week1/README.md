@@ -109,9 +109,54 @@ When using regularization in gradient descent, it is important to plot the cost 
 
 ##  Dropout Regularization
 
+The dropout regularization eliminates randomly some neurons/weights on each iteration based on a probability (ex. 50%) and youtrain this diminished network (Andrew : "could seem crazy, but it's work!")
+
 > <img src="./images/w01-06-Dropout_Regularization/img_2023-03-19_13-53-53.png">
 
+The most common way to implement dropout is a technique called **inverted dropout**. 
+
+Number keep.prob is the probability that a given hidden unit will be kept. So keep.prob = 0.8, then this means that there's a 0.2 chance of eliminating any hidden unit. 
+
+```python 
+import numpy as np
+
+a3 = np.array([
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]]    
+)
+keep_prob = 0.8    # 0 <= keep_prob <= 1
+
+# the generated number that are less than 0.8 will be dropped. 80% stay, 20% dropped
+d3 = np.random.rand(a3.shape[0], a3.shape[1]) 
+#[[0.64317193 0.16611306 0.59219812]
+# [0.98879279 0.23947895 0.69108137]
+# [0.67739204 0.36399884 0.85111087]]
+
+d3 = d3 < keep_prob
+#[[False  True  True]
+# [ True  True  True]
+# [ True  True  True]
+# [ True  True False]]
+
+a3 = np.multiply(a3,d3)   # keep only the values in d3
+#[[0 2 3]
+# [4 5 6]
+# [7 8 9]]
+
+# increase a3 to not reduce the expected value of output
+# (ensures that the expected value of a3 remains the same) - to solve the scaling problem
+a3 = a3 / keep_prob 
+
+```
+
+This inverted dropout technique by dividing by the keep.prob, ensures that the expected value of a3 remains the same (whatever you choose for keep-prob)
+
 > <img src="./images/w01-06-Dropout_Regularization/img_2023-03-19_13-53-55.png">
+
+Vector d[l] is used for forward and back propagation and is the same for them, but it is different for each iteration (pass) or training example.
+
+**At test time we don't use dropout**. If you implement dropout at test time - it would add noise to predictions.
 
 > <img src="./images/w01-06-Dropout_Regularization/img_2023-03-19_13-53-58.png">
 
