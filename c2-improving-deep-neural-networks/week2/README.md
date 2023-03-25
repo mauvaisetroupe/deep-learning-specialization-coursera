@@ -38,9 +38,57 @@ for t = 1:nb_batches
 
 ## Understanding Mini-batch Gradient Descent
 
+Unlike the batch gradient descent, the cost function in mini-batch algorithm may not decrease with each step and may exhibit some fluctuations. However, in general, it is expected to decrease over time.
+
 > <img src="./images/w02-02-understanding_mini-batch_gradient_descent/img_2023-03-25_16-18-22.png">
 
+<table>
+	<thead>
+		<tr>
+			<th>method</th>
+			<th>description</th>
+			<th>batch size</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>stochastic gradient descent</td>
+			<td>size=1</td>
+			<td>
+                <ul>
+                    <li>lose advantage of vectorization</li>
+                </ul>
+            </td>
+		</tr>
+		<tr>
+			<td>mini-batch gradient descent</td>
+			<td>1 < size < m</td>
+			<td>
+                <ul>
+                    <li>vectorization advantage</li>
+                    <li>make progress without waiting to process the entire training set</li>
+                    <li>doesn't always exactly converge (oscelates in a very small region, but you can reduce learning rate)</li>
+                </ul>           
+            </td>
+		</tr>
+		<tr>
+			<td>batch gradient descent</td>
+			<td>on single batch (size=m)</td>
+			<td>
+                <ul>
+                    <li>too long per iteration</li>
+                </ul>
+            </td>
+		</tr>
+	</tbody>
+</table>
+
 > <img src="./images/w02-02-understanding_mini-batch_gradient_descent/img_2023-03-25_16-18-24.png">
+
+Guidelines for choosing mini-batch size:
+- If small training set (< 2000 examples) - use batch gradient descent.
+- Batch size : because of the way computer memory is layed out and accessed, sometimes your code runs faster if your mini-batch size is a power of 2. 
+- Make sure that mini-batch fits in CPU/GPU memory
 
 > <img src="./images/w02-02-understanding_mini-batch_gradient_descent/img_2023-03-25_16-18-26.png">
 
