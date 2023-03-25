@@ -94,16 +94,38 @@ Guidelines for choosing mini-batch size:
 
 ## Exponentially Weighted Averages
 
+They are faster than gradient descent. In order to understand those algorithms, we need to be able they use something called **exponentially weighted averages** or **exponentially weighted moving averages** in statistics
+
+```V(t) = β * v(t-1) + (1-β) * θ(t)```
+
 > <img src="./images/w02-03-exponentially_weighted_averages/img_2023-03-25_16-18-42.png">
+
+If we plot this it will represent averages over about (1 / (1 - β)) entries:
+- ```β = 0.9``` will average last ```10``` entries
+- ```β = 0.98``` will average last ```50``` entries
+- ```β = 0.5``` will average last ```2``` entries
 
 > <img src="./images/w02-03-exponentially_weighted_averages/img_2023-03-25_16-18-44.png">
 
 
 ## Understanding Exponentially Weighted Averages
 
+If we start with the following 
+- β = 0.90 - red line
+- β = 0.98 - green line
+- β = 0.50 - yellow line
+
 > <img src="./images/w02-04-understanding_exponentially_weighted_averages/img_2023-03-25_16-19-11.png">
 
+The exponentially weighted average adds a fraction β of the current value to the some of past values with a decay factor that gives more weight to recent values than to past values. The contribution from the t−nth value is wighted by $\beta^n(1-\beta)$
+
+$\lim_{a->0}(1-a)^{(1)/(a)} = 1/e \approx 0.35$ explains that we for β = 0.9, 0.9^10 = (1-0.1)^10 = (1-0.1)^(1/0.1) -> 1/e, so negligeable 
+
+https://en.wikipedia.org/wiki/E-folding
+
 > <img src="./images/w02-04-understanding_exponentially_weighted_averages/img_2023-03-25_16-19-13.png">
+
+It's really not the most accurate way to compute an average. But the code is more efficient and faster using the exponentially weighted averages algorithm (requires lass memory)
 
 > <img src="./images/w02-04-understanding_exponentially_weighted_averages/img_2023-03-25_16-19-15.png">
 
