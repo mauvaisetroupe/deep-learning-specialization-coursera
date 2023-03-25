@@ -11,8 +11,29 @@ Learning Objectives
 
 ## Mini-batch Gradient Descent
 
+Vectorization allows processing a large number of examples relatively quickly. However, even with vectorization, processing large datasets (5,000,000 samples), can still be slow, requiring processing the entire training set before taking one step of gradient descent.
+
+Mini-batch gradient descent is a technique to process large datasets by splitting them into smaller batches, allowing the algorithm to start making progress before processing the entire training set. 
+
+In the given example, with 5 million training samples, we can split the data into 5000 mini-batches with 1000 examples each. 
+
+Notations:
+- (i): the i-th training sample
+- [l]: the l-th layer of the neural network
+- {t}: the t-th mini batch
+
 > <img src="./images/w02-01-mini-batch_gradient_descent/img_2023-03-25_16-17-57.png">
 
+With mini-batch gradient descent, a single pass through the training set is one epoch, which in the above 5 million example, means 5000 gradient descent steps. 
+- In Batch gradient descent we run the gradient descent on the whole dataset.
+- While in Mini-Batch gradient descent we run the gradient descent on the mini datasets.
+
+```
+for t = 1:nb_batches
+	cost, caches    = forward_propagation(X{t}, Y{t})
+	gradients       = backward_propagation(X{t}, Y{t}, caches)
+	update_parameters(gradients)
+```
 > <img src="./images/w02-01-mini-batch_gradient_descent/img_2023-03-25_16-17-59.png">
 
 ## Understanding Mini-batch Gradient Descent
