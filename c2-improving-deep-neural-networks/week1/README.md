@@ -294,6 +294,8 @@ In order to check equality, we use $diff = \lVert d\theta_{approx}-d\theta \rVer
 
 ##  Gradient Checking Implementation Notes
 
+> <img src="./images/w01-14-Gradient_Checking_Implementation_Notes/img_2023-03-25_16-00-29.png">
+
 
 # Heroes of deep learning
 
