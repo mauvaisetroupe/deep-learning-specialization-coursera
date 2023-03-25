@@ -1,0 +1,10 @@
+w02-01-mini-batch_gradient_descent
+w02-02-understanding_mini-batch_gradient_descent
+w02-03-exponentially_weighted_averages
+w02-04-understanding_exponentially_weighted_averages
+w02-05-bias_correction_in_exponentially_weighted_averages
+w02-06-gradient_descent_with_momentum
+w02-07-rmsprop
+w02-08-adam_optimization_algorithm
+w02-09-learning_rate_decay
+w02-10-yuanqing_lin_interview
