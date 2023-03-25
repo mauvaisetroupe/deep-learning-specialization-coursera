@@ -261,16 +261,36 @@ Some explanation about variance :
 Idea is to **numerically** verify the implementation of derivative of a function to detect a bug in the backpropagation implementation.
 
 In order to compute the derivation, we can use :
-- In **one side** formula, that is the classical definnition, f'(𝜃) = lim(f(𝜃+𝜀)-f(𝜃)) / 𝜀
-- the **two-side** formula, f'(𝜃)=lim (f(𝜃+𝜀)-f(𝜃-𝜀)) / 2𝜀
+- **one side** formula, that is the classical definnition, f'(θ) = lim(f(θ+ε)-f(θ)) / ε
+- **two-side** formula, f'(θ)=lim (f(θ+ε)-f(θ-ε)) / 2ε
 
-Two-sided difference formula is much more accurate:
-- In one side case, error term ~ O(𝜀) (order of epsilon)
-- In two side case, error term ~ O(𝜀^2) ans as 𝜀 < 1, O(𝜀^2) < O(𝜀)
+Two-sided difference formula is much more accurate, ans as ε < 1, O(ε^2) < O(ε):
+- In one side case, error term ~ O(ε) (order of epsilon)
+- In two side case, error term ~ O(ε^2) 
 
 > <img src="./images/w01-12-Numerical_Approximation_of_Gradients/img_2023-03-24_22-50-01.png">
 
 ##  Gradient Checking
+
+- Take ```W[1],b[1],...,W[L],b[L]``` and reshape into a big vector ```θ```
+- Take ```dW[1],db[1],...,dW[L],db[L]``` and reshape into a big vector ```dθ```
+- Now we have : ```J(θ) = J(W[1],b[1],...,W[L],b[L])```
+- and ```dθ``` is the gradient (or slope) of J(θ)
+
+> <img src="./images/w01-13-Gradient_Checking/img_2023-03-25_08-24-47.png">
+
+For each i (i is the size(θ)= size(w1) + size(b1) + size (W2) + ...) ): 
+- dθ_approx[i] = (J(θ1,θ2,...,***θi+ε***,...)-J(θ1,θ2,...,***θi-ε***,...))/(2ε), we are using **two-side** approximation
+- check that ```dθ_approx[i] ≈ dθ[i]```       
+
+In order to check equality, we use $diff = \lVert d\theta_{approx}-d\theta \rVert / ( \lVert d\theta_{approx} \rVert  +  \lVert d\theta \rVert  )$  with the 2-norm (or Euclidean norm)
+
+1. diff ≈ 10^-7, great, backprop is very likely correct.
+2. diff ≈ 10^-5, maybe OK, better check no component of this difference is particularly large.
+3. diff ≈ 10^-3, worry, check if there is a bug.
+
+> <img src="./images/w01-13-Gradient_Checking/img_2023-03-25_08-24-50.png">
+
 
 ##  Gradient Checking Implementation Notes
 
