@@ -230,6 +230,31 @@ And If W < I (Identity matrix) the activation and gradients will vanish.
 
 ##  Weight Initialization for Deep Networks
 
+A partial solution to the Vanishing / Exploding gradients is the choice of the random initialization of weights. 
+
+Demonstration is done for a single neurone, with the sipmplification of b=0. We want ```Z = W1X1 + W2X2 + ... + WnXn``` not blow up and not become too small, so the larger n is, the smaller we want Wi to be (if you sum up a lot of term, you want each of term to be small)
+
+One reasonable thing to do would be to set the variance ```Var(W)=1/n```, where n is the number of input features. The intuition is that 
+- if the input features of activations are roughly mean 0 and variance 1 
+- variance(W) = 1/n, so each of the weight matrices W, is close to 1 
+- then this would cause z to also take on a similar scale 
+
+Implementation :
+- Generally for layer l, we set ```W[l]=np.random.randn(shape) * np.sqrt(1/n[l-1]).``` (Xavier initialization)
+- For relu activation, it's better to set ```Var(W)=2/n```, and so we have ```W[l]=np.random.randn(shape) * np.sqrt(2/n[l-1])``` (He initialization or He-et-al Initialization)
+- For tanh activation, Xavier initialization is used
+- ```W[l]=np.random.randn(shape) * np.sqrt(2/(n[l-1]+n[l]))``` can also be used (Yoshua Bengio)
+
+
+Some explanation about variance :
+- python function ```numpy.random.randn(d0, d1, ..., dn)``` generates an array of shape (d0, d1, ..., dn), filled with random floats sampled from a univariate “normal” (Gaussian) distribution of mean 0 and variance 1
+- for random samples from the normal distribution with mean mu and standard deviation sigma, use ```sigma * np.random.randn(...) + mu```
+- if $\sigma$  is its standard deviation, the variance of the distribution is $\sigma ^{2}$
+- So ```np.random.randn(shape) * np.sqrt(2/n)``` give a variance of ```2/n```
+
+
+> <img src="./images/w01-11-Weight_Initialization_for_Deep_Networks/img_2023-03-19_17-54-40.png">
+
 ##  Numerical Approximation of Gradients
 
 ##  Gradient Checking
