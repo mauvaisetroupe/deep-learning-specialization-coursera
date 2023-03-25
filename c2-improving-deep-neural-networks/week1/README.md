@@ -239,12 +239,13 @@ One reasonable thing to do would be to set the variance ```Var(W)=1/n```, where 
 - variance(W) = 1/n, so each of the weight matrices W, is close to 1 
 - then this would cause z to also take on a similar scale 
 
-Implementation :
+Differents formulas :
 - Generally for layer l, we set ```W[l]=np.random.randn(shape) * np.sqrt(1/n[l-1]).``` (Xavier initialization)
 - For relu activation, it's better to set ```Var(W)=2/n```, and so we have ```W[l]=np.random.randn(shape) * np.sqrt(2/n[l-1])``` (He initialization or He-et-al Initialization)
 - For tanh activation, Xavier initialization is used
 - ```W[l]=np.random.randn(shape) * np.sqrt(2/(n[l-1]+n[l]))``` can also be used (Yoshua Bengio)
 
+This variance parameter could be another thing that you could tune with your hyperparameters (generally modest size effect)
 
 Some explanation about variance :
 - python function ```numpy.random.randn(d0, d1, ..., dn)``` generates an array of shape (d0, d1, ..., dn), filled with random floats sampled from a univariate “normal” (Gaussian) distribution of mean 0 and variance 1
@@ -256,6 +257,18 @@ Some explanation about variance :
 > <img src="./images/w01-11-Weight_Initialization_for_Deep_Networks/img_2023-03-19_17-54-40.png">
 
 ##  Numerical Approximation of Gradients
+
+Idea is to **numerically** verify the implementation of derivative of a function to detect a bug in the backpropagation implementation.
+
+In order to compute the derivation, we can use :
+- In **one side** formula, that is the classical definnition, f'(𝜃) = lim(f(𝜃+𝜀)-f(𝜃)) / 𝜀
+- the **two-side** formula, f'(𝜃)=lim (f(𝜃+𝜀)-f(𝜃-𝜀)) / 2𝜀
+
+Two-sided difference formula is much more accurate:
+- In one side case, error term ~ O(𝜀) (order of epsilon)
+- In two side case, error term ~ O(𝜀^2) ans as 𝜀 < 1, O(𝜀^2) < O(𝜀)
+
+> <img src="./images/w01-12-Numerical_Approximation_of_Gradients/img_2023-03-24_22-50-01.png">
 
 ##  Gradient Checking
 
