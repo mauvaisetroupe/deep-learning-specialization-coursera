@@ -172,6 +172,20 @@ on iteration t:
 - β = 0.9 is very common and works very well
 - in practice bias correction is not implemented
 
+Often the term (1 - β) is omited (because only a constant that could be represented is a slightly different α learning rate):
+
+```
+	vdW = β * vdW + (1 - β) * dW
+	vdb = β * vdb + (1 - β) * db
+```
+
+becomes:
+
+```
+	vdW = β * vdW + dW
+	vdb = β * vdb + db
+```
+
 > <img src="./images/w02-06-gradient_descent_with_momentum/img_2023-03-25_16-19-45.png">
 
 
