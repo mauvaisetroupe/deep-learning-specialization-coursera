@@ -68,8 +68,43 @@ You can use **coarse to fine** sampling scheme.
 
 ## Using an Appropriate Scale to pick Hyperparameters
 
+Sampling at random doesn't mean sampling uniformly at random, over the range of valid values. Instead, it's important to pick the appropriate scale on which to explore the hyperparameters.
+
+There is a couple examples where sampling uniformly at random over the range might be a reasonable thing to do:
+- number of hidden units, n[l], for a given layer l from 50 to 100.
+- number of layers in your neural network between 2 to 4
+
 > <img src="./images/w03-02-using_an_appropriate_scale_to_pick_hyperparameters/img_2023-03-26_11-23-16.png">
+
+If we want to find an hyperparameter from 0.0001 and 1
+- if we use a limear random method, 90 % of the value will be between 0.1 and 1
+- Instead, it seems more reasonable to search for hyperparameters on a log scale : 0.0001 0.001 0.01 0.1 and 1
+
+In python : 
+``` 
+r = -4 * np.random.rand()   # r in [-4,0]
+α = 10^r                    # alpha in [10^-4, 1]
+```
+
+More generally for an intervalle [i1, i2] we can calculate a and b to have value in intervalle [10^a, 10^b]:
+```
+a = log(i1), b= log(i2)        # i1 = 10^a, i2 = 10^b
+r = (b-a) * np.random.rand()   # r in [a,b]
+α = 10^r                       # alpha in [10^a, 10^b]
+```
+
 > <img src="./images/w03-02-using_an_appropriate_scale_to_pick_hyperparameters/img_2023-03-26_11-23-18.png">
+
+Finally, one other tricky case is sampling the hyperparameter beta, used for computing exponentially weighted average
+- β in [0.9 to 0.999]
+- (1-β) in [0.001 to 0.1], same approach that previously
+
+Why having a log scale for a range between 0.9 and 0.999 in case of weighted average ?
+- 0.9000 to 0.9005, not big deal because correspond to 10 values
+- 0.9999 to 0.9995, huge impact from correspond to 1000 to 2000 values, 
+- so the idea is to sample more **densely in the region of when beta is close to 1**.
+
+
 > <img src="./images/w03-02-using_an_appropriate_scale_to_pick_hyperparameters/img_2023-03-26_11-23-20.png">
 
 ## Hyperparameters Tuning in Practice: Pandas vs. Caviar
