@@ -290,7 +290,18 @@ Other learning rate decay methods
 
 # The problem of local optima
 
+In the early days of deep learning, people used to worry a lot about the optimization algorithm getting stuck in bad local optima. But as this theory of deep learning has advanced, our understanding of local optima is also changing
+
+Most points of zero gradients are not local optima (left schema) but instead saddle point (right schema)
+
+
 > <img src="./images/w02-10-the-problem-of-local-optima/img_2023-03-25_16-20-44.png">
+
+**Local optima** is not a real problem. In a very high dimensional space (20'000 dimemsions), a point is a local optima need to be a local optima for each of the dimensions (which is highly unlikely)
+
+
+**Plateau** is a region where the derivative is close to zero for a long time and plateaus can really slow down learning. This is where algorithms like momentum, RMSprop or Adam can help.
+
 
 > <img src="./images/w02-10-the-problem-of-local-optima/img_2023-03-25_16-20-46.png">
 
