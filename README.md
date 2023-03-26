@@ -58,6 +58,22 @@ SKILLS YOU WILL GAIN
 - Mathematical Optimization
 - Hyperparameter Tuning
 
+
+
+#### [Week 1 - Practical Aspects of Deep Learning](./c2-improving-deep-neural-networks/week1/README.md)
+
+Discover and experiment with a variety of different initialization methods, apply L2 regularization and dropout to avoid model overfitting, then apply gradient checking to identify errors in a fraud detection model.
+
+#### [Week 2 - Optimization Algorithms](./c2-improving-deep-neural-networks/week2/README.md)
+
+Develop your deep learning toolbox by adding more advanced optimizations, random minibatching, and learning rate decay scheduling to speed up your models.
+
+#### [Week 3 - Hyperparameter Tuning, Batch Normalization and Programming Frameworks](./c2-improving-deep-neural-networkss/week3/README.md)
+
+Explore TensorFlow, a deep learning framework that allows you to build neural networks quickly and easily, then train a neural network on a TensorFlow dataset.
+
+
+
 # Course 3 - Convolutional Neural Networks
 
 https://www.coursera.org/learn/machine-learning-projects
