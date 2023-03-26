@@ -191,6 +191,27 @@ becomes:
 
 ## RMSprop
 
+RMSprop (Root Mean Squared) is another algorithm that has similar effects to gradient descent with momentum and can help to decrease the oscillations in gradient descent (especially in mini batch)
+
+```
+sdW = 0, sdb = 0
+on iteration t:
+	compute dw, db on current mini-batch	
+	sdW = (β * sdW) + (1 - β) * dW^2  # squaring is element-wise
+	sdb = (β * sdb) + (1 - β) * db^2  # squaring is element-wise
+	W = W - α * dW / sqrt(sdW + ε)
+	b = b - α * db / sqrt(sdb + ε)
+```
+
+An intuition is that 
+- ```db``` is larger than ```dW```,
+- so ```sdb``` is larger than ```sdW```, 
+- so ```α * dW / sqrt(sdW)``` is larger than ```db / sqrt(sdb)```. 
+- this acceleration is larger on horizontal axis
+- inp  practice, we have more than a 2-D graph (W1, W2, ... b1, b2, ...)
+
+We add ε (about 10^-8) to avoid dividing by zero
+
 > <img src="./images/w02-07-rmsprop/img_2023-03-25_16-20-03.png">
 
 ## Adam Optimization Algorithm
