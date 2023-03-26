@@ -20,20 +20,38 @@ Learning Objectives
 
 Hyperparameters importance are (for Andrew Ng):
 
-First :
-- learning rate alpha
 
-Second:
-- momentum term beta
-- mini-batch size
-- number of hidden units
 
-Third:
-- number of layers
-- learning rate decay
+<table>
+	<thead>
+		<tr>
+			<th>importance level</th>
+			<th>hyperparameters</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>first</td>
+			<td>learning rate&nbsp;<code>alpha</code></td>
+		</tr>
+		<tr>
+			<td>second</td>
+			<td>momentum term&nbsp;<code>beta</code><br />
+			mini-batch size<br />
+			number of hidden units</td>
+		</tr>
+		<tr>
+			<td>third</td>
+			<td>number of layers<br />
+			learning rate decay<br /></td>
+		</tr>
+		<tr>
+			<td>quite never tuned</td>
+			<td>Adam&nbsp;<code>beta1, beta2, epsilon</code></td>
+		</tr>
+	</tbody>
+</table>
 
-Pretty never tuned :
-- Adam beta1, beta2, epsilon
 
 > <img src="./images/w03-01-tuning_process/img_2023-03-26_11-08-08.png">
 
