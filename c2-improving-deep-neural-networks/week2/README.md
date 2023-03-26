@@ -233,13 +233,13 @@ on iteration t:
 	sdb = (β2 * sdb) + (1 - β2) * db^2
 
     # bias correction        	
-	vdW = vdW / (1 - β1^t)
-	vdb = vdb / (1 - β1^t)			
-	sdW = sdW / (1 - β2^t)
-	sdb = sdb / (1 - β2^t)
+	vdW_corrected = vdW / (1 - β1^t)
+	vdb_corrected = vdb / (1 - β1^t)			
+	sdW_corrected = sdW / (1 - β2^t)
+	sdb_corrected = sdb / (1 - β2^t)
 					
-	W = W - α * vdW / (sqrt(sdW) + ε)
-	b = B - α * vdb / (sqrt(sdb) + ε)
+	W = W - α * vdW / (sqrt(sdW_corrected) + ε)
+	b = B - α * vdb / (sqrt(sdb_corrected) + ε)
 ```
 
 How we combine momentum and RMSprop :
@@ -268,9 +268,23 @@ Hyperparameters for Adam
 
 ## Learning Rate Decay
 
+Mini-batch gradient descent could never really converge.
+
+The intuition behind slowly reducing Alpha is that :
+- during the initial steps of learning, you could afford to take much bigger steps, 
+- but then as learning approaches convergence, then having a slower learning rate allows you to take smaller steps. 
+
+
 > <img src="./images/w02-09-learning_rate_decay/img_2023-03-25_16-20-27.png">
 
+Reminder : an **epoch** is one pas over all data (not a single mini-batch), so epoch_num is incremented after last mini-batch
+
+We define learning rate : ```α = (1 / (1 + decay_rate * epoch_num)) * α0```
+
 > <img src="./images/w02-09-learning_rate_decay/img_2023-03-25_16-20-29.png">
+
+
+Other learning rate decay methods
 
 > <img src="./images/w02-09-learning_rate_decay/img_2023-03-25_16-20-31.png">
 
