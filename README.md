@@ -68,7 +68,7 @@ Discover and experiment with a variety of different initialization methods, appl
 
 Develop your deep learning toolbox by adding more advanced optimizations, random minibatching, and learning rate decay scheduling to speed up your models.
 
-#### [Week 3 - Hyperparameter Tuning, Batch Normalization and Programming Frameworks](./c2-improving-deep-neural-networkss/week3/README.md)
+#### [Week 3 - Hyperparameter Tuning, Batch Normalization and Programming Frameworks](./c2-improving-deep-neural-networks/week3/README.md)
 
 Explore TensorFlow, a deep learning framework that allows you to build neural networks quickly and easily, then train a neural network on a TensorFlow dataset.
 
