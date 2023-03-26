@@ -216,7 +216,52 @@ We add ε (about 10^-8) to avoid dividing by zero
 
 ## Adam Optimization Algorithm
 
+Adam (Adaptive Moment Estimation) is basically putting momentum and RMSprop together
+Adam optimization and RMSprop are among the optimization algorithms that worked very well with a lot of NN architectures.
+
+```
+vdW = 0, vdW = 0, sdW = 0, sdb = 0
+on iteration t:
+	compute dw, db on current mini-batch                
+			
+    # momentum
+	vdW = (β1 * vdW) + (1 - β1) * dW     
+	vdb = (β1 * vdb) + (1 - β1) * db
+			
+    # RMSprop            
+	sdW = (β2 * sdW) + (1 - β2) * dW^2
+	sdb = (β2 * sdb) + (1 - β2) * db^2
+
+    # bias correction        	
+	vdW = vdW / (1 - β1^t)
+	vdb = vdb / (1 - β1^t)			
+	sdW = sdW / (1 - β2^t)
+	sdb = sdb / (1 - β2^t)
+					
+	W = W - α * vdW / (sqrt(sdW) + ε)
+	b = B - α * vdb / (sqrt(sdb) + ε)
+```
+
+How we combine momentum and RMSprop :
+
+```
+	W = W - α * vdW                     # momentum
+	W = W - α * dW  / sqrt(sdW + ε)     # RMSprop
+	W = W - α * vdW / (sqrt(sdW) + ε)   # Adam
+
+```
+
 > <img src="./images/w02-08-adam_optimization_algorithm/img_2023-03-25_16-20-13.png">
+
+
+Hyperparameters for Adam
+
+| parameter | description | default |
+|--|--|--| 
+| α  | Learning rate               | to be tuned |
+| β1 |  parameter of the momentum  | 0.9 is recommended by default | 
+| β2 |  parameter of the RMSprop   | 0.999 is recommended by default |
+| ε  |                             | 10^-8 is recommended by default |
 
 > <img src="./images/w02-08-adam_optimization_algorithm/img_2023-03-25_16-20-15.png">
 
