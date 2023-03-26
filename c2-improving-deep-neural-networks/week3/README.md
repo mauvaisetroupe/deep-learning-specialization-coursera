@@ -125,7 +125,35 @@ Strategy depends on if you have enough computational capacity to train a lot of 
 
 ## Normalizing Activations in a Network
 
+In the rise of deep learning, one of the most important ideas has been an algorithm called batch normalization, created by two researchers, Sergey Ioffe and Christian Szegedy. Batch normalization makes your hyperparameter search problem much easier and your neural network much more robust. The choice of hyperparameters is a much bigger range of hyperparameters that work well, and will also enable you to much more easily train even very deep networks. 
+
+We previously see [how to normalize input](../week1/README.md/#normalizing-inputs)
+
+
+What batch norm does is it applies that normalization process not just to the input layer, but to the values in some hidden layer in the neural network. We want to normalize A[l] to train W[l+1], b[l+1] faster.
+
+There are some debates in the deep learning literature about whether you should normalize values before the activation function Z[l] or after on values A[l]. In practice, normalizing Z[l] is done much more often.
+
+One difference between the training input and hidden unit values is that you might not want your hidden unit values be forced to have mean 0 and variance 1 (for example, if you have a sigmoid activation function). That's the reason we introduce parameters gamma and beta that control means and variance of hidden layer. Parameters gamma and beta are learnable parameters of the model (that should be find with gradient descent or some other algorithm, like the gradient descent of momentum, ...)
+
 > <img src="./images/w03-04-normalizing_activations_in_a_network/img_2023-03-26_11-23-51.png">
+
+Algorithm:
+```
+Given Z[l] = [z(1), ..., z(m)], i = 1 to m (for each input)
+    Compute mean = 1/m * sum(z[i])
+    Compute variance = 1/m * sum((z[i] - mean)^2)
+    Z_norm[i] = (z[i] - mean) / np.sqrt(variance + epsilon) 
+        # add epsilon for numerical stability if variance = 0)
+        # Forcing the inputs to a distribution with zero mean and variance of 1.
+    Z_tilde[i] = gamma * Z_norm[i] + beta
+        # To make inputs belong to other distribution (with other mean and variance).    
+    use Z_tilde instead of Z    
+```
+
+Note: if gamma = sqrt(variance + epsilon) and beta = mean then Z_tilde[i] = z[i]
+
+
 > <img src="./images/w03-04-normalizing_activations_in_a_network/img_2023-03-26_11-23-55.png">
 
 ## Fitting Batch Norm into a Neural Network
