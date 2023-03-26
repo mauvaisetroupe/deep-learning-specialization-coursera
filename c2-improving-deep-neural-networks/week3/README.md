@@ -109,10 +109,16 @@ Why having a log scale for a range between 0.9 and 0.999 in case of weighted ave
 
 ## Hyperparameters Tuning in Practice: Pandas vs. Caviar
 
+Intuitions about hyperparameter settings from one DL area may or may not transfer to a different one.
+Even if you work on just one problem, you might have found a good setting for the hyperparameters and kept on developing your algorithm, or maybe seen your data gradually change over the course of several months, or maybe just upgraded servers in your data center. And because of those changes, the best setting of your hyperparameters can get stale. 
+
 > <img src="./images/w03-03-hyperparameters_tuning_in_practice_pandas_vs_caviar/img_2023-03-26_11-23-38.png">
+
+Strategy depends on if you have enough computational capacity to train a lot of models at the same time:
+- panda approach, when pandas have children, they have very few children, usually one child at a time, and then they really put a lot of effort into making sure that the baby panda survives. So that's really babysitting. One model or one baby panda.
+- caviar strategy, some fish that lay over 100 million eggs in one mating season. But the way fish reproduce is they lay a lot of eggs and don't pay too much attention to any one of them but just see that hopefully one of them, or maybe a bunch of them, will do well.
+
 > <img src="./images/w03-03-hyperparameters_tuning_in_practice_pandas_vs_caviar/img_2023-03-26_11-23-40.png">
-
-
 
 
 # Batch Normalization
