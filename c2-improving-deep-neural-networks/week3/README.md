@@ -11,3 +11,75 @@ Learning Objectives
 - Use tf.Variable to modify the state of a variable
 - Apply TensorFlow decorators to speed up code
 - Explain the difference between a variable and a constant
+
+
+
+# Hyperparameter Tuning
+
+## Tuning Process
+
+> <img src="./images/w03-01-tuning_process/img_2023-03-26_11-08-08.png">
+> <img src="./images/w03-01-tuning_process/img_2023-03-26_11-08-12.png">
+> <img src="./images/w03-01-tuning_process/img_2023-03-26_11-08-14.png">
+
+## Using an Appropriate Scale to pick Hyperparameters
+
+> <img src="./images/w03-02-using_an_appropriate_scale_to_pick_hyperparameters/img_2023-03-26_11-23-16.png">
+> <img src="./images/w03-02-using_an_appropriate_scale_to_pick_hyperparameters/img_2023-03-26_11-23-18.png">
+> <img src="./images/w03-02-using_an_appropriate_scale_to_pick_hyperparameters/img_2023-03-26_11-23-20.png">
+
+## Hyperparameters Tuning in Practice: Pandas vs. Caviar
+
+> <img src="./images/w03-03-hyperparameters_tuning_in_practice_pandas_vs_caviar/img_2023-03-26_11-23-38.png">
+> <img src="./images/w03-03-hyperparameters_tuning_in_practice_pandas_vs_caviar/img_2023-03-26_11-23-40.png">
+
+
+
+
+# Batch Normalization
+
+## Normalizing Activations in a Network
+
+> <img src="./images/w03-04-normalizing_activations_in_a_network/img_2023-03-26_11-23-51.png">
+> <img src="./images/w03-04-normalizing_activations_in_a_network/img_2023-03-26_11-23-55.png">
+
+## Fitting Batch Norm into a Neural Network
+
+> <img src="./images/w03-05-fitting_batch_norm_into_a_neural_network/img_2023-03-26_11-24-20.png">
+> <img src="./images/w03-05-fitting_batch_norm_into_a_neural_network/img_2023-03-26_11-24-21.png">
+> <img src="./images/w03-05-fitting_batch_norm_into_a_neural_network/img_2023-03-26_11-24-23.png">
+
+## Why does Batch Norm work?
+
+> <img src="./images/w03-06-why_does_batch_norm_work/img_2023-03-26_11-25-39.png">
+> <img src="./images/w03-06-why_does_batch_norm_work/img_2023-03-26_11-25-41.png">
+> <img src="./images/w03-06-why_does_batch_norm_work/img_2023-03-26_11-25-43.png">
+
+## Batch Norm at Test Time
+
+
+
+
+
+# Multi-class Classification
+
+## Softmax Regression
+
+> <img src="./images/w03-08-softmax_regression/img_2023-03-26_11-26-41.png">
+> <img src="./images/w03-08-softmax_regression/img_2023-03-26_11-26-43.png">
+> <img src="./images/w03-08-softmax_regression/img_2023-03-26_11-26-45.png">
+
+## Training a Softmax Classifier
+
+
+
+# Introduction to Programming Frameworks
+
+## Deep Learning Frameworks
+
+> <img src="./images/w03-10-deep_learning_frameworks/img_2023-03-26_11-27-37.png">
+
+## TensorFlow
+
+> <img src="./images/w03-11-tensorflow/img_2023-03-26_11-27-57.png">
+> <img src="./images/w03-11-tensorflow/img_2023-03-26_11-27-58.png">

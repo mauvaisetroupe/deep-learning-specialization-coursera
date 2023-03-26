@@ -1,0 +1,11 @@
+w03-01-tuning_process
+w03-02-using_an_appropriate_scale_to_pick_hyperparameters
+w03-03-hyperparameters_tuning_in_practice_pandas_vs_caviar
+w03-04-normalizing_activations_in_a_network
+w03-05-fitting_batch_norm_into_a_neural_network
+w03-06-why_does_batch_norm_work
+w03-07-batch_norm_at_test_time
+w03-08-softmax_regression
+w03-09-training_a_softmax_classifier
+w03-10-deep_learning_frameworks
+w03-11-tensorflow
