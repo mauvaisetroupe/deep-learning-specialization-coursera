@@ -115,8 +115,8 @@ Even if you work on just one problem, you might have found a good setting for th
 > <img src="./images/w03-03-hyperparameters_tuning_in_practice_pandas_vs_caviar/img_2023-03-26_11-23-38.png">
 
 Strategy depends on if you have enough computational capacity to train a lot of models at the same time:
-- panda approach, when pandas have children, they have very few children, usually one child at a time, and then they really put a lot of effort into making sure that the baby panda survives. So that's really babysitting. One model or one baby panda.
-- caviar strategy, some fish that lay over 100 million eggs in one mating season. But the way fish reproduce is they lay a lot of eggs and don't pay too much attention to any one of them but just see that hopefully one of them, or maybe a bunch of them, will do well.
+- Panda approach (very few children): Not enough computational capacity: babysitting one model
+- Caviar approach (100 million eggs): training many models in parallel
 
 > <img src="./images/w03-03-hyperparameters_tuning_in_practice_pandas_vs_caviar/img_2023-03-26_11-23-40.png">
 
