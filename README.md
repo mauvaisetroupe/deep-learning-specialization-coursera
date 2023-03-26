@@ -25,6 +25,25 @@ SKILLS YOU WILL GAIN
 - Python Programming
 - Neural Network Architecture
 
+#### [Week1 - Introduction to deep leatning](./c1-neural-networks-and-deep-learning/week1/README.md)
+
+Analyze the major trends driving the rise of deep learning, and give examples of where and how it is applied today.
+
+#### [Week 2 - Neural networks Basics](./c1-neural-networks-and-deep-learning/week2/README.md)
+
+Set up a machine learning problem with a neural network mindset and use vectorization to speed up your models.
+
+#### [Week 3 - Shallow Neural Networks](./c1-neural-networks-and-deep-learning/week3/README.md)
+
+Build a neural network with one hidden layer, using forward propagation and backpropagation.
+
+#### [Week 4 - Deep L-layer Neural Network](./c1-neural-networks-and-deep-learning/week4/README.md)
+
+Analyze the key computations underlying deep learning, then use them to build and train deep neural networks for computer vision tasks.
+
+
+
+
 ## [Course 2 - Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](./c2-improving-deep-neural-networks/README.md)
 
 [https://www.coursera.org/learn/deep-neural-network](./c2-improving-deep-neural-networks/README.md)
