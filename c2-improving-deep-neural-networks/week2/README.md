@@ -150,7 +150,27 @@ $$
 
 ## Gradient Descent with Momentum
 
+There's an algorithm called momentum, or gradient descent with momentum that almost always works faster than the standard gradient descent algorithm. The basic idea is using an exponentially weighted average of the gradients instead of the gradient itself.
+
+Usually, standard gradient descent  “oscillates” toward convergence (blue arrows). These oscillations slow down gradient descent algorith and prevents from using a much larger learning rate (purple arrows)
+
+Another way of viewing this problem is that on the vertical axis you want your learning to be a bit slower, but you want faster learning on the horizontal axis (red arrows)
+
+```
+vdW = 0, vdb = 0
+on iteration t:
+	compute dw, db on current mini-batch                			
+	vdW = β * vdW + (1 - β) * dW
+	vdb = β * vdb + (1 - β) * db
+	W = W - α * vdW
+	b = b - α * vdb
+```
+
 > <img src="./images/w02-06-gradient_descent_with_momentum/img_2023-03-25_16-19-43.png">
+
+- β is another hyperparameter
+- β = 0.9 is very common and works very well
+- in practice bias correction is not implemented
 
 > <img src="./images/w02-06-gradient_descent_with_momentum/img_2023-03-25_16-19-45.png">
 
