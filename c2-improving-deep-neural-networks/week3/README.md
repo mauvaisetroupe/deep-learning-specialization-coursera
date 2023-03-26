@@ -18,8 +18,34 @@ Learning Objectives
 
 ## Tuning Process
 
+Hyperparameters importance are (for Andrew Ng):
+
+First :
+- learning rate alpha
+
+Second:
+- momentum term beta
+- mini-batch size
+- number of hidden units
+
+Third:
+- number of layers
+- learning rate decay
+
+Pretty never tuned :
+- Adam beta1, beta2, epsilon
+
 > <img src="./images/w03-01-tuning_process/img_2023-03-26_11-08-08.png">
+
+- One of the ways to tune could be to sample a grid with N hyperparameters and then try all combinations (worked in the pasrt with few hyperparameters)
+- In practice, it's hard to decide which hyperparameter is the most important in a problem. So it's better to choose points at random, not in a grid
+
 > <img src="./images/w03-01-tuning_process/img_2023-03-26_11-08-12.png">
+
+You can use **coarse to fine** sampling scheme.
+1. pick up points randomly
+2. When you find some hyperparameters values that give you a better performance, zoom into a smaller region around these values and sample more densely within this space
+
 > <img src="./images/w03-01-tuning_process/img_2023-03-26_11-08-14.png">
 
 ## Using an Appropriate Scale to pick Hyperparameters
