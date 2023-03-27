@@ -257,15 +257,40 @@ Some examples of multi-class classification that is a generalization of binary c
 
 ## Training a Softmax Classifier
 
+- The Softmax name came from softening the values and not harding them like hard max (1 for max, 0 for others)
+- Softmax generalizes logistic regeression to C classes 
+- If C = 2 softmax reduces to logistic regression (no proof in the video)
+
+
 > <img src="./images/w03-09-training_a_softmax_classifier/img_2023-03-27_19-14-05.png">
 
+It's a form of maximum likelyhood estimation in statistics.
+
+Loss function :
+$$
+L(y,\hat{y}) = -\sum_{j=1}^C y_j\log(\hat{y}_j)
+$$
+
+The cost function is based on the sum for all training example of the loss function.
+
 > <img src="./images/w03-09-training_a_softmax_classifier/img_2023-03-27_19-14-31.png">
+
+If you are an expert in calculus, you can derive this yourself.
+$$
+dz^{[l]} = \hat{y} - y
+$$
+
+When using a deep learning program frameworks, usually you just need to focus on getting the forward prop right. The framework will figure out how to do the backward pass for you.
 
 > <img src="./images/w03-09-training_a_softmax_classifier/img_2023-03-27_19-14-54.png">
 
 # Introduction to Programming Frameworks
 
 ## Deep Learning Frameworks
+
+We've learned to implement deep learning algorithms more or less from scratch using Python and NumPY. Fortunately, there are now many good deep learning software frameworks that can help you implement these models. 
+
+Each of these frameworks has a dedicated user and developer community and I think each of these frameworks is a credible choice for some subset of applications. 
 
 > <img src="./images/w03-10-deep_learning_frameworks/img_2023-03-26_11-27-37.png">
 
