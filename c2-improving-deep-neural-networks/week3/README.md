@@ -144,7 +144,7 @@ Given Z[l] = [z(1), ..., z(m)], i = 1 to m (for each input)
     Compute mean = 1/m * sum(z[i])
     Compute variance = 1/m * sum((z[i] - mean)^2)
     Z_norm[i] = (z[i] - mean) / np.sqrt(variance + epsilon) 
-        # add epsilon for numerical stability if variance = 0)
+        # add epsilon for numerical stability if variance = 0
         # Forcing the inputs to a distribution with zero mean and variance of 1.
     Z_tilde[i] = gamma * Z_norm[i] + beta
         # To make inputs belong to other distribution (with other mean and variance).    
@@ -158,9 +158,18 @@ Note: if gamma = sqrt(variance + epsilon) and beta = mean then Z_tilde[i] = z[i]
 
 ## Fitting Batch Norm into a Neural Network
 
+NN parameters are : 
+- W[1],b[1],W[2],b[2],⋯,W[𝐿],b[𝐿]
+- 𝛽[1],𝛾[1],𝛽[2],𝛾[2],⋯,𝛽[𝐿],𝛾[𝐿]
+𝛽 and 𝛾 should be optimized with gradient descent (or gradient desecnt with momentum, RMSprop, Adam)
+
+If you are using a deep learning framework, you won't have to implement batch norm yourself. In Tensorflow you can add this line: ```tf.nn.batch-normalization()```
+
 > <img src="./images/w03-05-fitting_batch_norm_into_a_neural_network/img_2023-03-26_11-24-20.png">
+
 > <img src="./images/w03-05-fitting_batch_norm_into_a_neural_network/img_2023-03-26_11-24-21.png">
-> <img src="./images/w03-05-fitting_batch_norm_into_a_neural_network/img_2023-03-26_11-24-23.png">
+
+> <img src="./images/w03-05-fitting_batch_norm_into_a_neural_network/img_2023-03-26_23-30-57.png">
 
 ## Why does Batch Norm work?
 
