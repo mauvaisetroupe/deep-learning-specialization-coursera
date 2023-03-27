@@ -298,5 +298,5 @@ Each of these frameworks has a dedicated user and developer community and I thin
 
 > <img src="./images/w03-11-tensorflow/img_2023-03-26_11-27-57.png">
 > <img src="./images/w03-11-tensorflow/img_2023-03-26_11-27-58.png">
-https://www.bil.com/Documents/mail-disclaimer.html
+
 
