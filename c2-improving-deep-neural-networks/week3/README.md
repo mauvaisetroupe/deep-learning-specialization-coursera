@@ -296,7 +296,48 @@ Each of these frameworks has a dedicated user and developer community and I thin
 
 ## TensorFlow
 
+As a motivating problem, let's say that you have some cost function J that you want to minimize. For this example, I'm going to use this highly simple cost function, J(w) = w^2 - 10w + 25.
+
 > <img src="./images/w03-11-tensorflow/img_2023-03-26_11-27-57.png">
-> <img src="./images/w03-11-tensorflow/img_2023-03-26_11-27-58.png">
+
+The great thing about TensorFlow is you only have to implement **forward prop**, that is you only have to **write the code to compute the value of the cost function**. 
+
+TensorFlow can figure out how to do the **backprop** or do the gradient computation. One way to do this is to use **gradient tape**.
+
+The intuition behind the name gradient tape is by an analogy to the old-school cassette tapes, where Gradient Tape will record the sequence of operations as you're computing the cost function in the forward prop step. Then when you play the tape backwards, in backwards order, it can revisit the order of operations in reverse order, and along the way, compute backprop and the gradients
+
+```
+optimizer = tf.keras.optimizers.Adam(0.1)
+w = tf.Variable(0, dtype=tf.float32)
+x = np.array([1,-10,25],dtype=np.float32)
+for i in range (100):
+    with tf.GradientTape() as tape:
+        cost = x[0]*w**2 + x[1]*w + x[2]
+    trainable_variables = [w]
+    grads = tape.gradient(cost,trainable_variables)
+    optimizer.apply_gradients(zip(grads,trainable_variables))
+```
+
+> <img src="./images/w03-11-tensorflow/img_2023-03-28_07-28-44.png">
+
+A more concise version of the same code:
+
+```
+optimizer = tf.keras.optimizers.Adam(0.1)
+w = tf.Variable(0, dtype=tf.float32)
+x = np.array([1,-10,25],dtype=np.float32)
+
+def cost():
+    return x[0]*w**2 + x[1]*w + x[2]
+
+for i in range (100):
+    optimizer.minimize(cost,[w])
+```
+
+> <img src="./images/w03-11-tensorflow/img_2023-03-28_07-29-11.png">
+
+The nice thing about TensorFlow is that by implementing base the four a prop, through this computation graph, TensorFlow will automatically figure out all the necessary backward calculations. It'll automatically be able to figure out all the necessary backward steps needed to implement back-prop. Isn't that nice? 
+
+> <img src="./images/w03-11-tensorflow/img_2023-03-28_07-26-08.png">
 
 
