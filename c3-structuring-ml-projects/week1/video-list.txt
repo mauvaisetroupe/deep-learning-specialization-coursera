@@ -1,0 +1,13 @@
+w01-01-why_ml_strategy
+w01-02-orthogonalization
+w01-03-single_number_evaluation_metric
+w01-04-satisficing_and_optimizing_metric
+w01-05-train_dev_test_distributions
+w01-06-size_of_the_dev_and_test_sets
+w01-07-when_to_change_dev_test_sets_and_metrics
+w01-08-why_human-level_performance
+w01-09-avoidable_bias
+w01-10-understanding_human-level_performance
+w01-11-surpassing_human-level_performance
+w01-12-improving_your_model_performance
+w01-13-andrej_karpathy_interview
