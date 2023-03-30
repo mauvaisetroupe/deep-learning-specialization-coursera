@@ -131,8 +131,25 @@ The guideline is, to set your test set to big enough to give high confidence in 
 
 ## When to Change Dev/Test Sets and Metrics?
 
+One way to change this evaluation metric would be if you add a weight term here :
+- 1 if x(i) is non-porn 
+- 10 or 100 if x(i) is porn
+
+So this way you're giving a much larger weight to examples that are pornographic so that the error term goes up much more if the algorithm makes a mistake on classifying a pornographic image as a cat image
+
 > <img src="./images/w01-07-when_to_change_dev_test_sets_and_metrics/img_2023-03-28_21-15-37.png">
+
+This is actually an example of an orthogonalization where I think you should take a machine learning problem and break it into distinct steps.
+- First step : place the tarhet - define a metric that captures what you want to do
+- Second step : shoot the target - think about how to actually do well on this metric
+
 > <img src="./images/w01-07-when_to_change_dev_test_sets_and_metrics/img_2023-03-28_21-15-39.png">
+
+In conclusion, if you are doing well on your metric and dev/test set doesn't correspond to doing well in your application :
+ - change your metric 
+ - and/or change your dev/test set.
+
+
 > <img src="./images/w01-07-when_to_change_dev_test_sets_and_metrics/img_2023-03-28_21-15-41.png">
 
 
