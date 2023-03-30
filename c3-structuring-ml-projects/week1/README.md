@@ -98,8 +98,21 @@ More generally :
 
 ## Train/Dev/Test Distributions
 
+Taking data for DEV in some region and data for test in other regions is a very bad idea because dev and test sets come from different distributions.
+
+Define what target you want to aim at :
+ - setting up the dev set, 
+ - defining the single role number evaluation metric
+The team can then innovate very quickly, try different ideas, run experiments and very quickly use the dev set and the metric to evaluate crossfires and try to pick the best one. 
+
 > <img src="./images/w01-05-train_dev_test_distributions/img_2023-03-28_21-14-52.png">
+
+3 months lost because of a bad data distribution  
+
 > <img src="./images/w01-05-train_dev_test_distributions/img_2023-03-28_21-14-56.png">
+
+Choose dev set and test set to reflect data you expect to get in the future and consider important to do well on.
+
 > <img src="./images/w01-05-train_dev_test_distributions/img_2023-03-28_21-14-59.png">
 
 ## Size of the Dev and Test Sets
