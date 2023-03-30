@@ -157,7 +157,27 @@ In conclusion, if you are doing well on your metric and dev/test set doesn't cor
 
 ## Why Human-level Performance?
 
+
+We compare to human-level performance because of two main reasons:
+1. machine learning algorithms are working much better and so it has become much more feasible to actually become competitive with human-level performance.
+2. workflow of designing and building a machine learning system is much more efficient when we're trying to do something that humans can also do.
+
+And over time, as you keep training the algorithm, maybe bigger and bigger models on more and more data, the performance approaches but never surpasses some theoretical limit, which is called the Bayes optimal error.
+
+So, the perfect level of accuracy may not be 100% :
+- for speech recognition, some audio is just so noisy it is impossible to tell what is in the correct transcription
+- for cat recognition, some images are so blurry, that it is just impossible for anyone or anything to tell whether or not there's a cat in that picture. 
+
+Progress is often quite fast until you surpass human level performance and often slows down after.
+
+There are two reasons for that, for why progress often slows down when you surpass human level performance. 
+
+One reason is that human level performance is for many tasks not that far from Bayes' optimal error. People are very good at looking at images and telling if there's a cat or listening to audio and transcribing it. 
+
 > <img src="./images/w01-08-why_human-level_performance/img_2023-03-28_21-15-54.png">
+
+The second reason is that so long as your performance is worse than human level performance, then there are actually certain tools you could use to improve performance that are harder to use once you've surpassed human level performance.
+
 > <img src="./images/w01-08-why_human-level_performance/img_2023-03-28_21-15-56.png">
 
 ## Avoidable Bias
