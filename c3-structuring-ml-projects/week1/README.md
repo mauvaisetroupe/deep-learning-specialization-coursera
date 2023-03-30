@@ -14,22 +14,85 @@ Learning Objectives
 
 ## Why ML Strategy
 
+There is a lot of ideas for how to improve your deep learning system.
+
+
 > <img src="./images/w01-01-why_ml_strategy/img_2023-03-28_21-13-36.png">
 
 ## Orthogonalization
 
-> <img src="./images/w01-02-orthogonalization/img_2023-03-28_21-13-53.png">
-> <img src="./images/w01-02-orthogonalization/img_2023-03-28_21-13-56.png">
+- Each knob has a relatively interpretable function. Imagine a signle knob that would change everything at same time, should be almost impossible to tune the TV. In that context orthogonalization  refers to the fact that TV designer have designed the knobs to do only one thing
+- Other example is about the 3 controls (steering wheel, acceleration, and braking) in a car with well indentified actions. But now imagine if someone build a car with a joystick, where one axis of the joystick controls 0.3 x your steering angle,- 0.8 x your speed. And you had a different control that controls 2 x the steering angle, + 0.9 x the speed of your car. In theory, by tuning these two knobs, you could get your car to steer at the angle and at the speed you want. But it's much harder than if you had just one single control for controlling the steering angle, and a separate, distinct set of controls for controlling the speed.
+- Orthogonalization is having one dimension by knobs
 
+> <img src="./images/w01-02-orthogonalization/img_2023-03-28_21-13-53.png">
+
+<table>
+        <thead>
+                <tr>
+                        <th>Chain of assumptions in ML</th>
+                        <th>Possible tuning</th>
+                </tr>
+        </thead>
+        <tbody>
+                <tr>
+                        <td>Fit training set well on cost function</td>
+                        <td>- Bigger network<br />
+                        - Better optimization algorithm like Adam</td>
+                </tr>
+                <tr>
+                        <td>Fit dev set well on cost function</td>
+                        <td>- Regularization<br />
+                        - Bigger training set</td>
+                </tr>
+                <tr>
+                        <td>Fit test set well on cost function</td>
+                        <td>- bigger dev set</td>
+                </tr>
+                <tr>
+                        <td>Performs well in real world</td>
+                        <td>- change dev set or cost function<br /></td>
+                </tr>
+        </tbody>
+</table>
+
+> <img src="./images/w01-02-orthogonalization/img_2023-03-28_21-13-56.png">
 
 # Setting Up your Goal
 
 ## Single Number Evaluation Metric
 
+You'll find that your progress will be much faster if you have a single real number evaluation metric that lets you quickly tell if the new thing you just tried is working better or worse than your last idea.
+
+In the following exemple, it's easier to work with F1-score mmore than working on Precision and Record (that could evlolve in a opposite directions)
+
+| metric        | definition    |
+| :-:           | :--           |
+| Precision     | percentage of true positive in predicted positive |
+| Recall        | percentage of true positive predicted in all real positive |
+| F1 score      | harmonic mean of precision and recall |
+
 > <img src="./images/w01-03-single_number_evaluation_metric/img_2023-03-28_21-14-10.png">
+
+Other example. It's very difficult to look at these numbers and quickly decide if algorithm A or algorithm B is superior.  So what I recommend in this example is, in addition to tracking your performance in the four different geographies, to also compute the average. And assuming that average performance is a reasonable single real number evaluation metric, by computing the average, you can quickly tell that it looks like algorithm C has a lowest average error.
+
+
 > <img src="./images/w01-03-single_number_evaluation_metric/img_2023-03-28_21-14-14.png">
 
 ## Satisficing and Optimizing Metric
+
+First example (left column on the slide) : cat classifier :
+1. accurancy is to optimize (get best value)
+2. response time is to satisfy (< 1000 ms)
+
+Second example is aout voice recognition and wakewords ("ok google"):
+1. optimize accutacy
+2. accepr one false positive by 24 hours
+
+
+More generally :
+1. Maximizing 1 value       # optimizing metric (one optimizing metric)
+2. Satisfying N-1 values    # satisficing metric (N-1 satisficing metrics)
 
 > <img src="./images/w01-04-satisficing_and_optimizing_metric/img_2023-03-28_21-14-32.png">
 
