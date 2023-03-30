@@ -117,8 +117,16 @@ Choose dev set and test set to reflect data you expect to get in the future and 
 
 ## Size of the Dev and Test Sets
 
+An old way of splitting the data was 
+- 70% training, 30% test 
+- or 60% training, 20% dev, 20% test
+
+But in the modern machine learning era, we are now used to working with much larger data set sizes (1 million training examples), it might be quite reasonable to have 98% in the training set, and 1% dev, and 1% test.
+
 > <img src="./images/w01-06-size_of_the_dev_and_test_sets/img_2023-03-28_21-15-13.png">
-> <img src="./images/w01-06-size_of_the_dev_and_test_sets/img_2023-03-28_21-15-16.png">
+
+The guideline is, to set your test set to big enough to give high confidence in the overall performance of your system.
+
 > <img src="./images/w01-06-size_of_the_dev_and_test_sets/img_2023-03-28_21-15-19.png">
 
 ## When to Change Dev/Test Sets and Metrics?
