@@ -243,7 +243,14 @@ And these are not natural perception problems, so these are not computer vision,
 
 ## Improving your Model Performance
 
+There are two fundamental assumptions of supervised learning.
+
+1. You can fit the training set pretty well (achieve low avoidable bias).
+2. The training set performance generalizes pretty well to the dev/test set (variance is not too bad)
 > <img src="./images/w01-12-improving_your_model_performance/img_2023-03-28_21-17-00.png">
+
+Technics to work on avoidable bias and variance reductions.
+
 > <img src="./images/w01-12-improving_your_model_performance/img_2023-03-28_21-17-02.png">
 
 
