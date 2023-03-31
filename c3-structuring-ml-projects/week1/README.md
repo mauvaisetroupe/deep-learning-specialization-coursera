@@ -182,9 +182,22 @@ The second reason is that so long as your performance is worse than human level 
 
 ## Avoidable Bias
 
+In this case, the human-level error as a proxy for Bayes error because humans are good to identify images
+
+- In the left example, human level error is 1%, then focus on the bias.
+- In the right example, human level error is 7.5%, then focus on the variance.
+
+Depending on what we think is achievable, with the same training error and dev error, we decided to focus on bias reduction or on variance reduction tactics. 
+
+- The difference between approximation of Bayes error and the training error is called avoidable bias (not widely used terminology)
+- Variance is the difference between training error and dev error
+
+> <img src="./images/w01-09-avoidable_bias/img_2023-03-28_21-16-13.png">
+
+<!--
 > <img src="./images/w01-09-avoidable_bias/img_2023-03-28_21-16-08.png">
 > <img src="./images/w01-09-avoidable_bias/img_2023-03-28_21-16-11.png">
-> <img src="./images/w01-09-avoidable_bias/img_2023-03-28_21-16-13.png">
+-->
 
 ## Understanding Human-level Performance
 
