@@ -1,0 +1,11 @@
+w02-01-Carrying_Out_Error_Analysis
+w02-02-Cleaning_Up_Incorrectly_Labeled_Data
+w02-03-Build_your_First_System_Quickly_then_Iterate
+w02-04-Training_and_Testing_on_Different_Distributions
+w02-05-Bias_and_Variance_with_Mismatched_Data_Distributions
+w02-06-Addressing_Data_Mismatch
+w02-07-Transfer_Learning
+w02-08-Multi-task_Learning
+w02-09-What_is_End-to-end_Deep_Learning?
+w02-10-Whether_to_use_End-to-end_Deep_Learning
+w02-11-Ruslan_Salakhutdinov_Interview
