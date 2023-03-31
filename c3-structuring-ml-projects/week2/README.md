@@ -29,7 +29,7 @@ For example, clearly in this example, a lot of the mistakes were made on blurry 
 
 ##  Cleaning Up Incorrectly Labeled Data
 
-Deep learning algorithms are quite robust to ***random*** errors in the training set
+Deep learning algorithms are quite robust to **random** errors in the training set
 
 > <img src="./images/w02-02-Cleaning_Up_Incorrectly_Labeled_Data/img_2023-03-31_11-25-03.png">
 
@@ -90,8 +90,52 @@ Second exemple with rearview mirror
 
 See pdf notes provided by Courseara : [3-Bias_and_variance_with_mismatched_data_distributions.pdf](./3-Bias_and_variance_with_mismatched_data_distributions.pdf)
 
+Bias and Variance analysis changes when training and Dev/test set is from the different distribution.
+
+Suppose you've worked in the example and reached this
+- Human error: 0%
+- Train error: 1%
+- Dev error: 10%
+
+With training error is 1%, and dev error is 10% and data data coming from the same distribution, you would say that here you have a large variance problem. But in the setting where your training data and your dev data comes from a different distribution, you can no longer safely draw this conclusion. Maybe there isn't a variance problem and this just reflects that the dev set contains images that are much more difficult to classify accurately.
+
+To solve this issue we create a new set called **train-dev set** as a random subset of the training set (same distribution) 
+
+If you have now :
+- Human error: 0%
+- Train error: 1%
+- **Train-dev error: 9%**
+- **Dev error: 10%**
+
+Now we are sure that this is a high variance problem because the gap between train-dev and train errors
+
+Suppose we have a different situation:
+- Human error: 0%
+- Train error: 1%
+- **Train-dev error: 1.5%**
+- **Dev error: 10%**
+
+In this case we have **Data mismatch** problem.
+
 > <img src="./images/w02-05-Bias_and_Variance_with_Mismatched_Data_Distributions/img_2023-03-31_11-26-02.png">
+
+The key quantities I would look at are :
+1. Human-level error (proxy for Bayes error)
+2. Train error
+    - Avoidable bias = training error - human level error
+3. Train-dev error
+    - variance = training-dev error - training error
+4. Dev error
+    - data mismatch = dev error - train-dev error
+5. Test error
+    - degree of overfitting to dev set = test error - dev error
+    - dev set and test set come from the same distribution
+    - so if this difference is big then maybe you need to find a bigger dev set 
+
 > <img src="./images/w02-05-Bias_and_Variance_with_Mismatched_Data_Distributions/img_2023-03-31_11-26-04.png">
+
+In red, the key quantities described above, but other table entries can help in diagnostic too.
+
 > <img src="./images/w02-05-Bias_and_Variance_with_Mismatched_Data_Distributions/img_2023-03-31_11-26-06.png">
 
 ##  Addressing Data Mismatch
