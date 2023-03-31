@@ -89,6 +89,16 @@ SKILLS YOU WILL GAIN
 - Multi-Task Learning
 - Decision-Making
 
+
+### [Week 1 - ML strategy](./week1/README.md)
+
+Streamline and optimize your ML production workflow by implementing strategic guidelines for goal-setting and applying human-level performance to help define key priorities.
+
+### [Week 2 - ML strategy](./week2/README.md)
+
+Develop time-saving error analysis procedures to evaluate the most worthwhile options to pursue and gain intuition for how to split your data and when to use multi-task, transfer, and end-to-end deep learning.
+
+
 # Course 4 - Convolutional Neural Networks
 
 https://www.coursera.org/learn/convolutional-neural-networks
