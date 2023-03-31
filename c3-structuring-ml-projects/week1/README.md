@@ -222,13 +222,23 @@ Im the third example, 0.5% as we discussed on the previous slide was the best me
 
 > <img src="./images/w01-10-understanding_human-level_performance/img_2023-03-28_21-16-30.png">
 
-To summarize : 
+And the big difference between our discussion here and what we saw in an earlier course was that instead of comparing training error to 0%,
+and just calling that the estimate of the bias, we have a more nuanced analysis in which there is no particular expectation that you should get 0% error
+
+These techniques will tend to work well until you surpass human-level performance, whereupon you might no longer have a good estimate of Bayes error that still helps you make this decision really clearly.
+
 
 > <img src="./images/w01-10-understanding_human-level_performance/img_2023-03-28_21-16-32.png">
 
 ## Surpassing Human-level Performance
 
+In the second example case, training error surpassed this 0.5%. There is not enough information to know if bias reduction or variance reduction has to be done on the algorithm. 
+
 > <img src="./images/w01-11-surpassing_human-level_performance/img_2023-03-28_21-16-46.png">
+
+There are many problems where machine learning significantly surpasses human-level performance (especially in **structured data**)
+And these are not natural perception problems, so these are not computer vision, or speech recognition, or natural language processing task. Humans tend to be very good in natural perception task and it's just a bit harder for computers to surpass human-level performance on natural perception task
+
 > <img src="./images/w01-11-surpassing_human-level_performance/img_2023-03-28_21-16-48.png">
 
 ## Improving your Model Performance
