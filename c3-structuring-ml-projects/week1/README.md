@@ -21,6 +21,9 @@ There is a lot of ideas for how to improve your deep learning system.
 
 ## Orthogonalization
 
+See pdf notes provided by Courseara : [1-Orthogonalization.pdf](./1-Orthogonalization.pdf)
+
+
 - Each knob has a relatively interpretable function. Imagine a signle knob that would change everything at same time, should be almost impossible to tune the TV. In that context orthogonalization  refers to the fact that TV designer have designed the knobs to do only one thing
 - Other example is about the 3 controls (steering wheel, acceleration, and braking) in a car with well indentified actions. But now imagine if someone build a car with a joystick, where one axis of the joystick controls 0.3 x your steering angle,- 0.8 x your speed. And you had a different control that controls 2 x the steering angle, + 0.9 x the speed of your car. In theory, by tuning these two knobs, you could get your car to steer at the angle and at the speed you want. But it's much harder than if you had just one single control for controlling the steering angle, and a separate, distinct set of controls for controlling the speed.
 - Orthogonalization is having one dimension by knobs
@@ -62,6 +65,8 @@ There is a lot of ideas for how to improve your deep learning system.
 
 ## Single Number Evaluation Metric
 
+See pdf notes provided by Courseara : [2-Single_number_evaluation_metric-2.pdf](./2-Single_number_evaluation_metric-2.pdf)
+
 You'll find that your progress will be much faster if you have a single real number evaluation metric that lets you quickly tell if the new thing you just tried is working better or worse than your last idea.
 
 In the following exemple, it's easier to work with F1-score mmore than working on Precision and Record (that could evlolve in a opposite directions)
@@ -81,6 +86,9 @@ Other example. It's very difficult to look at these numbers and quickly decide i
 
 ## Satisficing and Optimizing Metric
 
+See pdf notes provided by Courseara : [3-Satisficing_and_optimizing_metric.pdf](./3-Satisficing_and_optimizing_metric.pdf)
+
+
 First example (left column on the slide) : cat classifier :
 1. accurancy is to optimize (get best value)
 2. response time is to satisfy (< 1000 ms)
@@ -97,6 +105,9 @@ More generally :
 > <img src="./images/w01-04-satisficing_and_optimizing_metric/img_2023-03-28_21-14-32.png">
 
 ## Train/Dev/Test Distributions
+
+See pdf notes provided by Courseara : [4-Training_development_and_test_distributions.pdf](./4-Training_development_and_test_distributions.pdf)
+
 
 Taking data for DEV in some region and data for test in other regions is a very bad idea because dev and test sets come from different distributions.
 
@@ -117,6 +128,9 @@ Choose dev set and test set to reflect data you expect to get in the future and 
 
 ## Size of the Dev and Test Sets
 
+See pdf notes provided by Courseara : [5-Size_of_the_development_and_test_sets.pdf](./5-Size_of_the_development_and_test_sets.pdf)
+
+
 An old way of splitting the data was 
 - 70% training, 30% test 
 - or 60% training, 20% dev, 20% test
@@ -130,6 +144,9 @@ The guideline is, to set your test set to big enough to give high confidence in 
 > <img src="./images/w01-06-size_of_the_dev_and_test_sets/img_2023-03-28_21-15-19.png">
 
 ## When to Change Dev/Test Sets and Metrics?
+
+See pdf notes provided by Courseara : [6-When_to_change_develpment_test_sets_and_metrics.pdf](./6-When_to_change_develpment_test_sets_and_metrics.pdf)
+
 
 One way to change this evaluation metric would be if you add a weight term here :
 - 1 if x(i) is non-porn 
@@ -157,6 +174,8 @@ In conclusion, if you are doing well on your metric and dev/test set doesn't cor
 
 ## Why Human-level Performance?
 
+See pdf notes provided by Courseara : [7-Why_human_level_performance.pdf](./7-Why_human_level_performance.pdf)
+
 
 We compare to human-level performance because of two main reasons:
 1. machine learning algorithms are working much better and so it has become much more feasible to actually become competitive with human-level performance.
@@ -182,6 +201,8 @@ The second reason is that so long as your performance is worse than human level 
 
 ## Avoidable Bias
 
+See pdf notes provided by Courseara : [8-Avoidable_bias.pdf](./8-Avoidable_bias.pdf)
+
 In this case, the human-level error as a proxy for Bayes error because humans are good to identify images
 
 - In the left example, human level error is 1%, then focus on the bias.
@@ -200,6 +221,8 @@ Depending on what we think is achievable, with the same training error and dev e
 -->
 
 ## Understanding Human-level Performance
+
+See pdf notes provided by Courseara : [9-Understanding_human_level_performance.pdf](./9-Understanding_human_level_performance.pdf)
 
 The term **human-level performance** is sometimes used casually in research articles. But let me show you how we can define it a bit more precisely.
 
@@ -232,6 +255,8 @@ These techniques will tend to work well until you surpass human-level performanc
 
 ## Surpassing Human-level Performance
 
+See pdf notes provided by Courseara : [10-Surpassing_human_level_performance.pdf](./10-Surpassing_human_level_performance.pdf)
+
 In the second example case, training error surpassed this 0.5%. There is not enough information to know if bias reduction or variance reduction has to be done on the algorithm. 
 
 > <img src="./images/w01-11-surpassing_human-level_performance/img_2023-03-28_21-16-46.png">
@@ -242,6 +267,8 @@ And these are not natural perception problems, so these are not computer vision,
 > <img src="./images/w01-11-surpassing_human-level_performance/img_2023-03-28_21-16-48.png">
 
 ## Improving your Model Performance
+
+See pdf notes provided by Courseara : [11-Improving_your_model_performance.pdf](./11-Improving_your_model_performance.pdf)
 
 There are two fundamental assumptions of supervised learning.
 
