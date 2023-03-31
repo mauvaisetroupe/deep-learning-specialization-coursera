@@ -201,8 +201,29 @@ Depending on what we think is achievable, with the same training error and dev e
 
 ## Understanding Human-level Performance
 
+The term **human-level performance** is sometimes used casually in research articles. But let me show you how we can define it a bit more precisely.
+
+
+- If you want a proxy or an estimate for Bayes error, then given that a team of experienced doctors discussing and debating can achieve 0.5% error, we know that Bayes error is less than equal to 0.5%.
+- For the purpose of deploying a system, maybe there's a different definition of human-level error that you can use which is so long as you surpass the performance of a typical doctor (1%)
+
+When choosing human-level performance, it has to be chosen in the terms of what you want to achieve with the system.
+
+
 > <img src="./images/w01-10-understanding_human-level_performance/img_2023-03-28_21-16-28.png">
+
+- In the first example, it doesn't really matter which of the definitions of human-level error you use, you should clearly focus on bias reduction techniques such as train a bigger network.
+
+- In the second example, the difference between training error and the development error is bigger than the difference between the human-level error and the training error, no matter the hume-level performance we choose. The focus should be on variance reduction technique
+
+- In the third example, there is only 1% between training and test, so choosing the good human-level is important. We should consider that the best human performance (0.5%) is an approximation of the Bayes error. Maybe both the bias and variance are both problems but maybe the avoidable bias is a bit bigger of a problem. 
+
+Im the third example, 0.5% as we discussed on the previous slide was the best measure of Bayes error, because a team of human doctors could achieve that performance. If you use 0.7 as your proxy for Bayes error, you would have estimated avoidable bias as pretty much 0%, and you might have missed that
+
 > <img src="./images/w01-10-understanding_human-level_performance/img_2023-03-28_21-16-30.png">
+
+To summarize : 
+
 > <img src="./images/w01-10-understanding_human-level_performance/img_2023-03-28_21-16-32.png">
 
 ## Surpassing Human-level Performance
