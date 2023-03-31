@@ -165,7 +165,22 @@ Artificial data synthesis example : generated car using computer graphics.
 
 See pdf notes provided by Courseara : [5-Transfer_Learning.pdf](./5-Transfer_Learning.pdf)
 
+Transfer learning refers to using the neural network knowledge for another application.
+
+
+To do transfer learning:
+1. delete the last layer (form task A pretrained model):
+2. fine-tuning on task B
+    - Option 1: for small data set - keep all the other weights as a fixed weights and learn the new weights
+    - Option 2: for enough amount of data,  retrain all the weights.
+
 > <img src="./images/w02-07-Transfer_Learning/img_2023-03-31_11-26-32.png">
+
+When to use transfer learning
+- Task A and B have the same input x
+- A lot more data for Task A than Task B
+- Low level features from Task A could be helpful for Task B
+
 > <img src="./images/w02-07-Transfer_Learning/img_2023-03-31_11-26-33.png">
 
 ##  Multi-task Learning
