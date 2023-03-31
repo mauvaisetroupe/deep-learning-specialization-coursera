@@ -142,8 +142,20 @@ In red, the key quantities described above, but other table entries can help in 
 
 See pdf notes provided by Courseara : [4-Adressing_data_mismatch.pdf](./4-Adressing_data_mismatch.pdf)
 
+There aren't completely systematic solutions to address data mismatch, but basically :
+1. Execute manual error analysis to understand differences between training and dev/test sets.
+2. Make training data more similar, or collect more data similar to dev/test sets.
+
 > <img src="./images/w02-06-Addressing_Data_Mismatch/img_2023-03-31_11-26-17.png">
+
+To make training data more similar to dev set one of the techniques is artificial data synthesis
+
+Artificial data synthesis example : combine normal audio with car noise to get audio with car noise example
+
 > <img src="./images/w02-06-Addressing_Data_Mismatch/img_2023-03-31_11-26-19.png">
+
+Artificial data synthesis example : generated car using computer graphics. 
+
 > <img src="./images/w02-06-Addressing_Data_Mismatch/img_2023-03-31_11-26-21.png">
 
 # Learning from Multiple Tasks
