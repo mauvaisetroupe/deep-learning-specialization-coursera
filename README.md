@@ -99,7 +99,7 @@ Streamline and optimize your ML production workflow by implementing strategic gu
 Develop time-saving error analysis procedures to evaluate the most worthwhile options to pursue and gain intuition for how to split your data and when to use multi-task, transfer, and end-to-end deep learning.
 
 
-[# Course 4 - Convolutional Neural Networks](./c4-convolutional-neural-netowrks/README.md)
+# [Course 4 - Convolutional Neural Networks](./c4-convolutional-neural-netowrks/README.md)
 
 https://www.coursera.org/learn/convolutional-neural-networks
 
