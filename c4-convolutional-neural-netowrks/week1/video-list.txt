@@ -1,0 +1,12 @@
+w01-01-Computer_Vision
+w01-02-Edge_Detection_Example
+w01-03-More_Edge_Detection
+w01-04-Padding
+w01-05-Strided_Convolutions
+w01-06-Convolutions_Over_Volume
+w01-07-One_Layer_of_a_Convolutional_Network
+w01-08-Simple_Convolutional_Network_Example
+w01-09-Pooling_Layers
+w01-10-CNN_Example
+w01-11-Why_Convolutions
+w01-12-Yann_LeCun_Interview

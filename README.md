@@ -99,7 +99,7 @@ Streamline and optimize your ML production workflow by implementing strategic gu
 Develop time-saving error analysis procedures to evaluate the most worthwhile options to pursue and gain intuition for how to split your data and when to use multi-task, transfer, and end-to-end deep learning.
 
 
-# Course 4 - Convolutional Neural Networks
+[# Course 4 - Convolutional Neural Networks](./c4-convolutional-neural-netowrks/README.md)
 
 https://www.coursera.org/learn/convolutional-neural-networks
 
@@ -114,6 +114,23 @@ SKILLS YOU WILL GAIN
 - Tensorflow
 - Object Detection And Segmentation
 
+#### [Week 1 - Foundations of Convolutional Neural Networks](./c4-convolutional-neural-netowrks/week1/README.md)
+
+Implement the foundational layers of CNNs (pooling, convolutions) and stack them properly in a deep network to solve multi-class image classification problems.
+
+
+#### [Week 2  - Deep Convolutional Models: Case Studies](./c4-convolutional-neural-netowrks/week2/README.md)
+
+Discover some powerful practical tricks and methods used in deep CNNs, straight from the research papers, then apply transfer learning to your own deep CNN.
+
+#### [Week 3 - Object Detection](./c4-convolutional-neural-netowrks/week3/README.md)
+
+Apply your new knowledge of CNNs to one of the hottest (and most challenging!) fields in computer vision: object detectio
+
+
+#### [Week 4 - Special Applications: Face recognition & Neural Style Transfer](./c4-convolutional-neural-netowrks/week4/README.md)
+
+Explore how CNNs can be applied to multiple fields, including art generation and face recognition, then implement your own algorithm to generate art and recognize faces!
 
 # Course 5 - Sequence Models
 
