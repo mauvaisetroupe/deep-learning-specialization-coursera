@@ -18,8 +18,37 @@ Learning Objectives
 
 ## Computer Vision
 
-> <img src="./images/w01-01-Computer_Vision/img_2023-03-31_22-43-08.png">
+Computer vision is one of the areas that's been advancing rapidly thanks to deep learning : 
+- self-driving cars 
+- face recognition 
+- unlock a phone or a door
+- enabling new types of art t
+
+Deep learning for computer vision is exciting because:
+- rapid advances in computer vision are enabling new applications
+- even if you don't end up building computer vision systems, because the computer vision research community has been so creative and so inventive in coming up with new neural network architectures and algorithms, it inspires other areas
+
+
+Examples of a computer vision problems includes:
+- Image classification.
+- Object detection with localization (draw boxes around them)
+- Neural style transfer (changes the style of a __content__ image using another __style__ image)
+
 > <img src="./images/w01-01-Computer_Vision/img_2023-04-01_09-44-37.png">
+
+
+One of the challenges of computer vision problems is that the inputs can get really big. A 1000x1000 image will be represented by 3 millions feature. 
+
+With 1000 units in the first hidden layer, we will work with a (1000 x 3'000,000) matrix
+
+
+And with that many parameters, it's difficult 
+- to get enough data to prevent a neural network from **overfitting**
+- **memory requirements** to train a neural network with three billion parameters is just a bit infeasible
+
+To solve that, you need to implement the **convolution operation**, which is one of the fundamental building blocks of convolutional neural networks.
+
+
 > <img src="./images/w01-01-Computer_Vision/img_2023-04-01_09-44-38.png">
 
 ## Edge Detection Example
