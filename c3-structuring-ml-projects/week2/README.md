@@ -262,7 +262,31 @@ Two more examples:
 
 See pdf notes provided by Courseara : [8-Whether_to_use_end_to_end_deep_learning.pdf](./8-Whether_to_use_end_to_end_deep_learning.pdf)
 
+Before applying end-to-end deep learning, you need to ask yourself the following question: Do you have
+enough data to learn a function of the complexity needed to map x and y?
+
+Pro:
+- Let the data speak
+    - By having a pure machine learning approach, the neural network will learn from x to y. It will
+    be able to find which statistics are in the data, rather than being forced to reflect human
+    preconceptions.
+- Less hand-designing of components needed
+    - It simplifies the design work flow.
+
+Cons:
+- Large amount of labeled data
+    - It cannot be used for every problem as it needs a lot of labeled data.
+- Excludes potentially useful hand-designed component
+    - Data and any hand-design’s components or features are the 2 main sources of knowledge for a learning algorithm. If the data set is small than a hand-design system is a way to give manual knowledge into the algorithm.
+
 > <img src="./images/w02-10-Whether_to_use_End-to-end_Deep_Learning/img_2023-03-31_11-27-14.png">
+
+Do you have enough data for end-to-end Deep Learning?
+
+So let me finish this video with a more complex example. You may know that I've been spending time helping out an autonomous driving company, Drive.ai. So I'm actually very excited about autonomous driving. So how do you build a car that drives itself? 
+
+So I think what this example illustrates is that you want to use machine learning or use deep learning to learn some individual components and when applying supervised learning you should carefully choose what types of X to Y mappings you want to learn depending on what task you can get data for. And in contrast, it is exciting to talk about a pure end-to-end deep learning approach where you input an image and directly output a steering. But given data availability and the types of things we can learn with neural networks today, this is actually not the most promising approach or this is not an approach that I think teams have gotten to work best.
+
 > <img src="./images/w02-10-Whether_to_use_End-to-end_Deep_Learning/img_2023-03-31_11-27-16.png">
 
 # Heroes of Deep Learning (Optional)
