@@ -214,8 +214,48 @@ When to use multi-task learning
 
 See pdf notes provided by Courseara : [7-What_is_end_to_end_deep_learning.pdf](./7-What_is_end_to_end_deep_learning.pdf)
 
+Speech recognition system example
+```
+Audio --> Features --> Phonemes --> Words --> Transcript    # classical system
+Audio --------------------------------------> Transcript    # end-to-end deep learning system
+```
+
+Mel-frequency cepstral coefficients(MFCC) is the widely used technique for extracting the features from the audio signal.
+
+One interesting sociological effect in AI is that as end-to-end deep learning started to work better, there were some researchers that had spent many years of their career designing individual steps of the pipeline (speech recognition, computer vision, etc), written multiple papers, maybe even built a large part of their career, engineering features or engineering other pieces of the pipeline. And when end-to-end deep learning just took the last training set and learned the function mapping from x and y directly, really bypassing a lot of these intermediate steps, it was challenging for some disciplines to come around to accepting this alternative way of building AI systems.
+
+One of the challenges of end-to-end deep learning is that you might need a lot of data (10'000 or 100'000 hours of audio vs. 3'000 hours for classical pipeline)
+
+If you have a medium amount of data, then there are also intermediate approaches (audio - phonemes - transcript)
+```
+Audio --> Features --> Phonemes --> Words --> Transcript    
+Audio ---------------> Phonemes ------------> Transcript    # intermediate deep learning system
+Audio --------------------------------------> Transcript    
+```
+
 > <img src="./images/w02-09-What_is_End-to-end_Deep_Learning/img_2023-03-31_11-26-59.png">
+
+Face recognition system
+
+This is a picture of a face recognition turnstile built by a researcher, Yuanqing Lin at Baidu, where this is a camera and it looks at the person approaching the gate, and if it recognizes the person then, you know the turnstile automatically lets them through.
+
+Researchers have found  that instead of trying to learn everything on one step, by breaking this problem down into two simpler steps, first is figure out where is the face and second figure out who this actually is, allows the learning algorithm to split into two learning algorithms to solve two much simpler tasks and results in overall better performance. 
+
+```
+Image ---------------------> Face recognition   
+Image --> Face detection --> Face recognition
+```
+The two step approach works better for two reasons
+- each of the two problems you're solving is actually much simpler
+- you have a lot of data for each of the two sub-tasks, in particular for first step (face detection). 
+
 > <img src="./images/w02-09-What_is_End-to-end_Deep_Learning/img_2023-03-31_11-27-01.png">
+
+Two more examples: 
+- Machine translation system, working because today we have a lot of data with english and french corresponding sentences
+- Estimating child's age from the x-ray picture of a hand (end-to-end doesn't work because data is missing)
+
+
 > <img src="./images/w02-09-What_is_End-to-end_Deep_Learning/img_2023-03-31_11-27-03.png">
 
 ##  Whether to use End-to-end Deep Learning
