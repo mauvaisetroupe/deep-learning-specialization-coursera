@@ -165,6 +165,8 @@ Artificial data synthesis example : generated car using computer graphics.
 
 See pdf notes provided by Courseara : [5-Transfer_Learning.pdf](./5-Transfer_Learning.pdf)
 
+Also see : https://github.com/mauvaisetroupe/machine-learning-specialization-coursera/tree/main/c2-advanced-learning-algorithms/week3#transfer-learning-using-data-from-a-different-task
+
 Transfer learning refers to using the neural network knowledge for another application.
 
 
@@ -187,8 +189,22 @@ When to use transfer learning
 
 See pdf notes provided by Courseara : [6-Multi_Task_Learning.pdf](./6-Multi_Task_Learning.pdf)
 
+In transfer learning, you have a sequential process where you learn from task A and then transfer that to task B. In multi-task learning, you start off simultaneously, trying to have one neural network do several things at the same time. And then each of these tasks helps hopefully all of the other tasks. 
+
+Multi-task learning refers to having one neural network do simultaneously several tasks.
+
+
+The vehicle has to detect simultaneously several things: pedestrians, cars, road signs, traffic lights, cyclists
+
 > <img src="./images/w02-08-Multi-task_Learning/img_2023-03-31_11-26-45.png">
+
 > <img src="./images/w02-08-Multi-task_Learning/img_2023-03-31_11-26-47.png">
+
+When to use multi-task learning
+- Training on a set of tasks that could benefit from having shared lower-level features
+- Usually: Amount of data you have for each task is quite similar
+- Can train a big enough neural network to do well on all tasks
+
 > <img src="./images/w02-08-Multi-task_Learning/img_2023-03-31_11-26-48.png">
 
 
@@ -198,9 +214,9 @@ See pdf notes provided by Courseara : [6-Multi_Task_Learning.pdf](./6-Multi_Task
 
 See pdf notes provided by Courseara : [7-What_is_end_to_end_deep_learning.pdf](./7-What_is_end_to_end_deep_learning.pdf)
 
-> <img src="./images/w02-09-What_is_End-to-end_Deep_Learning?/img_2023-03-31_11-26-59.png">
-> <img src="./images/w02-09-What_is_End-to-end_Deep_Learning?/img_2023-03-31_11-27-01.png">
-> <img src="./images/w02-09-What_is_End-to-end_Deep_Learning?/img_2023-03-31_11-27-03.png">
+> <img src="./images/w02-09-What_is_End-to-end_Deep_Learning/img_2023-03-31_11-26-59.png">
+> <img src="./images/w02-09-What_is_End-to-end_Deep_Learning/img_2023-03-31_11-27-01.png">
+> <img src="./images/w02-09-What_is_End-to-end_Deep_Learning/img_2023-03-31_11-27-03.png">
 
 ##  Whether to use End-to-end Deep Learning
 
