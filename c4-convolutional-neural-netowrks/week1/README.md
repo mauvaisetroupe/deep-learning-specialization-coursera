@@ -53,8 +53,25 @@ To solve that, you need to implement the **convolution operation**, which is one
 
 ## Edge Detection Example
 
+The convolution operation is one of the fundamental building blocks of a convolutional neural network.
+For a computer to figure out what are the objects in this picture, the first thing you might do is maybe detect horizontal and vertical edges in the image.
+
 > <img src="./images/w01-02-Edge_Detection_Example/img_2023-04-01_09-45-59.png">
-> <img src="./images/w01-02-Edge_Detection_Example/img_2023-04-01_09-46-01.png">
+
+An example of convolution operation to detect vertical edges
+
+All the deep learning frameworks that have a good support for computer vision will have some functions for implementing this convolution operator:
+- In tensorflow cf. ```tf.nn.conv2d```
+- keras ```conv2d```
+
+> <img src="./images/w01-02-Edge_Detection_Example/img_2023-04-01_17-09-32.png">
+
+Why is this doing vertical edge detection?
+
+If you plot this right most matrix's image it will look like that where there is this lighter region right in the middle and that corresponds to this having detected this vertical edge down the middle of your 6 by 6 image. 
+
+Dimensions here seem a little bit wrong, that's only because we are working with very small images in this example. If you are using a 1000 x 1000 image rather than a 6 x 6 image then you find that this does a pretty good job, really detecting the vertical edges in your image. 
+
 > <img src="./images/w01-02-Edge_Detection_Example/img_2023-04-01_09-46-03.png">
 
 ## More Edge Detection
