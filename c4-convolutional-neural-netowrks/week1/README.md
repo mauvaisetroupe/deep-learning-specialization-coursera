@@ -76,8 +76,37 @@ Dimensions here seem a little bit wrong, that's only because we are working with
 
 ## More Edge Detection
 
+But this particular filter does make a difference between the light to dark versus the dark to light edges. And if you don't care which of these two cases it is, you could take absolute values of this output matrix. 
+
 > <img src="./images/w01-03-More_Edge_Detection/img_2023-04-01_09-46-23.png">
+
+This three by three filter we've seen allows you to detect vertical edges. So maybe it should not surprise you too much that this three by three filter will allow you to detect horizontal edges. 
+
 > <img src="./images/w01-03-More_Edge_Detection/img_2023-04-01_09-46-24.png">
+
+Different filters allow you to find vertical and horizontal edges. The three by three vertical edge detection filter we've used is just one possible choice. Historically, in the computer vision literature, there was a fair amount of debate about what is the best set of numbers to use.
+
+```
+Sobel filter:           Scharr filter:
+
+1, 0, -1                 3, 0, -3
+2, 0, -2                10, 0, -10
+1, 0, -1                 3, 0, -3
+```
+
+The advantage of these filters is there is more weight to the central row, the central pixel, and this makes it maybe a little bit more robust. 
+
+You also have Sobel and Scharr filter for horizontal edge detection by flipping rgem 90 degrees,
+
+And so by just letting all of these numbers be parameters and learning them automatically from data, we find that neural networks can actually learn low level features, can learn features such as edges, even more robustly than computer vision researchers are generally able to code up these things by hand.
+
+```
+w1, w2, w3
+w4, w5, w6
+w7, w8, w9
+```
+But underlying all these computations is still this convolution operation
+
 > <img src="./images/w01-03-More_Edge_Detection/img_2023-04-01_09-46-26.png">
 
 ## Padding
