@@ -175,8 +175,18 @@ By convention, in machine learning, we usually do not bother with this flipping 
 
 ## Convolutions Over Volume
 
-> <img src="./images/w01-06-Convolutions_Over_Volume/img_2023-04-01_09-47-12.png">
+We see how convolution works with 2D images, now lets see if we want to convolve 3D images (RGB image)
+
+Filter has 3 dimensions : ```height x width x channel``` , channel dimension corresponds to the red, green, and blue channels.
+
+In term of dimensions, we have ```6x6x6 * 3x3x3 = 4x4 ``` 
+
 > <img src="./images/w01-06-Convolutions_Over_Volume/img_2023-04-01_09-47-13.png">
+
+Last crucial idea  for building convolutional neural networks : we don't just wanted to detect vertical edges, but also horizontal edges, maybe 45 degree edges, maybe 70 degree edges as well
+
+In other words, what if you want to use multiple filters at the same time.
+
 > <img src="./images/w01-06-Convolutions_Over_Volume/img_2023-04-01_09-47-15.png">
 
 ## One Layer of a Convolutional Network
