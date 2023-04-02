@@ -150,8 +150,27 @@ In computer vision f (size of the filter) is usually odd. Some of the reasons is
 
 ## Strided Convolutions
 
+Stride convolutions is another piece of the basic building block of convolutions as using convolution neural networks.
+The filter must lie entirely within the image or the image plus the padding region.
+
 > <img src="./images/w01-05-Strided_Convolutions/img_2023-04-01_09-46-55.png">
+
+Stride convolution divide the size of the image by 2.
+
+Output size after convolution: floor((n+2p-f)/s+1) x floor((n+2p-f)/s+1)
+- after convolution with padding : ```(n+2p-f+1)```
+- after convolution with padding and strided : ```floor(1 + (n+2p-f)/s) ```
+
 > <img src="./images/w01-05-Strided_Convolutions/img_2023-04-01_09-46-58.png">
+
+In math textbooks the conv operation is **filpping** the filter before using it both horizontaly and verticaly.
+
+The way we've defined the convolution operation in these videos is that we've skipped this mirroring operation.
+
+It turns out that in signal processing or in certain branches of mathematics, doing the flipping in the definition of convolution causes convolution operator to enjoy associativity. This is nice for some signal processing applications. But for deep neural networks, it really doesn't matter, and so omitting this double mirroring operation just simplifies the code.
+
+By convention, in machine learning, we usually do not bother with this flipping operation. Technically this operation is maybe better called **cross-correlation**. But most of the deep learning literature just causes the convolution operator.
+
 > <img src="./images/w01-05-Strided_Convolutions/img_2023-04-01_09-47-00.png">
 
 ## Convolutions Over Volume
