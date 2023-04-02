@@ -111,7 +111,41 @@ But underlying all these computations is still this convolution operation
 
 ## Padding
 
+In order to build deep neural networks one modification to the basic convolutional operation that you need to really use is padding.
+
+Convolition filter change the size of your image.
+
+|image size|convolution size|after convolution|
+|--|--|--|
+|6 x 6|3 x 3|4 x 4|
+|n x n|f x f|(n-f+1) x (n-f+1)|
+
+
+The two downsides of a convolutional operator : 
+- your image shrinks (after a hundred layers you end up with a very small image)
+- you're throwing away a lot of the information near the edge of the image
+
+To solve theses problem, we use padding 
+
+> <img src="./images/w01-04-Padding/padding.png">
+
+|image size|convolution size|padding size|after convolution|
+|--|--|--|--|
+|6 x 6|3 x 3||4 x 4|
+|n x n|f x f||(n-f+1) x (n-f+1)|
+|n x n|f x f|p|(n+2p-f+1) x (n+2p-f+1)|
+|6 x 6|3 x 3|1|6 x 6|
+
+(padding with 2 pixel, p = 2, is also possible)
+
 > <img src="./images/w01-04-Padding/img_2023-04-01_09-46-39.png">
+
+ In terms of how much to pad, two common choices:
+ - **Valid** convolutions (no padding)
+ - **Same** convolutions (output size is the same as the input size)
+
+In computer vision f (size of the filter) is usually odd. Some of the reasons is that its have a center value.
+
 > <img src="./images/w01-04-Padding/img_2023-04-01_09-46-41.png">
 
 ## Strided Convolutions
