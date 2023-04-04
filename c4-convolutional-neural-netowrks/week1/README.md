@@ -328,10 +328,10 @@ This example is inspired of one of the classic neural networks called LeNet-5 cr
 |---|---|---|---|---|
 | Input || (32,32,3) | 3072 | 0 |
 | CONV1 |6 filters f=5, s=1| (28,28,6) | 4'704 | 456 `=(5*5*3+1)*6` |
-| *POOL1* |Max pooling f=2, s=2| (14,14,6) | 1'176 | 0 |
+| POOL1 |Max pooling f=2, s=2| (14,14,6) | 1'176 | 0 |
 | CONV2 |16 filters f=5, s=1 | (10,10,16) | 1'600 | 2'416 `=(5*5*6+1)*16` |
-| *POOL2* |Max pooling, f=2, s=2| (5,5,16) | 400 | 0 |
-|Flatten|Flaten 5 x 5 x 16 |400 x 1||
+| POOL2 |Max pooling, f=2, s=2| (5,5,16) | 400 | 0 |
+| Flatten |Flaten 5 x 5 x 16 |400 x 1||
 | FC3 |120 units standard layer| (120,1)|  120 | 48'120 `=400*120+120` |
 | FC4 |84 units standard layer| (84,1) | 84 | 10'164 `=120*84+84` |
 | softmax |softmax 10 outputs| (10,1) | 10 | 850 `=84*10+10` |
