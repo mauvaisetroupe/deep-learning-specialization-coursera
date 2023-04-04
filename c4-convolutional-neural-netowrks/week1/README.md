@@ -343,6 +343,8 @@ In the literature of a ConvNet there are two conventions which are inside the in
 
 Because the pooling layer has no weights, has no parameters, only a few hyper parameters we could consider POOL1 is part of Layer 1
 
+FC3 is called **fully connected** because each of the 400 units is connected to each of the 120 units here (densely connected).
+
 > <img src="./images/w01-10-CNN_Example/img_2023-04-01_09-48-29.png">
 
 There a lot of hyper parameters. Maybe one common guideline is to actually not try to invent your own settings of hyper parameters, but to look in the literature to see what hyper parameters you work for others. And to just choose an architecture that has worked well for someone else, and there's a chance that will work for your application as well. 
