@@ -16,6 +16,23 @@ Learning Objectives
 
 ## Why look at case studies?
 
+
+[Last week](../week1/README.md) we learned about the basic building blocks, such as convolutional layers, pooling layers, and fully connected layers of convnet. 
+
+In the past few years, a lot of computer vision research has been done to put together these basic building blocks to form effective convolutional neural networks. 
+
+As many may have learned to write code by reading other people's codes, a good way to gain intuition and how the build confidence is to read or to see other examples of effective confidence. It turns out that a neural network architecture that works well on one computer vision tasks often works well on other tasks as well.
+
+We will see the following 
+- standard networks :
+    - LeNet-5
+    - AlexNet
+    - VGG
+- ResNet, neural network trained a very deep 152 layer neural network
+- Inception 
+
+After seeing these neural networks, I think you have much better intuition about how to build effective convolutional neural networks. Even if you don't end up building computer vision applications yourself, I think you'll find some of these ideas very interesting and helpful for your work.
+
 > <img src="./images/w02-01-Why_look_at_case_studies/img_2023-04-04_21-35-02.png">
 
 ## Classic Networks
