@@ -88,12 +88,49 @@ With normal **plain networks**, because of the vanishing and exploding gradients
 
 ## Why ResNets Work?
 
+A residual block is a fundamental building block in deep neural networks, especially in CNNs, that helps to address the vanishing gradient problem **during training**. Let's go through one example that illustrates why ResNets work so well.
+
+We saw that if you make a network deeper, it can hurt your ability to train the network to do well on the training set.
+
+For the sake our argument, let's say throughout this network we're using the ReLU activation functions. So, all the activations are going to be greater than or equal to zero, with the possible exception of the input X. 
+
+```
+a[l+2] = g( z[l+2] + a[l] )
+	   = g( W[l+2] a[l+1] + b[l+2] + a[l] )
+```
+
+If we use L2 regularization, the value of W[l+2],b[l+2] shrink to zero ```a[l+2] ≈ g(a[l])```
+
+As  we use ReLU and a[l] is also positive, ```a[l+2] ≈ g(a[l])```
+
+That means that **identity function** is easy for a residual block to learn because of the shortcut connection, that's why adding these 2 additional layers doesn't hurt performance
+
+
+But of course our goal is to not just not hurt performance, is to help performance and so you can imagine that if all of these heading units if they actually learned something useful then maybe you can do even better than learning the identity function
+
+One more detail in the residual network that's worth discussing which is through this edition here, we're assuming that z[l+2] and a[l] have the same dimension. that's why ResNet use "same convolution" with padding
+
 > <img src="./images/w02-04-Why_ResNets_Work/img_2023-04-04_21-36-59.png">
+
+Example of a plain network and a associated ResNet,
+
 > <img src="./images/w02-04-Why_ResNets_Work/img_2023-04-04_21-37-00.png">
 
 ## Networks in Networks and 1x1 Convolutions
 
+With only one channel, one-by-one convolution doesn't make sense (exemple with 6x6x1)
+
+But with an input 6x6x32, wwe can use a 1x1x32 convolution that perform an element-wise product then apply a ReLU non linearity.
+
+One way to think about a one-by-one convolution is that it is basically having a fully connected neural network that applies to each of the 62 different positions. 
+
+One-by-one convolution is sometimes also called network in network
+
 > <img src="./images/w02-05-Networks_in_Networks_and_1x1_Convolutions/img_2023-04-04_21-37-21.png">
+
+Example of where one-by-one convolution is useful. If you want to shrink the height and width, you can use a pooling layer. But to shrink the number of channel, you can use 32 filters (from 192 to 32 channels inthe below example) 
+
+
 > <img src="./images/w02-05-Networks_in_Networks_and_1x1_Convolutions/img_2023-04-04_21-37-22.png">
 
 ## Inception Network Motivation
