@@ -72,7 +72,18 @@ But next, let's go beyond these classic networks and look at some even more adva
 
 ## ResNets
 
+Very, very deep neural networks are difficult to train, because of vanishing and exploding gradient types of problems.
+
+A residual block is a stack of layers set in such a way that the output of a layer is taken and added to another layer deeper in the block. The non-linearity is then applied after adding it together with the output of the corresponding layer in the main path. 
+
+This by-pass connection is known as the shortcut or the skip-connection.
+
 > <img src="./images/w02-03-ResNets/img_2023-04-04_21-36-44.png">
+
+This residual network is composed of 5 residual blocks.
+
+With normal **plain networks**, because of the vanishing and exploding gradients problems, the performance decrease when the the network become too deep. With residual networks, the performance of the training keep on going down when adding more layers
+
 > <img src="./images/w02-03-ResNets/img_2023-04-04_21-36-45.png">
 
 ## Why ResNets Work?
