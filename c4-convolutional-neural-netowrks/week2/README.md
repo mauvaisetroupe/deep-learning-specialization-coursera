@@ -37,9 +37,38 @@ After seeing these neural networks, I think you have much better intuition about
 
 ## Classic Networks
 
+The goal of LeNet-5 was to recognize handwritten digits. This neural network architecture is actually quite similar to the last [example you saw last week](../week1/README.md#cnn-example).
+- Paper was written in **1998**, people didn't really use padding, which is why convolutional layer decrease width and height (28x28 -> 14x14 -> 10x10 -> 5x5)
+- The number of channels does increase.
+- A modern version of this neural network, we'll use a softmax layer with a 10 way classification output. Although back then, LeNet-5 actually use a different classifier at the output layer, one that's useless today.
+- his neural network was small by modern standards, had about 60,000 parameters (10 million to 100 million parameters today is a standard)
+- This type of arrangement of layers (CONV, POOL, CONV, POOL, FC, FC, OUTPUT) is quite common. 
+
+Red comments are only for who wants to read the original paper :
+- The activation function used in the paper was Sigmoid and Tanh. Modern implementation uses RELU in most of the cases.
+- to save on computation as well as some parameters, the original LeNet-5 had some crazy complicated way where different filters would look at different channels of the input block.
+
 > <img src="./images/w02-02-Classic_Networks/img_2023-04-04_21-36-22.png">
+
+The second example of a neural network I want to show you is AlexNet, named after Alex Krizhevsky, who was the first author of the paper describing this work (**2012**)
+- So this neural network actually had a lot of similarities to LeNet, but it was much bigger ( 60,000 parameters VS 60 million parameters)
+- It used the RELU activation function.
+- when this paper was written, GPUs was still a little bit slower, so it had a complicated way of training on two GPUs. 
+- The original AlexNet architecture also had another set of a layer called a Local Response Normalization. And this type of layer isn't really used much
+
+
 > <img src="./images/w02-02-Classic_Networks/img_2023-04-04_21-36-24.png">
+
+- Instead of having a lot of hyperparameters lets have some simpler network. The simplicity of the VGG-16 architecture (quite uniform) made it quite appealing. 
+    - CONV = 3 X 3 filter, s = 1, same
+    - MAX-POOL = 2 X 2 , s = 2
+- The 16 in the VGG-16 refers to the fact that this has 16 layers that have weights
+- And this is a pretty large network, this network has a total of about 138 million parameters (pretty large even by modern standards). 
+
+
 > <img src="./images/w02-02-Classic_Networks/img_2023-04-04_21-36-26.png">
+
+But next, let's go beyond these classic networks and look at some even more advanced, even more powerful neural network architectures. Let's go onto the next video.
 
 ## ResNets
 

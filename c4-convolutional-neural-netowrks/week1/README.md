@@ -324,7 +324,7 @@ To summarize :
 
 Let's look at an example af network to detect handwritten digit numbers in a 32 x 32 x 3 RGB image
 
-This example is inspired of one of the classic neural networks called LeNet-5 created by Yann LeCun many years ago.
+This example is inspired of one of the classic neural networks called [LeNet-5](../week2/README.md#classic-networks) created by Yann LeCun many years ago.
 
 | layer |Descrription| activation shape | activation size | # parameters |
 |---|---|---|---|---|
