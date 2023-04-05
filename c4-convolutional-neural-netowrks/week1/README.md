@@ -361,8 +361,25 @@ Usually, as you go deeper in the network :
 
 ## Why Convolutions?
 
+If we compare a standard neural network (fully connected) and convolutional network we have, fo a **small image** (32 x 32 x 3) :
+- 14 millions of parameters for a standard neural network (NN)
+- 156 parameters for a CNN
+
 > <img src="./images/w01-11-Why_Convolutions/img_2023-04-01_09-48-46.png">
+
+ConvNet has few parameters for two reasons:
+- parameter sharing : a 3x3 filter for detecting vertical edges us useful for all the pixels in the images, the same filter, idenpendently of the place in the image
+- sparse connections : the '0'  circled in green in the slide below depends only of the 9 (3x3) features in green in the image (right side), so 9 out of these 36 (6x6) input features. 
+
 > <img src="./images/w01-11-Why_Convolutions/img_2023-04-01_09-48-48.png">
+
+Let's put it all together and see how you can train one of these networks.
+We choose a convolutional neural network structure:
+- insert the image 
+- have a neural convolutional and pooling layers 
+- some fully connected layers 
+- followed by a softmax output
+
 > <img src="./images/w01-11-Why_Convolutions/img_2023-04-01_09-48-49.png">
 
 # Heroes of Deep Learning (Optional)
