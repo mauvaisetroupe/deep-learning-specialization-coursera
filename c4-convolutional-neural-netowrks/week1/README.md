@@ -380,6 +380,9 @@ We choose a convolutional neural network structure:
 - some fully connected layers 
 - followed by a softmax output
 
+Then you define a cost function similar to what we have seen in the standard NN, and all you need to do is then use gradient descents, gradient descent momentum, RMSProp or Adam in order to optimize all the parameters of the neural network to try to reduce the cost function J.
+
+
 > <img src="./images/w01-11-Why_Convolutions/img_2023-04-01_09-48-49.png">
 
 # Heroes of Deep Learning (Optional)
