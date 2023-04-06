@@ -120,11 +120,11 @@ Example of a plain network and a associated ResNet,
 
 With only one channel, one-by-one convolution doesn't make sense (exemple with 6x6x1)
 
-But with an input 6x6x32, wwe can use a 1x1x32 convolution that perform an element-wise product then apply a ReLU non linearity.
+But with an input 6x6x32, we can use a 1x1x32 convolution that perform an element-wise product then apply a ReLU non linearity.
 
-One way to think about a one-by-one convolution is that it is basically having a fully connected neural network that applies to each of the 62 different positions. 
-
-One-by-one convolution is sometimes also called network in network
+- One way to think about a one-by-one convolution is that it is basically having a fully connected neural network that applies to each of the 62 different positions. 
+- One-by-one convolution is sometimes also called network in network
+- If using many filter, the outpu will have #filters channels
 
 > <img src="./images/w02-05-Networks_in_Networks_and_1x1_Convolutions/img_2023-04-04_21-37-21.png">
 
@@ -136,9 +136,45 @@ Example of where one-by-one convolution is useful.
 
 ## Inception Network Motivation
 
+When designing a layer for a ConvNet, you might have to pick, do you want a 1x3 filter, or 3x3, or 5x5, or do you want a pooling layer? Why should you do them all? And this makes the network architecture more complicated, but it also works remarkably well. 
+
+So what the inception network or what an inception layer says is, instead choosing what filter size you want in a Conv layer, or even do you want a convolutional layer or a pooling layer? 
+- Let's do them all : CONV 1x1, CONV 3x3, CONV 5x5, MAX POOL 
+- And then what you do is just stack up this second volume next to the first volume.
+- So you will have one inception module input 28 x 28 x 192, and output 28 x 28 x 256.
+- Let the network learn whatever parameters it wants to use, whatever the combinations of these filter it wants
+
 > <img src="./images/w02-06-Inception_Network_Motivation/img_2023-04-04_21-37-40.png">
+
+There is a problem with the inception layer as we've described it here, which is computational cost. 
+
+Let's figure out what's the computational cost of the 5 x 5 filter (purple block in privious slide).
+
 > <img src="./images/w02-06-Inception_Network_Motivation/img_2023-04-04_21-37-42.png">
+
+Total operation is 5*5*192*28*28*21 = 120 millions.
+
+While you can do 120 million multiplies on the modern computer, this is still a pretty expensive operation. 
+
+
+> <img src="./images/w02-06-Inception_Network_Motivation/img_2023-04-06_07-20-11.png">
+
+Here is an alternative architecture for inputting 28 x 28 x 192, and outputting 28 x 28 x 32, to reduce the computational costs by about a factor of 10. 
+- So notice the input and output dimensions are still the same.
+- But what we've done is we're taking this huge volume we had on the left, and we shrunk it to this much smaller intermediate volume, which only has 16 instead of 192 channels
+- Sometimes this is called a bottleneck layer
+
+Total operation is 12.4 millions (conpared to 120 millions)
+
 > <img src="./images/w02-06-Inception_Network_Motivation/img_2023-04-04_21-37-43.png">
+
+
+So to summarize :
+- you don't want to have to decide, do you want a 1 x 1, or 3 x 3, or 5 x 5, or pooling layer, the inception module lets you say let's do them all
+- and let's concatenate the results
+- the problem of computational cost is solvd by using a one-by-one convolution
+
+Now you might be wondering, does shrinking down the representation size so dramatically, does it hurt the performance of your neural network? It turns out that so long as you implement this bottleneck layer so that within reason, you can shrink down the representation size significantly, and it doesn't seem to hurt the performance, but saves you a lot of computation.
 
 ## Inception Network
 
