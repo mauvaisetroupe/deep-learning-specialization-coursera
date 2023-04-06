@@ -128,8 +128,9 @@ One-by-one convolution is sometimes also called network in network
 
 > <img src="./images/w02-05-Networks_in_Networks_and_1x1_Convolutions/img_2023-04-04_21-37-21.png">
 
-Example of where one-by-one convolution is useful. If you want to shrink the height and width, you can use a pooling layer. But to shrink the number of channel, you can use 32 filters (from 192 to 32 channels inthe below example) 
-
+Example of where one-by-one convolution is useful. 
+- If you want to shrink the height and width, you can use a pooling layer. 
+- But to shrink the number of channel, you can use 32 filters (from 192 to 32 channels) 
 
 > <img src="./images/w02-05-Networks_in_Networks_and_1x1_Convolutions/img_2023-04-04_21-37-22.png">
 
