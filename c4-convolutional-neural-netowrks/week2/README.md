@@ -316,9 +316,30 @@ It turns out that a lot of these neural networks are difficult or finicky to rep
 
 But if you see a research paper whose results you would like to build on top of, one thing you should consider doing, one thing I do quite often it's just look online for an open-source implementation. Because if you can get the author's implementation, you can usually get going much faster than if you would try to reimplement it from scratch.
 
+Example :  https://github.com/KaimingHe/deep-residual-networks (with Caffe framework)
+
+One of the advantages of doing so also is that sometimes these networks take a long time to train, and someone else might have used multiple GPUs and a very large dataset to pretrain some of these networks. And that allows you to do transfer learning using these networks 
+
 ## Transfer Learning
 
+The computer vision research community has been pretty good at posting lots of data sets on the Internet : 
+ - Image Net, 
+ - MS COCO, 
+ - Pascal types of data sets, 
+these are the names of different data sets that people have post online and a lot of computer researchers have trained their algorithms on.
+
+Sometimes these training takes several weeks and might take many GPUs. The fact that someone else has done this and gone through the painful high-performance search process, means that you can often download open-source ways that took someone else many weeks or months to figure out and use that as a very good initialization for your own neural network.
+
+Let's say your cats are called Tiger and Misty. You have a classification problem with three clauses. You probably don't have a lot of pictures of Tigger or Misty so your training set will be small. 
+
+
+I recommend you go online and download some open-source implementation of a neural network and download not just the code but also the weights.
+
+1. Small anount of data - Freeza all layers (``trainanbleParameter = 0`` or ``freeze = 1``) except softmax unit that you replace and train to outputs Tigger or Misty or neither.   
+2. Medium amount of data - Freeze fewer layers
+3. Lot of datas : keep weights as initial values for parameters and train all the mode
 > <img src="./images/w02-12-Transfer_Learning/img_2023-04-04_21-40-15.png">
+
 
 ## Data Augmentation
 
