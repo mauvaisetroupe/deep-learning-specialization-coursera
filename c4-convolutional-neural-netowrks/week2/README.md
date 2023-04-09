@@ -178,23 +178,85 @@ Now you might be wondering, does shrinking down the representation size so drama
 
 ## Inception Network
 
+You've already seen all the basic building blocks of the Inception network. Let's see how you can put these building blocks together to build your own Inception network.
+
+**Inception module** takes as input the activation (output) from some previous layer (previous activation), with the following components:
+1. [1x1 CONV followed by 5x5 CONV](#inception-network-motivation)
+2. 1x1 CONV followed by 3x3 CONV, for the same computational cost reason
+3. 1x1 CONV (doesn't need additional component)
+4. 3x3 MAX POOL layer
+    - we use padding (same CONV) for keeping width and height (28x28x192 output)
+    - we add a 1-by-1 CONV with 32 channels to shring the number of channels
+
 > <img src="./images/w02-07-Inception_Network/img_2023-04-04_21-38-51.png">
+
+The inception network consists in putting together blocks of the Inception module :
+- some extra max pooling layers to change the dimension
+- the last few layers of the network is a fully connected layer followed by a softmax layer to try to make a prediction
+- there are additional side branches depicted with green lines :
+    - they help to ensure that intermediate layers are not too bad
+    - they have a regularizing effect and helps prevent this network from overfitting
+- Inception network was developed by authors at Google who called it GoogLeNet, spelled like that, to pay homage to the LeNet network. 
+
 > <img src="./images/w02-07-Inception_Network/img_2023-04-04_21-38-53.png">
+
+The name incpetion network come from thie meme : we need to go deeper
+
 > <img src="./images/w02-07-Inception_Network/img_2023-04-04_21-38-55.png">
 
 ## MobileNet
 
+You've learned about 
+- the ResNet architecture, 
+- Inception net. 
+
+MobileNets is another foundational convolutional neural network architecture used for computer vision. Using MobileNets will allow you to build and deploy new networks that work even in low compute environment, such as a mobile phone.
+
+It's based on **depthwise separable convolution**.
+
 > <img src="./images/w02-08-MobileNet/img_2023-04-04_21-39-07.png">
+
+Normal convoultion, computal cost :
+- 3x3x3=27 multiplication per value
+- 4x4 values to compute (size of output)
+- repeat the operation by the number of filters (5)
+
 > <img src="./images/w02-08-MobileNet/img_2023-04-04_21-39-09.png">
+
+The depthwise separable convolution will take as input a 6x6x3 image and outputs 4x4xx5 with fewer computations than 2,160. In contrast to the normal convolution which you just saw, the depthwise separable convolution has two steps:
+- first use a **depthwise** convolution, 
+- followed by a **pointwise** convolution.
+
 > <img src="./images/w02-08-MobileNet/img_2023-04-04_21-39-10.png">
+
+In a **depthwise** convolution, each filter has a 3x3x1 dimension instead of a 3x3x3 dimension. The difference is that :
+- first filter is apply to first channel of image, 
+- second filter is apply to second channel of image, 
+- third filter is apply to third channel of image
+
 > <img src="./images/w02-08-MobileNet/img_2023-04-04_21-39-13.png">
+
+After the first step, we have a 4x4x3 but we want a 4x4x5 output. That's why we apply the second step
+
 > <img src="./images/w02-08-MobileNet/img_2023-04-04_21-39-15.png">
+
+We apply 5 filters, each filter with a 1x1x3 dimension
+
 > <img src="./images/w02-08-MobileNet/img_2023-04-04_21-39-17.png">
+
+<!--
 > <img src="./images/w02-08-MobileNet/img_2023-04-04_21-39-18.png">
+-->
+
 > <img src="./images/w02-08-MobileNet/img_2023-04-04_21-39-20.png">
+
+Now, something looks wrong with this diagram, doesn't it? Which is that this should be 3x3x6 not 3x3x9. But in order to make the diagrams in the next video look a little bit simpler, even when the number of channels is greater than three, I'm still going to draw the depthwise convolution operation as if it was this stack of 3 filters. 
+
 > <img src="./images/w02-08-MobileNet/img_2023-04-04_21-39-22.png">
 
 ## MobileNet Architecture
+
+The idea of MobileNet is everywhere that you previously have used an expensive convolutional operation, you can now instead use a much less expensive depthwise separable convolutional operation.
 
 > <img src="./images/w02-09-MobileNet_Architecture/img_2023-04-04_21-39-35.png">
 > <img src="./images/w02-09-MobileNet_Architecture/img_2023-04-04_21-39-37.png">
