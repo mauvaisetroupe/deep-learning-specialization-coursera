@@ -305,11 +305,16 @@ The key idea behind EfficientNet is to scale up the neural network in a more eff
 
 > <img src="./images/w02-10-EfficientNet/img_2023-04-04_21-39-52.png">
 
-
+Summary on network seeen during week2 
+> <img src="./images/img_2023-04-09_17-20-05.png">
 
 # Practical Advice for Using ConvNets
 
 ## Using Open-Source Implementation
+
+It turns out that a lot of these neural networks are difficult or finicky to replicate because a lot of details about tuning of the hyperparameters such as learning decay and other things that make some difference to the performance.
+
+But if you see a research paper whose results you would like to build on top of, one thing you should consider doing, one thing I do quite often it's just look online for an open-source implementation. Because if you can get the author's implementation, you can usually get going much faster than if you would try to reimplement it from scratch.
 
 ## Transfer Learning
 
