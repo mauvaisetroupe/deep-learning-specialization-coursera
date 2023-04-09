@@ -248,6 +248,8 @@ We apply 5 filters, each filter with a 1x1x3 dimension
 > <img src="./images/w02-08-MobileNet/img_2023-04-04_21-39-18.png">
 -->
 
+The total cost is :
+
 > <img src="./images/w02-08-MobileNet/img_2023-04-04_21-39-20.png">
 
 Now, something looks wrong with this diagram, doesn't it? Which is that this should be 3x3x6 not 3x3x9. But in order to make the diagrams in the next video look a little bit simpler, even when the number of channels is greater than three, I'm still going to draw the depthwise convolution operation as if it was this stack of 3 filters. 
@@ -258,10 +260,35 @@ Now, something looks wrong with this diagram, doesn't it? Which is that this sho
 
 The idea of MobileNet is everywhere that you previously have used an expensive convolutional operation, you can now instead use a much less expensive depthwise separable convolutional operation.
 
+The MobileNet v1 paper had a specific architecture in which it use a 13 blocks, followed by Pooling layer, followed by a fully connected layer, followed by a Softmax in order for it to make a classification prediction
+
+In this video, I want to share with you one more improvements on this basic MobileNet architecture, which is the **MobileNets v2 architecture**. In MobileNet v2, there are two main changes:
+- the addition of a residual connection (see [ResNet](#resnets))
+- the addition of an expansion layer
+
+
+Notes : 
+- This blocks (v2) is also called the bottleneck block.
+- pointwise can also be called projection layer
+
+
 > <img src="./images/w02-09-MobileNet_Architecture/img_2023-04-04_21-39-35.png">
+
+Detail on MobileNet V2 bottleneck block
+1. expansion : 18 filters nxnx18 (input is nxnx3, factor of 6 is typical in MobileNet V2), thatś why is call expansion, go fron 3 channels to 18 channels
+2. depthwise convolution (reminder, 18 channels even if on the slide only 3 colors-channels represented)
+3. Pointwise convolution with 3 filters (call projection because you are projecting down from n x n x 18 down to n x n x 3)
+
+ You might be wondering, why do we meet these bottleneck blocks? They accomplishes 2 things:
+ - expansion increase the size of the representation within the bottleneck block. This allows the neural network to learn a richer function.
+ - But when deploying on a mobile device,  you will often be heavy memory constraints. Pointwise convolution operation projects it back down to a smaller set of values, so that when you pass this the next block, the amount of memory needed to store these values is reduced back down
+
 > <img src="./images/w02-09-MobileNet_Architecture/img_2023-04-04_21-39-37.png">
+
+<!--
 > <img src="./images/w02-09-MobileNet_Architecture/img_2023-04-04_21-39-38.png">
 > <img src="./images/w02-09-MobileNet_Architecture/img_2023-04-04_21-39-40.png">
+-->
 
 ## EfficientNet
 
