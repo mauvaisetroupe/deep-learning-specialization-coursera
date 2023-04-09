@@ -343,8 +343,25 @@ I recommend you go online and download some open-source implementation of a neur
 
 ## Data Augmentation
 
+Some common data augmentation in computer vision:
+
+- Mirroring
+- Random cropping
+- Rotation
+- Shearing
+- Local warping
+
 > <img src="./images/w02-13-Data_Augmentation/img_2023-04-04_21-40-52.png">
+
+Color shifting makes your algorithm more robust in changing colors in images : add distorsion to R, G, and B that makes the image identified as the same for the human. In practice the added value are pulled from some probability distribution and these shifts are some small.
+
+There ar
+e an algorithm which is called PCA color augmentation that decides the shifts needed automatically (see AlexNet paper)
+
 > <img src="./images/w02-13-Data_Augmentation/img_2023-04-04_21-40-54.png">
+
+Implementing distortions during training:
+
 > <img src="./images/w02-13-Data_Augmentation/img_2023-04-04_21-40-56.png">
 
 ## State of Computer Vision
