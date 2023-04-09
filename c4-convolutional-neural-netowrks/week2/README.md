@@ -292,6 +292,15 @@ Detail on MobileNet V2 bottleneck block
 
 ## EfficientNet
 
+MobileNet V1 and V2 gave you a way to implement a neural network, that is more computationally efficient. But is there a way to tune MobileNet, or some other architecture, to your specific device? 
+
+The authors of the EfficientNet paper, Mingxing Tan and Quoc Le, observed that the three things you could do to scale things up or down: 
+- resolution image (r)
+- depth of the neural network (d)
+- you can make the layers wider (w)
+
+If you are ever looking to adapt a neural network architecture for a particular device, look at one of the open source implementations of EfficientNet, which will help you to choose a good trade-off between r, d, and w
+
 > <img src="./images/w02-10-EfficientNet/img_2023-04-04_21-39-52.png">
 
 
