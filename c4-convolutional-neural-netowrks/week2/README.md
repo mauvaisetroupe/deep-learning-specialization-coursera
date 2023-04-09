@@ -301,6 +301,8 @@ The authors of the EfficientNet paper, Mingxing Tan and Quoc Le, observed that t
 
 If you are ever looking to adapt a neural network architecture for a particular device, look at one of the open source implementations of EfficientNet, which will help you to choose a good trade-off between r, d, and w
 
+The key idea behind EfficientNet is to scale up the neural network in a more efficient way than previous methods. Traditional scaling methods simply increase the depth, width, or resolution of a network independently, which can lead to diminishing returns or even reduced performance. In contrast, EfficientNet scales all three dimensions simultaneously and dynamically, using a compound scaling method that balances the different dimensions based on the available computational resources.
+
 > <img src="./images/w02-10-EfficientNet/img_2023-04-04_21-39-52.png">
 
 
