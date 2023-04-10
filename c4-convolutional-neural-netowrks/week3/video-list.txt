@@ -1,0 +1,14 @@
+w03-01-object_localization
+w03-02-landmark_detection
+w03-03-object_detection
+w03-04-convolutional_implementation_of_sliding_windows
+w03-05-bounding_box_predictions
+w03-06-intersection_over_union
+w03-07-non-max_suppression
+w03-08-anchor_boxes
+w03-09-yolo_algorithm
+w03-10-region_proposals
+w03-11-semantic_segmentation_with_u-net
+w03-12-transpose_convolutions
+w03-13-u-net_architecture_intuition
+w03-14-u-net_architecture
