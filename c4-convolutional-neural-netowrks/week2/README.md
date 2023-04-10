@@ -366,7 +366,27 @@ Implementing distortions during training:
 
 ## State of Computer Vision
 
+Deep learning has been successfully applied to computer vision, natural language processing, speech recognition, online advertising, logistics, many, many, many problems. There are a few things that are unique about the application of deep learning to computer vision, about the status of computer vision.
+
+You can think of most machine learning problems as falling somewhere on the spectrum between where you have relatively little data to where you have lots of data:
+- speech recognition : decent amount of data for speech recognition and it's relative to the complexity of the problem
+- inage recognition : there are reasonably large data sets today for image, because image recognition is just a complicated problem, even though the online data sets are quite big like over a million images, feels like we still wish we had more data
+- object detection : even less data. As a reminder image recognition was the problem of looking at a picture and telling you is this a cattle or not. Whereas object detection is look in the picture and actually you're putting the **bounding boxes** are telling you where in the picture the objects such as the car as well (it's more expensive to label objects)
+
+
+If your problem has a large amount of data, researchers are tend to use:
+- Simpler algorithms.
+- Less hand engineering.
+
+And so I think computer vision is trying to learn a really complex function. And it often feels like we don't have enough data for computer vision (even if increasing today). And I think this is also why that either computer vision has developed rather complex network architectures
+
 > <img src="./images/w02-14-State_of_Computer_Vision/img_2023-04-04_21-41-21.png">
+
+If you look at the computer vision literature, and look at the sort of ideas out there, you also find that people are really enthusiastic. They're really into doing well on standardized benchmark data sets and on winning competitions. And for computer vision researchers if you do well and the benchmark is easier to get the paper published.
+
 > <img src="./images/w02-14-State_of_Computer_Vision/img_2023-04-04_21-41-23.png">
+
+A neural network that works well on one vision problem often may be surprisingly, but they just often would work on other vision problems as well. So, to build a practical system often you do well starting off with someone else's neural network architecture.
+
 > <img src="./images/w02-14-State_of_Computer_Vision/img_2023-04-04_21-41-27.png">
 
