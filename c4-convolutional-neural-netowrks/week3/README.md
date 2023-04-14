@@ -215,6 +215,8 @@ In output y :
 
 Concrete example, with class c1 = pedestrian, c2 = car
 
+> <img src="./images/w03-08-anchor_boxes/img_2023-04-10_09-17-59.png">
+
 Algorithm doesn't handle :
 - two anchor boxes but three objects in the same grid cell
 - two objects associated with the same grid cell, but both of them have the same anchor box shape
@@ -224,8 +226,6 @@ Anchor boxes are used if two objects appear in the same grid cell. In practice, 
 Finally, how do you choose the anchor boxes? 
 - choose them by hand or choose maybe five or 10 anchor box shapes that spans a variety of shapes that seems to cover the types of objects you seem to detect
 - more advanced version, an even better way to do this in one of the later YOLO research papers, is to use a K-means algorithm, to group together two types of objects shapes you tend to get
-
-> <img src="./images/w03-08-anchor_boxes/img_2023-04-10_09-17-59.png">
 
 ## YOLO Algorithm
 
