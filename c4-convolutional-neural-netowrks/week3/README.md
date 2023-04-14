@@ -243,10 +243,33 @@ Andrew : "So the idea of region proposals has been quite influential in computer
 
 ## Semantic Segmentation with U-Net
 
+
+Let's say you're building a self-driving car:
+- detect the position of the other cars. with bounding box is enough
+- but detecting the road and trying to draw a bounding box around the roads is not useful. You want to label every single pixel as a drivable roads or not (dark green).
+
 > <img src="./images/w03-11-semantic_segmentation_with_u-net/img_2023-04-10_09-18-58.png">
+
+These are a couple of images from research papers by Novikov et al and by Dong et al. In medical imaging, given a chest X-ray, you may want to diagnose if someone has a certain condition, but what may be even more helpful to doctors, is if you can segment out in the image, exactly which pixels correspond to certain parts of the patient's anatomy. In the image on the left, the lungs, the heart, and the clavicle, so the collarbones are segmented out using different colors
+
 > <img src="./images/w03-11-semantic_segmentation_with_u-net/img_2023-04-10_09-19-00.png">
+
+Let's say for now that the only thing you care about is segmenting out the car in this image. In that case, you may decide to have two cause labels. 
+
 > <img src="./images/w03-11-semantic_segmentation_with_u-net/img_2023-04-10_09-19-02.png">
+
+With 3 classes : car, building and road.
+
 > <img src="./images/w03-11-semantic_segmentation_with_u-net/img_2023-04-10_09-19-05.png">
+
+What's the right neural network architecture to do that? 
+- Let's start with the object recognition neural network architecture that you're familiar with 
+- let's get rid of the last few layers 
+- the image have been generally getting smaller as we go from left to right, it now needs to get bigger so they can gradually blow it back up to a full-size image
+- it now needs to get bigger so they can gradually blow it back up to a full-size image,
+
+To make the image bigger you have to know how to implement a **transpose convolution**.
+
 > <img src="./images/w03-11-semantic_segmentation_with_u-net/img_2023-04-10_09-19-07.png">
 
 ## Transpose Convolutions
