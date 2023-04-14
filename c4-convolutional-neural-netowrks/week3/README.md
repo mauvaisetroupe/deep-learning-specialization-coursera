@@ -319,5 +319,6 @@ Pixel #4
 
 ## U-Net Architecture
 
+This is what a U-Net looks like. By the way, is also why it's called a U-Net, because when you draw it like this, it looks a lot like a U.
+
 > <img src="./images/w03-14-u-net_architecture/img_2023-04-10_09-19-15.png">
-> <img src="./images/w03-14-u-net_architecture/img_2023-04-10_09-19-17.png">
