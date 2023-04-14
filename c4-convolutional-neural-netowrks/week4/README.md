@@ -23,7 +23,7 @@ Learning Objectives
 - Face recognition
     - Output ID if the image is any of the K persons in the database (or “not recognized”)
 
-If your face recognition szstem is based on your face verification, you need a verification system with more tha 99.9 before you can run it on a database of 100 persons that have a high chance of getting incorrect. 
+If you are building a facial recognition system based on your facial verification system, the verification system must be over 99.9% accurate before you can run it on a database of 100 people and have a good chance to be correct.
 
 What we do in the next few videos is 
 1. focus on building a face verification system as a building block and then if the accuracy is high enough, 
@@ -33,7 +33,22 @@ What we do in the next few videos is
 
 ## One Shot Learning
 
+One of the challenges of face recognition is that you need to solve the one-shot learning problem (you need to be able to recognize a person given just one single image)
+
+Let's say you have a database of 4 pictures of employees in you're organization.
+
+When someone shows up at the office :
+- despite ever having seen only one image of Danielle, to recognize that this is actually the same person. 
+- and in contrast, if it sees someone that's not in this database, then it should recognize that this is not any of the four persons in the database
+
+So one approach you could try is to input the image of the person, feed it too a ConvNet with a softmax unit with 5 outputs (corresponding to each of these four persons or none of the above). Because you have such a small training set it is really not enough to train a robust neural network for this task
+
+And also what if a new person joins your team? So now you have 5 persons you need to recognize, so there should now be six outputs. Do you have to retrain the ConvNet every time?
+
 > <img src="./images/w04-02-one_shot_learning/img_2023-04-14_22-07-17.png">
+
+So instead, to make this work, what you're going to do instead is learn a similarity function
+
 > <img src="./images/w04-02-one_shot_learning/img_2023-04-14_22-07-19.png">
 
 ## Siamese Network
