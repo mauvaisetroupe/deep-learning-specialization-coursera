@@ -177,9 +177,23 @@ Usually, IOU > 0.5 means a correct martching between the 2 boxes
 
 ## Non-max Suppression
 
+<!--
 > <img src="./images/w03-07-non-max_suppression/img_2023-04-10_09-17-33.png">
 > <img src="./images/w03-07-non-max_suppression/img_2023-04-10_09-17-35.png">
+-->
+
+One of the problems of Object Detection is that your algorithm may find multiple detections of the same objects
+
+Each car has multiple detections with different probabilities that come from the fact that many grids consider they have the center point of the object.
+
 > <img src="./images/w03-07-non-max_suppression/img_2023-04-10_09-17-37.png">
+
+Idea is to:
+- take box with highest probabilities, 
+- iterate over other boxes and elliminate the ones with high IOU
+
+If classes are used for multiple classes of objects, the compare only boxes with same class
+
 > <img src="./images/w03-07-non-max_suppression/img_2023-04-10_09-17-40.png">
 
 ## Anchor Boxes
