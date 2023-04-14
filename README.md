@@ -74,7 +74,7 @@ Explore TensorFlow, a deep learning framework that allows you to build neural ne
 
 
 
-# [Course 3 - Convolutional Neural Networks](./c3-structuring-ml-projects/README.md)
+# [Course 3 - Structuring Machine Learning Projects](./c3-structuring-ml-projects/README.md)
 
 https://www.coursera.org/learn/machine-learning-projects
 
