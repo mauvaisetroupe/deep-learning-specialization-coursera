@@ -236,6 +236,9 @@ Finally, how do you choose the anchor boxes?
 ## Region Proposals (Optional)
 
 > <img src="./images/w03-10-region_proposals/img_2023-04-10_09-18-35.png">
+
+Andrew : "So the idea of region proposals has been quite influential in computer vision, and I wanted you to know about these ideas because you see others still used these ideas, for myself, and this is my personal opinion, not the opinion of the computer vision research committee as a whole. I think that we can propose an interesting idea but that not having two steps, first, proposed region and then crossfire, being able to do everything more or at the same time, similar to the YOLO or the You Only Look Once algorithm that seems to me like a more promising direction for the long term"
+
 > <img src="./images/w03-10-region_proposals/img_2023-04-10_09-18-37.png">
 
 ## Semantic Segmentation with U-Net
