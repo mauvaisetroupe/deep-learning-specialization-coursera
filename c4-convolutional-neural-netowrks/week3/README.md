@@ -274,8 +274,34 @@ To make the image bigger you have to know how to implement a **transpose convolu
 
 ## Transpose Convolutions
 
+Normal vs Transpose Convolutions
+
 > <img src="./images/w03-12-transpose_convolutions/img_2023-04-10_09-19-09.png">
-> <img src="./images/w03-12-transpose_convolutions/img_2023-04-10_09-19-11.png">
+
+In the transpose convolution, instead of placing the filter on the input, you would instead place a filter on the output. 
+
+<!-- <img src="./images/w03-12-transpose_convolutions/img_2023-04-10_09-19-11.png">-->
+
+Exemple with :
+- filter 3x3
+- padding p=1
+- stride s=2
+
+First pixel:
+
+> <img src="./images/w03-12-transpose_convolutions/01.png">
+
+Second pixel, s=2
+
+> <img src="./images/w03-12-transpose_convolutions/02.png">
+
+Pixel #3
+
+> <img src="./images/w03-12-transpose_convolutions/03.png">
+
+Pixel #4
+
+> <img src="./images/w03-12-transpose_convolutions/04.png">
 
 ## U-Net Architecture Intuition
 
