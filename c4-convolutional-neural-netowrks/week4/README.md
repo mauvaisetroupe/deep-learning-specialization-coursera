@@ -18,6 +18,17 @@ Learning Objectives
 
 ## What is Face Recognition?
 
+- Face verification 
+    - Output whether the input image is that of the claimed person
+- Face recognition
+    - Output ID if the image is any of the K persons in the database (or “not recognized”)
+
+If your face recognition szstem is based on your face verification, you need a verification system with more tha 99.9 before you can run it on a database of 100 persons that have a high chance of getting incorrect. 
+
+What we do in the next few videos is 
+1. focus on building a face verification system as a building block and then if the accuracy is high enough, 
+2. then you probably use that in a recognition system as well
+
 > <img src="./images/w04-01-what_is_face_recognition/img_2023-04-14_22-06-18.png">
 
 ## One Shot Learning
