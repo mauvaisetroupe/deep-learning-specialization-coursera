@@ -307,6 +307,14 @@ Pixel #4
 
 ## U-Net Architecture Intuition
 
+- we use normal convolutions for the first part of the neural network that compress the image
+   - you've lost a lot of spatial information because the dimension is much smaller, 
+   - but it's much deeper. So, for example, this middle layer may represent that looks like there's a cat roughly in the lower right hand portion of the image
+- the second half of this neural network uses the transports convolution to blow the representation size up back to the size of the original input image
+- we use a skip connection 
+   - earlier block of activations is copied directly to this later block 
+   - that's give a very detailed, fine grained spatial information lost in the network that give high level contextual information
+
 > <img src="./images/w03-13-u-net_architecture_intuition/img_2023-04-10_09-19-14.png">
 
 ## U-Net Architecture
