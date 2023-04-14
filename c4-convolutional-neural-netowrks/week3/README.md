@@ -169,6 +169,10 @@ Warning : Yolo is a very hard paper to read.
 
 ## Intersection Over Union
 
+How do you tell if your object detection algorithm is working well? Intersection Over Union (IOU) measure the overlap between 2 bounding boxes.
+
+Usually, IOU > 0.5 means a correct martching between the 2 boxes
+
 > <img src="./images/w03-06-intersection_over_union/img_2023-04-10_09-17-13.png">
 
 ## Non-max Suppression
