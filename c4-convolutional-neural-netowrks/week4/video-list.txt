@@ -1,0 +1,11 @@
+w04-01-what_is_face_recognition
+w04-02-one_shot_learning
+w04-03-siamese_network
+w04-04-triplet_loss
+w04-05-face_verification_and_binary_classification
+w04-06-what_is_neural_style_transfer
+w04-07-what_are_deep_convnets_learning
+w04-08-cost_function
+w04-09-content_cost_function
+w04-10-style_cost_function
+w04-11-1d_and_3d_generalizations
