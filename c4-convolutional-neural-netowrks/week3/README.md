@@ -276,6 +276,8 @@ To make the image bigger you have to know how to implement a **transpose convolu
 
 Normal vs Transpose Convolutions
 
+(output of mormal convulution has 5 channels so we need 5 filters)
+
 > <img src="./images/w03-12-transpose_convolutions/img_2023-04-10_09-19-09.png">
 
 In the transpose convolution, instead of placing the filter on the input, you would instead place a filter on the output. 
