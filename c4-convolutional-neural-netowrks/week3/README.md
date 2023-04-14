@@ -198,8 +198,33 @@ If classes are used for multiple classes of objects, the compare only boxes with
 
 ## Anchor Boxes
 
+One of the problems with object detection as you have seen it so far is that each of the grid cells can detect only one object. What if a grid cell wants to detect multiple objects? 
+
+And for this example, I am going to continue to use a 3 by 3 grid. Notice that the midpoint of the pedestrian and the midpoint of the car are in almost the same place and both of them fall into the same grid cell
+
+In output y : 
+- the first part is associated to anchor #1
+- the second par is associated to anchor #2
+
 > <img src="./images/w03-08-anchor_boxes/img_2023-04-10_09-17-55.png">
+
+- Without anchor, output is 3x3x8 (3x3 for grid, 8 for vecctor with detection and position)
+- With anchor,  output is 3x3x16 = 3x3x(2*8) (2 anchors)
+
 > <img src="./images/w03-08-anchor_boxes/img_2023-04-10_09-17-57.png">
+
+Concrete example, with class c1 = pedestrian, c2 = car
+
+Algorithm doesn't handle :
+- two anchor boxes but three objects in the same grid cell
+- two objects associated with the same grid cell, but both of them have the same anchor box shape
+
+Anchor boxes are used if two objects appear in the same grid cell. In practice, that happens quite rarely, especially if you use a 19 by 19 rather than a 3 by 3 grid. Another motivation is that it allows your learning algorithm to specialize better. In particular, if your data set has some tall, skinny objects like pedestrians, and some wide objects like cars.
+
+Finally, how do you choose the anchor boxes? 
+- choose them by hand or choose maybe five or 10 anchor box shapes that spans a variety of shapes that seems to cover the types of objects you seem to detect
+- more advanced version, an even better way to do this in one of the later YOLO research papers, is to use a K-means algorithm, to group together two types of objects shapes you tend to get
+
 > <img src="./images/w03-08-anchor_boxes/img_2023-04-10_09-17-59.png">
 
 ## YOLO Algorithm
