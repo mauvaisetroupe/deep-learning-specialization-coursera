@@ -53,7 +53,19 @@ So instead, to make this work, what you're going to do instead is learn a simila
 
 ## Siamese Network
 
+The job of the function d, which you learned about in the last video, is to input two faces and tell you how similar or how different they are. A good way to do this is to use a Siamese network
+
+In a Siamese network :
+- we use a convolutional network, 
+- but we remove the last layer
+- instead of making a classification by a softmax unit, we focus on the vector computed by a fully connected layer as an encoding of the input image.
+- we define the function d as the distance between x1 and x2, the norm of the difference between the encodings of these two images.
+
 > <img src="./images/w04-03-siamese_network/img_2023-04-14_22-07-33.png">
+
+
+We train the neural network so that if two pictures, xi and xj, are of the same person, then you want that distance between their encodings to be small.
+
 > <img src="./images/w04-03-siamese_network/img_2023-04-14_22-07-35.png">
 
 ## Triplet Loss
