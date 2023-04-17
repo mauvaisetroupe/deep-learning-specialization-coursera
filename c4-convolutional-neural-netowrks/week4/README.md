@@ -102,7 +102,24 @@ Fortunately, some of these companies have trained these large networks and poste
 
 ## Face Verification and Binary Classification
 
+The Triplet Loss is one good way to learn the parameters of a continent for face recognition. There's another way to learn these parameters. 
+
+Another way to train a neural network, is 
+- to take 2 Siamese Network and have them both compute the 128 dimensional encodings vectors
+- add a logistic regression unit to then just make a prediction where the target output is :
+    - 1 if both of the images are the same persons, 
+    - and 0 if both of these are of different persons
+
+So, this is a way to treat face recognition just as a binary classification problem where you use for example a sigmoid function on the element-wide difference of the 2 vectors
+
+Note that :
+- in green, a variant call chi-square similarity
+- when you compare 2 images, one comes fron the database, so you can precompute the output of the Siamese Network
+
 > <img src="./images/w04-05-face_verification_and_binary_classification/img_2023-04-14_22-08-01.png">
+
+For training the network, we need to prepare pairs, with output (0 or 1)
+
 > <img src="./images/w04-05-face_verification_and_binary_classification/img_2023-04-14_22-08-02.png">
 
 # Neural Style Transfer
