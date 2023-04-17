@@ -126,7 +126,16 @@ For training the network, we need to prepare pairs, with output (0 or 1)
 
 ## What is Neural Style Transfer?
 
+Notation :
+- C for Content image
+- S for style image
+- G for generated image
+
 > <img src="./images/w04-06-what_is_neural_style_transfer/img_2023-04-14_22-08-15.png">
+
+In order to implement Neural Style Transfer, you need to look at the features extracted by ConvNet at various layers :
+- the shallow 
+- and the deeper layers of a ConvNet
 
 ## What are deep ConvNets learning?
 
