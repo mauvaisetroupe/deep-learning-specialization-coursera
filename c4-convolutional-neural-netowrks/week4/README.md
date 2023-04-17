@@ -70,9 +70,34 @@ We train the neural network so that if two pictures, xi and xj, are of the same 
 
 ## Triplet Loss
 
+One way to learn the parameters of the neural network, so that it gives you a good encoding for your pictures of faces, is to define and apply gradient descent on the triplet loss function. 
+
+In the terminology of the triplet loss, you have :
+- an anchor image A, 
+- a positive image P, 
+- a negative image N
+
+The learning objective is to have d(A,P) ≤ d(A,N). But if f always equals zero or f always outputs the same (encoding for every image is identical), this trivial solution satisfy the inequation. That why we add α the **margin paramter**
+
 > <img src="./images/w04-04-triplet_loss/img_2023-04-14_22-07-45.png">
+
+Let's formalize the equation and define the triplet loss function. We start with the iniequation from previous slide and me take the max. 
+The effect of **taking the max** is that so long as this is less than zero, then the loss is zero. Then so long as the difference is zero or less than equal to zero, the neural network doesn't care how much further negative it is. 
+
+Note that :
+- for training, you nee multiple pictures of the same person ( 10,000 pictures of 1,000 different persons, so on average 10 pictures by person)
+- after having trained a system, you can then apply it to your one-shot learning problem where for your face recognition system with only a single picture of someone you might be trying to recognize
+
 > <img src="./images/w04-04-triplet_loss/img_2023-04-14_22-07-47.png">
+
+In order to have a performant network, you cannot choose you training set randomly (if pictures ar too differents, you won´t push the algorithm), you need to chose "hard" negatives.
+
+
 > <img src="./images/w04-04-triplet_loss/img_2023-04-14_22-07-49.png">
+
+Today's Face recognition systems, especially the large-scale commercial face recognition systems are trained on very large dataset (more tha 100 millions images). These dataset assets are not easy to acquire.
+Fortunately, some of these companies have trained these large networks and posted parameters online. Rather than trying to train one of these networks from scratch, this is one domain where because of the sheer data volumes sizes, it might be useful for you to download someone else's pre-trained model rather than do everything from scratch yourself.
+
 > <img src="./images/w04-04-triplet_loss/img_2023-04-14_22-07-51.png">
 
 ## Face Verification and Binary Classification
