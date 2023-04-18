@@ -139,11 +139,20 @@ In order to implement Neural Style Transfer, you need to look at the features ex
 
 ## What are deep ConvNets learning?
 
+Lets say you've trained a ConvNet, this is an AlexNet like network, and you want to visualize what the hidden units in different layers are computing.
+
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-28.png">
+
+<!--
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-30.png">
+-->
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-32.png">
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-34.png">
+
+<!--
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-37.png">
+-->
+
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-39.png">
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-42.png">
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-44.png">
