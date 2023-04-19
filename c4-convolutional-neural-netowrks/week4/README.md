@@ -139,27 +139,60 @@ In order to implement Neural Style Transfer, you need to look at the features ex
 
 ## What are deep ConvNets learning?
 
-Lets say you've trained a ConvNet, this is an AlexNet like network, and you want to visualize what the hidden units in different layers are computing.
+Lets say you've trained a ConvNet, this is an AlexNet like network, and you want to visualize what the hidden units in different layers are computing. 
+
+You could scan through your training sets and find out what are the images or what are the image patches (pieces) that maximize that unit's activation. So in other words pause your training set through your neural network, and figure out what is the image that maximizes that particular unit's activation. 
+
+Notice that :
+- on hidden unit in layer 1 will see only a relatively small portion of the neural network. And so it makes makes sense to plot just a small image patches
+- in the deeper layers, one hidden unit will see a larger region of the image. 
+
 
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-28.png">
 
 <!--
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-30.png">
 -->
+
+This visualization shows 
+- nine different representative neurons 
+    - and for each of them the nine image patches that they maximally activate on.
+
+Layer 1, you can see there's an edge maybe at that angle
+
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-32.png">
+
+Layer 2 detects more complex shapes and patterns like vertical texture with lots of vertical lines, rounder shape, etc.
+
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-34.png">
 
 <!--
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-37.png">
 -->
 
+Layer 3, round shapes, but start detecting people
+
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-39.png">
+
+Layer 4, dog detectors, legs of birds, water
+
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-42.png">
+
+Layer 5, even more sophisticated things
+
 > <img src="./images/w04-07-what_are_deep_convnets_learning/img_2023-04-14_22-08-44.png">
 
 ## Cost Function
 
+
+$J(G) = \alpha * J_{content}(C, G) + \beta * J_{style}(S, G)$ :
+- first part (content component) measures how similar is the contents of the generated image G to the content of the content image C
+- second part (style component) measures how similar is the contents of the generated image G to the style of the style image J
+
 > <img src="./images/w04-08-cost_function/img_2023-04-14_22-08-56.png">
+
+Algorithm to train the network :
+
 > <img src="./images/w04-08-cost_function/img_2023-04-14_22-08-57.png">
 
 ## Content Cost Function
@@ -167,6 +200,10 @@ Lets say you've trained a ConvNet, this is an AlexNet like network, and you want
 > <img src="./images/w04-09-content_cost_function/img_2023-04-14_22-09-07.png">
 
 ## Style Cost Function
+
+
+
+
 
 > <img src="./images/w04-10-style_cost_function/img_2023-04-14_22-09-16.png">
 > <img src="./images/w04-10-style_cost_function/img_2023-04-14_22-09-18.png">
