@@ -198,7 +198,7 @@ Algorithm to train the network :
 
 We use a specific hidden layer l to compute the content part of the cost function. Usually, choose some layer in the middle, neither too shallow nor too dee. If l is to be small (like layer 1), we will force the network to get similar output to the original content image.
 
-We define $J_{content}(C,G)$ as the element-wise difference between these hidden unit activations in layer l for content image and generated image.
+We define $J_{content}(C,G)$ as the element-wise difference between these hidden unit activations in layer l for content image and generated image (use norm-2 as activation are considered as vectors)
 
 
 > <img src="./images/w04-09-content_cost_function/img_2023-04-14_22-09-07.png">
