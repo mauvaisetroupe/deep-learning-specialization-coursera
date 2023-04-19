@@ -184,7 +184,6 @@ Layer 5, even more sophisticated things
 
 ## Cost Function
 
-
 $J(G) = \alpha * J_{content}(C, G) + \beta * J_{style}(S, G)$ :
 - first part (content component) measures how similar is the contents of the generated image G to the content of the content image C
 - second part (style component) measures how similar is the contents of the generated image G to the style of the style image J
@@ -196,6 +195,11 @@ Algorithm to train the network :
 > <img src="./images/w04-08-cost_function/img_2023-04-14_22-08-57.png">
 
 ## Content Cost Function
+
+We use a specific hidden layer l to compute the content part of the cost function. Usually, choose some layer in the middle, neither too shallow nor too dee. If l is to be small (like layer 1), we will force the network to get similar output to the original content image.
+
+We define $J_{content}(C,G)$ as the element-wise difference between these hidden unit activations in layer l for content image and generated image.
+
 
 > <img src="./images/w04-09-content_cost_function/img_2023-04-14_22-09-07.png">
 
