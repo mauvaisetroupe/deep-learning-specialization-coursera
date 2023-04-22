@@ -205,14 +205,47 @@ We define $J_{content}(C,G)$ as the element-wise difference between these hidden
 
 ## Style Cost Function
 
+We chosen some layer L to define the measure of the style of an image, and we're going to ask how correlated are the activations across different channels.
 
-
-
+So in this below example, we consider five channels to make it easier to draw. 
 
 > <img src="./images/w04-10-style_cost_function/img_2023-04-14_22-09-16.png">
+
+Let's look at the first two channels (the red channel and the yellow channels) and say how correlated are activations in these first two channels. 
+
+> <img src="./images/w04-10-style_cost_function/01.png">
+
+- Highly **correlated** means is whatever part of the image has this type of subtle vertical texture (neurone corresponding to rad channel), that part of the image will probably have these orange-ish tint (neuron associated with yellow channel)
+- **Uncorrelated** means if a value appeared in a specific channel doesn't mean that another value will appear (not depend on each other)
+
+The correlation tells you how a components might occur or not occur together in the same image.
+
+If we use the degree of correlation between channels as a measure of the style, you can compare how similar is the style of the generated image to the style of the input style image.
+
 > <img src="./images/w04-10-style_cost_function/img_2023-04-14_22-09-18.png">
+
+So let's now formalize this intuition. 
+
+Matrix G, called style matrix or Gram matrix:
+- G is matrix of shape $n_c^{[l]}$ x $n_c^{[l]}$ (numbre of channels)
+- $G_{k,k'}$ is the cell of the matrix G that tell how correlated is a channel k to another channel k'
+    - if both of activations $a_{i,j,k}^{[l]}$ and $a_{i,j,k´}^{[l]}$ tend to be lashed together then $G_{k,k'}$ will be large, 
+    - whereas if they are uncorrelated then $G_{k,k'}$ might be small.
+
+The term correlation has been used to convey intuition but this is actually the unnormalized cross-correlation because we're not subtracting out the mean (here just a elements-wide multiplication).
+
 > <img src="./images/w04-10-style_cost_function/img_2023-04-14_22-09-19.png">
+
+And, finally, it turns out that you get more visually pleasing results if you use the style cost function from multiple different layers. So, the overall style cost function, you can define as sum over all the different layers of the style cost function for that layer. It allows you to use different layers in a neural network and cause a neural network to take both low level and high level correlations into account when computing style :
+- early ones, which measure relatively simpler low level features like edges 
+- as well as some later layers, which measure high level features 
+
 > <img src="./images/w04-10-style_cost_function/img_2023-04-14_22-09-21.png">
+
+Definition of Frobenius norm 
+
+> <img src="./images/w04-10-style_cost_function/02.png">
+
 
 ## 1D and 3D Generalizations
 
