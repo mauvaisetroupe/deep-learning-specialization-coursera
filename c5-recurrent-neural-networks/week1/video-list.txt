@@ -1,0 +1,12 @@
+w01-01-why_sequence_models
+w01-02-notation
+w01-03-recurrent_neural_network_model
+w01-04-backpropagation_through_time
+w01-05-different_types_of_RNNS
+w01-06-language_model_and_sequence_generation
+w01-07-sampling_novel_sequences
+w01-08-vanishing_gradients_with_RNNS
+w01-09-gated_recurrent_unit_GRU
+w01-10-long_short_term_memory_LSTM
+w01-11-bidirectional_RNN
+w01-12-deep_RNNS
