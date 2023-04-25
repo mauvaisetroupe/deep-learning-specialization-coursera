@@ -132,7 +132,7 @@ Apply your new knowledge of CNNs to one of the hottest (and most challenging!) f
 
 Explore how CNNs can be applied to multiple fields, including art generation and face recognition, then implement your own algorithm to generate art and recognize faces!
 
-# Course 5 - Sequence Models
+# [Course 5 - Sequence Models](./c5-recurrent-neural-networks/README.md)
 
 https://www.coursera.org/learn/nlp-sequence-models
 
