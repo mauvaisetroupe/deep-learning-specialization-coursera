@@ -249,7 +249,25 @@ Definition of Frobenius norm
 
 ## 1D and 3D Generalizations
 
+We have used the Conv nets for images which are 2D. But ConvNets can also apply to 1D data and 3D data.
+
+For 1D data we take example like ECG signal (electrocardiogram). It's 1D data because it's a time series showing the voltage at each instant time :
+- We consider to have a 14 dimension for signl amplitude
+- We have only 1 channel (only one electrod), so signal is 14 x 1.
+
+|Dimension|Input|# Filter 1|Filter 1 Dimension|Output filter 1 |# Filter 2|Filter 2 Dimension|Output filter 2 |
+|-|-|-|-|-|-|-|-|
+|2D convolution |14 x 14 x 3|16 filters|5 x 5 x 3|10 x 10 x 16|32|5 x 5 x 16|6 x 6 x 32|
+|1D convolution |14 x 1|16 filters|5 x 1|10 x 16|32|5 x 16|6 x 32|
+
+With 1D data applications, we actually use a [recurrent neural network](../../c5-recurrent-neural-networks/README.md) (see course for detail on pro and cons of using ConvNets instead of recurent models)
+
+
 > <img src="./images/w04-11-1d_and_3d_generalizations/img_2023-04-14_22-09-36.png">
+
+
+3D data also are available in some applications like CT scan (IRM in French). Instead of of 2D image, we have a volume, a 3D volume composed by a bundle of slices of the torso
+
 > <img src="./images/w04-11-1d_and_3d_generalizations/img_2023-04-14_22-09-38.png">
 > <img src="./images/w04-11-1d_and_3d_generalizations/img_2023-04-14_22-09-41.png">
 > <img src="./images/w04-11-1d_and_3d_generalizations/img_2023-04-14_22-09-43.png">
@@ -261,4 +279,16 @@ Definition of Frobenius norm
 > <img src="./images/w04-11-1d_and_3d_generalizations/img_2023-04-14_22-09-54.png">
 > <img src="./images/w04-11-1d_and_3d_generalizations/img_2023-04-14_22-09-55.png">
 > <img src="./images/w04-11-1d_and_3d_generalizations/img_2023-04-14_22-09-57.png">
+
+For 3D data :
+- we consider only 1 channel for each slice
+
+|Dimension|Input|# Filter 1|Filter 1 Dimension|Output filter 1 |# Filter 2|Filter 2 Dimension|Output filter 2 |
+|-|-|-|-|-|-|-|-|
+|2D convolution |14 x 14 x 3|16 filters|5 x 5 x 3|10 x 10 x 16|32|5 x 5 x 16|6 x 6 x 32|
+|3D convolution |14 x 14 x 14 x 1|16 filters|5 x 5 x 5 x 1|10 x 10 x 10 x 16|32|5 x 5 x 5 x 16|6 x 6 x 6 x 32|
+
+Other 3D data can be movie data where the different slices could be different slices in time through a movie. We could use ConvNets to detect motion or people taking actions in movies.
+
+
 > <img src="./images/w04-11-1d_and_3d_generalizations/img_2023-04-14_22-09-59.png">
