@@ -103,8 +103,50 @@ Why not to use a standard network ?
 
 ## Language Model and Sequence Generation
 
+Let's say we want the speech recognition want to predict if a sentence is :
+- The apple and pair salad
+- The apple and pear salad
+The way a speech recognition system picks the second sentence is by using a language model which tells it what is the probability of either of these two sentences. 
+
+What a language model does is, given any sentence `𝑃(y<1>, y<2>, ..., y<T_y>)`, its job is to tell you what is the probability of that particular sentence
+
+This is a fundamental component for both :
+- speech recognition systems 
+- machine translation systems
+
 > <img src="./images/w01-06-language_model_and_sequence_generation/img_2023-04-25_20-51-58.png">
+
+How do you build a language model using a RNN, you need 
+1. Get a training set comprising a large corpus of English text. The word corpus is an NLP terminology that just means a large body or a very large set of English sentences 
+2. Then tokenize this training set 
+    - form a vocabulary 
+    - map each of the word to a one-hot vector
+    - add an extra token &lt;EOS> (End Of Sentence) 
+    - add an extra token &lt;UNK> (UNKnown) when word not found in vocabulary
+
+Note that when doing the tokenization step, you can decide whether or not the period should be a token as well
+(a period `.`  is a form of punctuation used to end a declarative sentence)
+
 > <img src="./images/w01-06-language_model_and_sequence_generation/img_2023-04-25_20-51-59.png">
+
+The probability is computed with : `𝑃(y<1>, y<2>, ..., y<Ty>) = 𝑃(y<1>) * 𝑃(y<1>) ... * 𝑃(y<Ty>)`
+
+Given the sentence `Cats average 15 hours of sleep a day <EOS>` (9 words).
+
+|Output|Input|Probability|applied to|
+|-|-|-|-|
+|$\hat{y}^{<1>}$|x<1>=0|Probability to have 'Cats' as the first word. This is a 10.002 Softmax output (10,000 words vocabulary + EOS + UNK|`P(Cats)`|
+|$\hat{y}^{<2>}$|x<2>=y<1>=Cats|Probability of having a word given previously "Cats"| `P(average \| Cats)`|
+|||||
+|$\hat{y}^{<3>}$|x<3>=y<2>=average|Probability of having a word given previously "Cats average"| `P(15 \| Cats average)`|
+|||||
+
+With then define the cost function with the Softmax loss function 
+
+ If you train this RNN on a large training set, what it will be able to do is :
+- given any initial set of words such as `cats average 15` or `cats average 15 hours of`, it can predict what is the chance of the next word
+- Given a new sentence `y<1>,y<2>,y<3>`, you can calculate the probability of the sentence `p(y<1>,y<2>,y<3>) = p(y<1>) * p(y<2>|y<1>) * p(y<3>|y<1>,y<2>)`
+
 > <img src="./images/w01-06-language_model_and_sequence_generation/img_2023-04-25_20-52-01.png">
 
 ## Sampling Novel Sequences
