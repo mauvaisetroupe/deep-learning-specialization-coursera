@@ -139,7 +139,6 @@ Given the sentence `Cats average 15 hours of sleep a day <EOS>` (9 words).
 |$\hat{y}^{<2>}$|x<2>=y<1>=Cats|Probability of having a word given previously "Cats"| `P(average \| Cats)`|
 |||||
 |$\hat{y}^{<3>}$|x<3>=y<2>=average|Probability of having a word given previously "Cats average"| `P(15 \| Cats average)`|
-|||||
 
 With then define the cost function with the Softmax loss function 
 
