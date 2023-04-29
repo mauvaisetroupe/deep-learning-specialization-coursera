@@ -149,8 +149,38 @@ With then define the cost function with the Softmax loss function
 
 ## Sampling Novel Sequences
 
+After you train a sequence model, one of the ways you can informally get a sense of what is learned is to have a sample novel sequences.
+
+1. First time step
+    - we first pass a<0> = x<1> = 0 vector
+    - we randomly generate a sample according to the softmax distribution using the numpy command  `np.random.choice`
+    - we get for example the word `the`
+2. Second step
+    - the second time step is expecting y<1> as input, we use ŷ<1> (the word `the`) that you just sampled in the first step as the input to the second timestep
+    - we get the probability of getting a specific word knowing the first word `the`
+    - we use the probability with the numpy command  `np.random.choice` to generate the second word...
+3. until you get &lt;EOS>
+
 > <img src="./images/w01-07-sampling_novel_sequences/img_2023-04-25_20-52-15.png">
+
+So far we have to build a word-level language model but we can also build a character-level language model.
+
+In the character-level language model, the vocabulary will contain [a-zA-Z0-9], punctuation, special characters...
+
+Advantages:
+ - You don't have to worry about &lt;UNK>.
+
+Disadvantages:
+- much longer sequences.
+- not as good as word level language models at capturing long range dependencies with the earlier parts of the sentence 
+- More computationally expensive to train
+
+The trend in natural language processing is that for the most part, word level language model are still used, but as computers gets faster there are more and more applications where people are, at least in some special cases, starting to look at more character level models
+
 > <img src="./images/w01-07-sampling_novel_sequences/img_2023-04-25_20-52-16.png">
+
+Fun examples:
+
 > <img src="./images/w01-07-sampling_novel_sequences/img_2023-04-25_20-52-18.png">
 
 ## Vanishing Gradients with RNNs
