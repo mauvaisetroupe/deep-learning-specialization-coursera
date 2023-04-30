@@ -229,11 +229,11 @@ This is a visualization of the RNN unit of the hidden layer of the RNN that will
     - if `Γu ≈ 0`, `c<t> = c<t-1>`, so we keep the previous value
     - if `Γu ≈ 1`, `c<t> = c̃<t>`, we keep a new value
     
-|||||||||
+|t|0|1|2|3|...|t1|...|
 |-|-|-|-|-|-|-|-|
 |Word|The|cat|which|already|...|was|full|
 |Γu|0|1|0|0|0|1 |...|
-|`c<t>`||`c<1>=c̃<1>`|`c̃<1>`|`c̃<1>`|`c̃<1>`|`c<t>=c̃<t>`||
+|`c<t>`||`c<1>=c̃<1>`|`c̃<1>`|`c̃<1>`|`c̃<1>`|`c<t1>=c̃<t1>`||
 
 
 If you have 100 dimensional or hidden activation value, then `c<t>`, `c̃<t>`, `Γu` would be the same dimension
