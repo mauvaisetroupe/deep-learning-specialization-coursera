@@ -217,9 +217,41 @@ One of the ways solve exploding gradient is to apply gradient clipping means if 
 
 ## Gated Recurrent Unit (GRU)
 
+This is a visualization of the RNN unit of the hidden layer of the RNN that will be used to explain the GRU or the gated recurrent unit.
+
 > <img src="./images/w01-09-gated_recurrent_unit_GRU/img_2023-04-25_20-52-40.png">
+
+- GRU unit has a new variable C (memory Cell). Memory cell provides a bit of memory. For example, whether cat was singular or plural.
+- in GTU, `c<t> = a<t>`, but `c` introduced for LSTM
+- `c̃<t>` is a candidate for replacing `c<t>`
+- The key idea of the GRU is to have a update gate `Γu` 
+    - `Γu` is a  sigmoid function is either very close to 0 or very close to 1
+    - if `Γu ≈ 0`, `c<t> = c<t-1>`, so we keep the previous value
+    - if `Γu ≈ 1`, `c<t> = c̃<t>`, we keep a new value
+    
+|||||||||
+|-|-|-|-|-|-|-|-|
+|Word|The|cat|which|already|...|was|full|
+|Γu|0|1|0|0|0|1 |...|
+|`c<t>`||`c<1>=c̃<1>`|`c̃<1>`|`c̃<1>`|`c̃<1>`|`c<t>=c̃<t>`||
+
+
+If you have 100 dimensional or hidden activation value, then `c<t>`, `c̃<t>`, `Γu` would be the same dimension
+- If `Γu` is 100 dimensional vector, then it is really a 100 dimensional vector of bits, the value is mostly zero and one
+- So `Γu` tells you of this 100 dimensional memory cell which are the bits you want to update
+    - one bit could be use to keep in memory singular or plural (cat vs cats)
+    - another bit could be use to keep in memory that you are talking about food (ate)
+- In practice `Γu` won't be exactly zero or one
+
 > <img src="./images/w01-09-gated_recurrent_unit_GRU/img_2023-04-25_20-52-42.png">
+
+Full GRU unit, we introduce `Γt`, this gate tells you how relevant is `c<t-1>` to computing the next candidate for `c<t>`
+
+Why not use a simpler version from the previous slides? It turns out that over many years, researchers have experimented with many different possible versions of how to design these units to try to have longer range connections. To try to have model long-range effects and also address vanishing gradient problems. The GRU is one of the most commonly used versions that researchers have converged to and then found as robust and useful for many different problems.
+
 > <img src="./images/w01-09-gated_recurrent_unit_GRU/img_2023-04-25_20-52-43.png">
+
+The other common version is called an LSTM, which stands for Long, Short-term Memory, which we'll talk about in the next video. But GRUs and LSTMs are two specific instantiations of this set of ideas that are most commonly used.
 
 ## Long Short Term Memory (LSTM)
 
