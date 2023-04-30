@@ -70,7 +70,7 @@ We introduce the concept of i-th example :
 - Representing words: we build a *dictionary* that is a vocabulary list that contains all the words in our training sets
 - Vocabulary sizes in modern applications are from 30,000 to 50,000. 100,000 is not uncommon. Some of the bigger companies use even a million.
 - We use *one-Hot representation* for a specific word : vector with 1 in position of the word in the dictionary and 0 everywhere else
-- We add a token in the vocabulary with name <UNK> (unknown text)
+- We add a token in the vocabulary with name &lt;UNK> (unknown text)
 
 > <img src="./images/w01-02-notation/img_2023-04-25_20-51-05.png">
 
@@ -184,6 +184,34 @@ Fun examples:
 > <img src="./images/w01-07-sampling_novel_sequences/img_2023-04-25_20-52-18.png">
 
 ## Vanishing Gradients with RNNs
+
+
+#### Vanishing
+
+The problems of the basic RNN algorithm is that it runs into vanishing gradient problems. 
+
+Language can have very long-term dependencies:
+- The **cat**, which already ate a bunch of food that was delicious ..., **was** full.
+- The **cats**, which already ate a bunch of food that was delicious, and apples, and pears, ..., **were** full.
+
+It turns out that the basic RNN we've seen so far is not very good at capturing very long-term dependencies.
+
+We've seen the [vanishing gradient](../../c2-improving-deep-neural-networks/week1/README.md#vanishing--exploding-gradients) for standard neuronal network. For very deep neural network (100 years or even much deeper), you would carry out forward prop from left to right and then backprop. The gradient from the output has a very hard time propagating back to affect the weights the computations of the earlier layers.
+
+In the context of a recurrent neural network (RNN), there is a problem that is similar. The forward propagation goes from left to right, and the backpropagation goes from right to left. 
+
+However, this can be challenging because the error associated with the later time steps `ŷ<Ty>` may not have a significant impact on the computations from earlier time steps. It's very difficult for the error to backpropagate all the way to the beginning of the sequence, and therefore to modify how the neural network is doing computations earlier in the sequence.
+
+In other words, it can be difficult for the neural network to recognize the need to remember certain information. In practice, it may be challenging to train a neural network to effectively memorize information over time. Because of this vanishing problem, the basic RNN model : 
+- has many local influences, meaning that the output is mainly influenced by values close to it
+- it's difficult for the output to be strongly influenced by an input that was very early in the sequence.
+
+
+#### Exploding
+
+Vanishing gradients tends to be the biggest problem with training RNNs. Although when exploding gradients happens it can be catastrophic because the exponentially large gradients can cause your parameters to become so large that your neural network parameters get really messed up. You might often see NaNs (not a number), meaning results of a numerical overflow in your neural network computation
+
+One of the ways solve exploding gradient is to apply gradient clipping means if your gradient is more than some threshold - re-scale some of your gradient vector so that is not too big. 
 
 > <img src="./images/w01-08-vanishing_gradients_with_RNNS/img_2023-04-25_20-52-28.png">
 
