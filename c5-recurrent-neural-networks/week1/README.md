@@ -2,7 +2,6 @@
 
 Discover recurrent neural networks, a type of model that performs extremely well on temporal data, and several of its variants, including LSTMs, GRUs and Bidirectional RNNs,
 
-
 Learning Objectives
 - Define notation for building sequence models
 - Describe the architecture of a basic RNN
@@ -37,7 +36,6 @@ Examples of sequence data
 |Video activity recognition|video frames|label (activity)|
 |Name entity recognition|text sequence|label sequence|
 
-
 > <img src="./images/w01-01-why_sequence_models/img_2023-04-25_20-50-11.png">
 
 ## Notation
@@ -64,13 +62,12 @@ We introduce the concept of i-th example :
 - x<sup>(i)\<t></sup> is t-th word of the i-th input example,
 - T<sup>x(i)</sup> is the length of the i-th example.
 
-
 > <img src="./images/w01-02-notation/img_2023-04-25_20-51-03.png">
 
 - Representing words: we build a *dictionary* that is a vocabulary list that contains all the words in our training sets
 - Vocabulary sizes in modern applications are from 30,000 to 50,000. 100,000 is not uncommon. Some of the bigger companies use even a million.
 - We use *one-Hot representation* for a specific word : vector with 1 in position of the word in the dictionary and 0 everywhere else
-- We add a token in the vocabulary with name &lt;UNK> (unknown text)
+- We add a token in the vocabulary with name <UNK> (unknown text)
 
 > <img src="./images/w01-02-notation/img_2023-04-25_20-51-05.png">
 
@@ -85,20 +82,90 @@ Why not to use a standard network ?
 - Neural network architecture doesn't share features learned across different positions of text ("Harry Potter" is a name even if found in another part, at a different position in the text)
 
 > <img src="./images/w01-03-recurrent_neural_network_model/img_2023-04-25_20-51-15.png">
+
+Let's build a recurrent neural network
+1. The first word you will read x<1> feed a neural network layer to predict y<1>
+2. The second word x<2> feed the same neural network layer, but instead of just predicting y<2> using only x<2>, it also gets a<1> computed in step 1
+3. a<0> is usually initialized with zeros (may be initialized randomly)
+
+There are 2 representation :
+- on the left side, each step are represented
+- on the right side, we have a concentrated notation with only one layer represented
+
+RNN vs, BRNN
+- In RNN, we used earlier values in the sequence, so y<3> is predicted with x<3>, but also with x<1> and x<2> that come with the pass through connection (via a<2>)
+- In BRNN (Bidirectional RNN), we also use inofrmation from x<4>, x<5>
+- That means that with RNN, the sentence "He sad : Teddy..." we cannot be sure that "Teddy" is part of a person name
+
 > <img src="./images/w01-03-recurrent_neural_network_model/img_2023-04-25_20-51-17.png">
+
+So in summary, we define the following forward propagation. We define 3 vectors parameters :
+
+|Parameters|Input|Output|comment|
+|-|-|-|-|
+|Wax|x<1>|a<1>|parameters are the same for each step with input x<1>, x<2>, etc.|
+|Waa|a<0>|a<1>|parameters are the same for each step with input a<1>, a<2>, etc.|
+|Wya|a<0>|y<1>|parameters are the same for each step with input a<1>, a<2>, etc.|
+
+Note that :
+- the activation function of a is usually tanh or ReLU
+- the activation function for y depends on your task (sigmoid and softmax). In name entity recognition task we will use sigmoid because we only have two classes.
+
 > <img src="./images/w01-03-recurrent_neural_network_model/img_2023-04-25_20-51-18.png">
+
+We can simplify the notation by defining Wa as the horizontal compression of Waa and Wax
+
+||Waa|Wax|Wa|
+|-|-|-|-|
+|Nb row|100|100|100|
+|Nb Columns|100|10'000|10'100|
+
 > <img src="./images/w01-03-recurrent_neural_network_model/img_2023-04-25_20-51-20.png">
 
 ## Backpropagation Through Time
 
+As usual, when you implement this in one of the programming frameworks, often, the programming framework will automatically take care of backpropagation. But I think it's still useful to have a rough sense of how backprop works in RNNs.
+
+In backprop, as you might already have guessed, you end up carrying backpropagation calculations in basically the opposite direction of the forward prop arrows
+
 > <img src="./images/w01-04-backpropagation_through_time/img_2023-04-25_20-51-27.png">
+
+- Computational graph for forward propagation is in green,
+- We use standard logistic regression loss, also called cross-entropy loss function
+- back propagation is in red
+- these graphes allow you to compute all the appropriate quantities (derivatives,  parameters, ) - finally apply gradient descent
+
+In the backpropagation procedure the most significant recursive calculation is the chain a<Tx>, ..., a<2>, a<1> which goes from right to left. The backpropagation here is called backpropagation **through time** because we pass activation a from one sequence element to another like backwards in time. That phrase really makes it sound like you need a time machine to implement this output, but I just thought that backprop through time is just one of the coolest names for an algorithm.
+
 > <img src="./images/w01-04-backpropagation_through_time/img_2023-04-25_20-51-29.png">
 
 ## Different Types of RNNs
 
+So far we have seen only one RNN architecture in which Tx equals TY. In some other problems, they may not equal so we need different architectures.
+
 > <img src="./images/w01-05-different_types_of_RNNS/img_2023-04-25_20-51-42.png">
+
+This video is inspired by Andrej Karpathy blog, The Unreasonable Effectiveness of Recurrent Neural Networks. http://karpathy.github.io/2015/05/21/rnn-effectiveness/
+
+|Use case|input|output|architecture type|
+|-|-|-|-|
+|entity recognition, Tx=Ty, described before|text|booleans|Many to Many|
+|sentiment clasification|text|integer (1 to 5)| Many to One|
+|standard NN||| One to One|
+
 > <img src="./images/w01-05-different_types_of_RNNS/img_2023-04-25_20-51-44.png">
+
+|Use case|input|output|architecture type|
+|-|-|-|-|
+|music generation|integer (genre of music)|set of notes (music)|One to Many|
+|Machine translation, Tx<!=Ty|English text|French text|Many to Many|
+
+Technically, there's one other architecture which we'll talk about only in week four, which is attention based architectures.
+
 > <img src="./images/w01-05-different_types_of_RNNS/img_2023-04-25_20-51-46.png">
+
+To summarize:
+
 > <img src="./images/w01-05-different_types_of_RNNS/img_2023-04-25_20-51-47.png">
 
 ## Language Model and Sequence Generation
