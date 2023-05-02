@@ -1,0 +1,14 @@
+w02-01-introduction_to_word_embeddings
+w02-02-word_representation
+w02-03-using_word_embeddings
+w02-04-properties_of_word_embeddings
+w02-05-embedding_matrix
+w02-06-learning_word_embeddings_word2vec_glove
+w02-07-learning_word_embeddings
+w02-08-word2vec
+w02-09-negative_sampling
+w02-10-glove_word_vectors
+w02-11-applications_using_word_embeddings
+w02-12-sentiment_classification
+w02-13-debiasing_word_embeddings
+
