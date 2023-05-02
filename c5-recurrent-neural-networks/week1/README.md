@@ -322,8 +322,20 @@ The other common version is called an LSTM, which stands for Long, Short-term Me
 
 ## Long Short Term Memory (LSTM)
 
+In the last video, you learn about the GRU, the Gated Recurring Unit and how that can allow you to learn very long range connections in a sequence. The other type of unit that allows you to do this very well is the LSTM or the long short term memory units. And this is even more powerful than the GRU
+
+- `c̃<t>` is no more computed from `c<t-1>` but from `a<t-1>`
+- We're not using relevance gate `Γr`. Instead, LSTM has :
+    - update gate, `Γu`
+    - forget gate, `Γf`
+    - and output gates, `Γo` 
+
 > <img src="./images/w01-10-long_short_term_memory_LSTM/img_2023-04-25_20-52-59.png">
+
+<!--
 > <img src="./images/w01-10-long_short_term_memory_LSTM/img_2023-04-25_20-53-00.png">
+-->
+
 > <img src="./images/w01-10-long_short_term_memory_LSTM/img_2023-04-25_20-53-02.png">
 
 ## Bidirectional RNN
