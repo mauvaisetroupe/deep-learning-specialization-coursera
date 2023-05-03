@@ -64,10 +64,10 @@ We introduce the concept of i-th example :
 
 > <img src="./images/w01-02-notation/img_2023-04-25_20-51-03.png">
 
-- Representing words: we build a *dictionary* that is a vocabulary list that contains all the words in our training sets
+- Representing words: we build a **dictionary** that is a vocabulary list that contains all the words in our training sets
 - Vocabulary sizes in modern applications are from 30,000 to 50,000. 100,000 is not uncommon. Some of the bigger companies use even a million.
-- We use *one-Hot representation* for a specific word : vector with 1 in position of the word in the dictionary and 0 everywhere else
-- We add a token in the vocabulary with name <UNK> (unknown text)
+- We use **one-Hot representation** for a specific word : vector with 1 in position of the word in the dictionary and 0 everywhere else
+- We add a token in the vocabulary with name `<UNK>` (unknown text)
 
 > <img src="./images/w01-02-notation/img_2023-04-25_20-51-05.png">
 
@@ -206,7 +206,7 @@ Given the sentence `Cats average 15 hours of sleep a day <EOS>` (9 words).
 |$\hat{y}^{<2>}$|x<2>=y<1>=Cats|Probability of having a word given previously "Cats"| `P(average \| Cats)`|
 |$\hat{y}^{<3>}$|x<3>=y<2>=average|Probability of having a word given previously "Cats average"| `P(15 \| Cats average)`|
 
-With then define the cost function with the Softmax loss function 
+With then define the cost function with the Softmax loss function
 
  If you train this RNN on a large training set, what it will be able to do is :
 - given any initial set of words such as `cats average 15` or `cats average 15 hours of`, it can predict what is the chance of the next word
@@ -288,14 +288,14 @@ This is a visualization of the RNN unit of the hidden layer of the RNN that will
 
 > <img src="./images/w01-09-gated_recurrent_unit_GRU/img_2023-04-25_20-52-40.png">
 
-- GRU unit has a new variable C (memory Cell). Memory cell provides a bit of memory. For example, whether cat was singular or plural.
-- in GTU, `c<t> = a<t>`, but `c` introduced for LSTM
-- `c̃<t>` is a candidate for replacing `c<t>`
-- The key idea of the GRU is to have a update gate `Γu` 
+- GRU unit has a new variable `c` the **memory cell** that provides a bit of memory (for example, whether cat was singular or plural)
+- in GTU, `c<t> = a<t>`, but `c` introduced for [LSTM](#gated-recurrent-unit-gru)
+- `c̃<t>` is a candidate for replacing the memory cell `c<t>`
+- The key idea of the GRU is to have a update gate `Γu`
     - `Γu` is a  sigmoid function is either very close to 0 or very close to 1
     - if `Γu ≈ 0`, `c<t> = c<t-1>`, so we keep the previous value
-    - if `Γu ≈ 1`, `c<t> = c̃<t>`, we keep a new value
-    
+    - if `Γu ≈ 1`, `c<t> = c̃<t>`, we take the candidate as the new value to memorized
+
 |t|0|1|2|3|...|t1|...|
 |-|-|-|-|-|-|-|-|
 |Word|The|cat|which|already|...|was|full|
@@ -322,13 +322,16 @@ The other common version is called an LSTM, which stands for Long, Short-term Me
 
 ## Long Short Term Memory (LSTM)
 
-In the last video, you learn about the GRU, the Gated Recurring Unit and how that can allow you to learn very long range connections in a sequence. The other type of unit that allows you to do this very well is the LSTM or the long short term memory units. And this is even more powerful than the GRU
+In the last video, you learn about the GRU, the Gated Recurring Unit and how that can allow you to learn very long range connections in a sequence.
 
-- `c̃<t>` is no more computed from `c<t-1>` but from `a<t-1>`
-- We're not using relevance gate `Γr`. Instead, LSTM has :
+The other type of unit that allows you to do this very well is the **LSTM** or the long short term memory units. And this is even more powerful than the GRU
+
+Compared to GRU, with LSTM :
+- `c̃<t>` is no more computed from `c<t-1>` neither from `Γr` but from `a<t-1>`
+- We're not using relevance gate `Γr`, but instead :
     - update gate, `Γu`
-    - forget gate, `Γf`
-    - and output gates, `Γo` 
+    - forget gate, `Γf` that is decoraalated from `Γu` (GRU, we used 1 - `Γu`)
+    - and output gates, `Γo`
 
 > <img src="./images/w01-10-long_short_term_memory_LSTM/img_2023-04-25_20-52-59.png">
 
@@ -336,13 +339,52 @@ In the last video, you learn about the GRU, the Gated Recurring Unit and how tha
 > <img src="./images/w01-10-long_short_term_memory_LSTM/img_2023-04-25_20-53-00.png">
 -->
 
+The red line at the top shows how, so long as you set appropriately the forget gate `Γf` and the update gates `Γu`, it is relatively easy for the LSTM to pass ome value C0 be all the way to and used it maybe to assign C3 = C0. And this is why the LSTM (as well as the GRU) is very good at memorizing certain values even for a long time.
+
+One common variation of LSTM, you had peephole connection. Instead of just having the gate values be dependent only on `a<t-1>`, `x<t>`, sometimes people replace `x<t>` with `c<t-1>`.
+
 > <img src="./images/w01-10-long_short_term_memory_LSTM/img_2023-04-25_20-53-02.png">
+
+GRU vs. LSTM :
+- LSTMs actually came much earlier and then GRUs were relatively recent invention that were maybe derived as partly a simplification of the more complicated LSTM model
+- GRU is a simpler model and so it is actually easier to build a much bigger network
+- LSTM is more powerful and more effective since it has 3 gates instead of 2
+- people today will still use the LSTM as the default first thing to try
 
 ## Bidirectional RNN
 
+In the example of the Name entity recognition task, with RNN (GRU, LSTM, ...) the name `Teddy` cannot be learned from `He said`, but can be learned from `bears`.
+BRNNs fixes this issue.
+
 > <img src="./images/w01-11-bidirectional_RNN/img_2023-04-25_20-53-10.png">
+
+- BRNN learns from both sides.
+- Forward propagation we are not talking about backward propagation) has 2 parts :
+    - a part goes from left to right (blue arrows)
+    - a part goes from right to left (green arrows)
+- The blocks here can be any RNN block (RNNs, LSTMs, or GRUs)
+
+https://github.com/amanchadha/coursera-deep-learning-specialization/blob/master/C5%20-%20Sequence%20Models/Notes/Images/24.png
+
+> <img src="./images/w01-11-bidirectional_RNN/01.png">
+
+Example of computation of `ŷ<3>` (yellow arrows) :
+- information from the past `x<1>`, `x<2>` from left to right
+- information from the present `x<3>`
+- information from future `x<4>`from right to left
+
 > <img src="./images/w01-11-bidirectional_RNN/img_2023-04-25_20-53-12.png">
 
+The disadvantage of BRNNs is that you need the entire sequence before you can process it: in live speech recognition, you will need to wait for the person to stop talking to take the entire sequence and then make your predictions. So the real time speech recognition applications, there is somewhat more complex models than just using the standard RNN
+
 ## Deep RNNs
+
+- In some problems its useful to stack some RNN layers to make a deeper network
+- `a[l]<t>` for layer `l` and sequence `t`
+- How deep :
+    - for neural networks you may have 100 layers. For RNNs, having three layers is already quite a lot (because you also have the temporal dimension that can be big)
+    - you can see more deep layer, but layer with l > 3 are not connected horizontally
+- The blocks can be standard RNN, GRU blocks or LSTM blocks.
+- You can implement bidirectionnal RNN
 
 > <img src="./images/w01-12-deep_RNNS/img_2023-04-25_20-53-20.png">
