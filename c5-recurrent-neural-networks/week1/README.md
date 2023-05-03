@@ -364,7 +364,7 @@ BRNNs fixes this issue.
     - a part goes from right to left (green arrows)
 - The blocks here can be any RNN block (RNNs, LSTMs, or GRUs)
 
-https://github.com/amanchadha/coursera-deep-learning-specialization/blob/master/C5%20-%20Sequence%20Models/Notes/Images/24.png
+
 
 > <img src="./images/w01-11-bidirectional_RNN/01.png">
 
