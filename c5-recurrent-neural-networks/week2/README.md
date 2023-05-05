@@ -168,16 +168,91 @@ Contexts:
 
 Word2Vec is a simpler and more efficient algorithm to learn embeddings word matrix.
 
-Most of the ideas are due to Tomas Mikolov, Kai Chen, Greg Corrado, and Jeff Dean
+Skip-gram model is one of possible implementation.
+
+The skip-gram train a simple neural network to perform a certain task, but we’re not actually use that neural network for the task (it's useless in itself), it's only a support to learn word embedding matrix.
+
+What we predict : given the context word, predict the target word that will be randomly choosen in a +/- 10 words window
+
+Obviously, this is not a easy learning problem, becaus in the +/- 10 words windows there is a lot of words
+- **but the goals, is not to use this learning algorithm per se**
+- the goal is to learn word embbedings
+
+In the skip-gram model:
+- we create a supervised learning problem based on a mappimg between context and target pairs
+- rather than defining context with the last 4 words, we randomly pick a word in some window (example +/- 10 words)
+- for word the context `orange`, we then could randomly choose `juice`, `glass` or `my` as target
 
 > <img src="./images/w02-08-word2vec/img_2023-05-02_08-01-03.png">
+
+Here are the details of the model.
+- Vocabulary size = 10,000 words
+- We want to learn context `c` to target `t`
+- `c` is represented by its one-hot vector `O_c`
+- We multiply `c` by an embedding matrix `E` to obtain `e_c`
+- the we use softmax function to get output
+
+Parameters of the network:
+- embedding matrix `E`
+- softmax parameters : `θ_t`
+
+If you optimize this loss function with respect to the all of these parameters, you actually get a pretty good set of embedding vectors
+
+So this is called the skip-gram model because is taking as input one word like orange and then trying to predict some words skipping a few words from the left or the right side
+
 > <img src="./images/w02-08-word2vec/img_2023-05-02_08-01-05.png">
+
+The primary problem of skip-gram model is computational speed, in particular, for the softmax model. Every time you want to evaluate the probability of one word, you need to compute a sum over all 10,000 words in your vocabulary. And, in fact, 10,000 is actually already quite slow, but it makes even harder to scale to larger vocabularies (100,000 or a 1,000,000)
+
+One of the solutions for this coputational problem is to use "Hierarchical softmax classifier". Instead of trying to categorize into all 10,000 categories, you have
+- one classifier that tells you if the target word in the first 5000 words in the vocabulary, or is in the second 5000 words in the vocabulary
+- if in the first 5000 words, a second classifier that tell you if in the 2500 first or the 2500 last
+- ...
+- until the exact classification
+
+Hierarchical softmax classifier doesn't use a perfectly balanced symmetric tree, common words tend to be on top of the tree.
+
+We won't go too much in detail, because [negative sampling](#negative-sampling) is a different method even simpler and works really well for speeding up the softmax classifier
+
+How to sample the context:
+- One thing you could do is just sample uniformly, at random, from your training corpus. When we do that, you find that there are some words like `the`, `of`, `a`, `and`, ... that appear extremely frequently and so training set be dominated by these words (instead of `orange`, `durian`, ...)
+- So in practice the distribution of words `Pc` isn't taken just entirely uniformly at random for the training set purpose, but instead there are different heuristics that you could use in order to balance out something from the common words together with the less common words.
+
 > <img src="./images/w02-08-word2vec/img_2023-05-02_08-01-07.png">
+
+Skip gram model is one technic used to implement Word2Vec. Another is called CBOW (Continous Bag-Of-Words) which takes the surrounding contexts from middle word, and uses the surrounding words to try to predict the middle word
+(inverse of skip-gram)
 
 ## Negative Sampling
 
+The skip-gram train a simple neural network to perform a certain task, but we’re not actually use that neural network for the task (it's useless in itself), it's only a support to learn word embedding matrix. In the **negative samplig algorithm**, we modify the training objective in order to make it run much more efficiently, working in a much bigger training set, with a much better word embeddings learning.
+
+What we predict :
+- is (`orange`, `juice`) a context-target pair?
+- is (`orange`, `king`) a context-target pair?
+
+
+To build the training set:
+- we generate a positive example as previously picking a context word (`orange`) and randomly choose a target word in a +/- 10 words window (`juice`)
+- we generate k negative example by keeping the same context word (`orange`) by choosing randomly words from the dictionary (`king`, ...)
+    - if target is in the learning sentence (`of` in the below slide), it doesn't matter
+    - k is in [5,20] for small data set
+    - k is in [2,5] for large data set
+
 > <img src="./images/w02-09-negative_sampling/img_2023-05-02_08-01-19.png">
+
+- Previously, we had the softmax model
+- We now define a logistic regression model with sigmoid function and the same parameters
+- we have now a new network with 10.000 logistic (binary) regression classifier (one for `juice`, one for `king`, ...)
+- but instead of training all 10,000 of them on every iteration, we're only going to train 5 of them (1 positive and 4 negative sampling in our example)
+
+How do we choose the negatives examples:
+- We can sample according to empirical frequencies in words corpus (how often different words appears). But the problem with that is that we will have more frequent words like `the`, `of`, `and`...
+- Other extreme would be to use p(w)=1/|V| to sample uniformly at random. But this is also very non-representative of the distribution of English words
+- paper author reporetd that empirically that is between the 2 extrem values above
+
 > <img src="./images/w02-09-negative_sampling/img_2023-05-02_08-01-21.png">
+
 > <img src="./images/w02-09-negative_sampling/img_2023-05-02_08-01-23.png">
 
 ## GloVe Word Vectors
