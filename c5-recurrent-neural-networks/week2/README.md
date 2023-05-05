@@ -250,8 +250,8 @@ To build the training set:
 > <img src="./images/w02-09-negative_sampling/img_2023-05-02_08-01-21.png">
 
 How do we choose the negatives examples:
-- We can sample according to empirical frequencies in words corpus (how often different words appears). But the problem with that is that we will have more frequent words like `the`, `of`, `and`...
-- Other extreme would be to use p(w)=1/|V| to sample uniformly at random. But this is also very non-representative of the distribution of English words
+- We can sample according to empirical frequencies in words corpus `f(wi)` (how often different words appears). But the problem with that is that we will have more frequent words like `the`, `of`, `and`...
+- Other extreme would be to use `p(wi)=1/|V|` to sample uniformly at random. But this is also very non-representative of the distribution of English words
 - paper author reporetd that empirically that is between the 2 extrem values above
 
 > <img src="./images/w02-09-negative_sampling/img_2023-05-02_08-01-23.png">
