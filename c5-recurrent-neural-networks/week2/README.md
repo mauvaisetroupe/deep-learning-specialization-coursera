@@ -246,12 +246,13 @@ To build the training set:
 - we have now a new network with 10.000 logistic (binary) regression classifier (one for `juice`, one for `king`, ...)
 - but instead of training all 10,000 of them on every iteration, we're only going to train 5 of them (1 positive and 4 negative sampling in our example)
 
+
+> <img src="./images/w02-09-negative_sampling/img_2023-05-02_08-01-21.png">
+
 How do we choose the negatives examples:
 - We can sample according to empirical frequencies in words corpus (how often different words appears). But the problem with that is that we will have more frequent words like `the`, `of`, `and`...
 - Other extreme would be to use p(w)=1/|V| to sample uniformly at random. But this is also very non-representative of the distribution of English words
 - paper author reporetd that empirically that is between the 2 extrem values above
-
-> <img src="./images/w02-09-negative_sampling/img_2023-05-02_08-01-21.png">
 
 > <img src="./images/w02-09-negative_sampling/img_2023-05-02_08-01-23.png">
 
