@@ -252,11 +252,24 @@ To build the training set:
 How do we choose the negatives examples:
 - We can sample according to empirical frequencies in words corpus `f(wi)` (how often different words appears). But the problem with that is that we will have more frequent words like `the`, `of`, `and`...
 - Other extreme would be to use `p(wi)=1/|V|` to sample uniformly at random. But this is also very non-representative of the distribution of English words
-- paper author reporetd that empirically that is between the 2 extrem values above
+- paper author reporetd that empirically that is in-between the extreme values above (not sure this is very theoretically justified)
 
 > <img src="./images/w02-09-negative_sampling/img_2023-05-02_08-01-23.png">
 
+So to summarize :
+- you've seen how you can learn word vectors in a Softmax classier, but it's very computationally expensive
+- you saw how by changing that to a bunch of binary classification problems, you can very efficiently learn words vectors. 
+- And if you run this algorithm, you will be able to learn pretty good word vectors. 
+
+Now of course, as is the case in other areas of deep learning as well, there are open source implementations. And there are also pre-trained word vectors that others have trained and released online under permissive licenses. And so if you want to get going quickly on a NLP problem, it'd be reasonable to download someone else's word vectors and use that as a starting point.
+
 ## GloVe Word Vectors
+
+Another algorithm that has some momentum in the NLP community is the GloVe (global vectors for word representation) algorithm. This is not used as much as the Word2Vec or the skip-gram models, but it has some enthusiasts. Because in part of its simplicity
+
+- We define $X_{ij}$ as the number of times that a word i appears in the context of word j (close to each other)
+- Depending on the definition of context and target words, you might have that $X_{ij}$ equals $X_{ji}$. And in fact, if you're defining context and target in terms of whether or not they appear within +/- 10 words of each other, then it would be a symmetric relationship (not symetric if your context was defined as the word immediately before the target word)
+
 
 > <img src="./images/w02-10-glove_word_vectors/img_2023-05-02_08-01-33.png">
 > <img src="./images/w02-10-glove_word_vectors/img_2023-05-02_08-01-35.png">
