@@ -147,19 +147,19 @@ SKILLS YOU WILL GAIN
 - Recurrent Neural Network
 - Attention Models
 
-## [Week 1 - Recurrent Neural Networks](./c5-recurrent-neural-networks/week1/README.md)
+#### [Week 1 - Recurrent Neural Networks](./c5-recurrent-neural-networks/week1/README.md)
 
 Discover recurrent neural networks, a type of model that performs extremely well on temporal data, and several of its variants, including LSTMs, GRUs and Bidirectional RNNs,
 
 
-## [Week 2  - Natural Language Processing & Word Embeddings](./c5-recurrent-neural-networks/week2/README.md)
+#### [Week 2  - Natural Language Processing & Word Embeddings](./c5-recurrent-neural-networks/week2/README.md)
 
 Natural language processing with deep learning is a powerful combination. Using word vector representations and embedding layers, train recurrent neural networks with outstanding performance across a wide variety of applications, including sentiment analysis, named entity recognition and neural machine translation.
 
 
-## [Week 3 - Sequence Models & Attention Mechanism](./c5-recurrent-neural-networks/week3/README.md)
+#### [Week 3 - Sequence Models & Attention Mechanism](./c5-recurrent-neural-networks/week3/README.md)
 
 Augment your sequence models using an attention mechanism, an algorithm that helps your model decide where to focus its attention given a sequence of inputs. Then, explore speech recognition and how to deal with audio data.
 
 
-## [Week 4 - Transformer Network](./c5-recurrent-neural-networks/week4/README.md)
+#### [Week 4 - Transformer Network](./c5-recurrent-neural-networks/week4/README.md)

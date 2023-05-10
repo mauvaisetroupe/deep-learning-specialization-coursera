@@ -10,7 +10,8 @@ Learning Objectives
 - Apply BLEU score to machine-translated text
 - Implement an attention model
 - Train a trigger word detection model and make predictions
-- Synthesize and process audio recordings t
+- Synthesize and process audio recordings to create train/dev datasets
+- Structure a speech recognition project
 
 # Various Sequence To Sequence Architectures
 
