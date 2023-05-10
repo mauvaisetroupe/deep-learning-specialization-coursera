@@ -23,7 +23,7 @@ NLP (Natural Language Processing) has been revolutionized by deep learning. One 
 - [Previously](../week1/README.md#notation), we use one-hot representation and vocabulary to encode words.
 - we use $O_{5391}$ to denote the one-hot vector with `1` in position `5391` (and `0` elseweher)
 - One of the weaknesses of this representation is that it treats each word as a thing in itself, and that it does not allow an algorithm to find common senses
-    - even if algorithm has learned `I want a glass of orange juice`, algorithm cannot complete `I want a glass of apple ...` because there is no specific proximity between apple and orange (disatnce is the same between any pair of vectors) 
+    - even if algorithm has learned `I want a glass of orange juice`, algorithm cannot complete `I want a glass of apple ...` because there is no specific proximity between apple and orange (disatnce is the same between any pair of vectors)
 
 > <img src="./images/w02-02-word_representation/img_2023-05-02_07-56-25.png">
 
@@ -100,7 +100,6 @@ To compute the similaririty, we can use :
 - cosine similarity, it's the most commonly used similarity function, basically the inner product between u and v
 - square distance or Euclidian distance
 
-
 > wikipedia
 >
 > In mathematics, the dot product or scalar product is an algebraic operation that takes two equal-length sequences of numbers (usually coordinate vectors), and returns a single number.
@@ -127,7 +126,6 @@ When you implement an algorithm to learn a word embedding, what you end up learn
 - And then over time, researchers discovered they can use simpler and simpler and simpler algorithms
 - Some of the most popular agorithm today are so simple that could be seem a little bit magical and still get very good results especially for a large dataset
 - So, what I'm going to do is start off with some of the slightly more complex algorithms because I think it's actually easier to develop intuition about why they should work
-
 
 You're building a language model and you do it with a neural network. So, during training, you might want your neural network to do something like input, `I want a glass of orange ___ `, and then predict the next word in the sequence.
 
@@ -190,7 +188,7 @@ Here are the details of the model.
 - We want to learn context `c` to target `t`
 - `c` is represented by its one-hot vector `O_c`
 - We multiply `c` by an embedding matrix `E` to obtain `e_c`
-- the we use softmax function to get output
+- the we use softmax function to get output. `θ_t` is the parameter associated with the chance of a particular word `t` beeing choosen as target word
 
 Parameters of the network:
 - embedding matrix `E`
@@ -243,6 +241,8 @@ To build the training set:
 
 - Previously, we had the softmax model
 - We now define a logistic regression model with sigmoid function and the same parameters
+    - one parameter vector θ<sub>t</sub> for each possible target word
+    - a separate parameter vector e<sub>c</sub>, the embedding vector, for each possible context word
 - we have now a new network with 10.000 logistic (binary) regression classifier (one for `juice`, one for `king`, ...)
 - but instead of training all 10,000 of them on every iteration, we're only going to train 5 of them (1 positive and 4 negative sampling in our example)
 
@@ -252,7 +252,7 @@ To build the training set:
 How do we choose the negatives examples:
 - We can sample according to empirical frequencies in words corpus `f(wi)` (how often different words appears). But the problem with that is that we will have more frequent words like `the`, `of`, `and`...
 - Other extreme would be to use `p(wi)=1/|V|` to sample uniformly at random. But this is also very non-representative of the distribution of English words
-- paper author reporetd that empirically that is in-between the extreme values above (not sure this is very theoretically justified)
+- Paper author reporetd that empirically that is in-between the extreme values above (not sure this is very theoretically justified)
 
 > <img src="./images/w02-09-negative_sampling/img_2023-05-02_08-01-23.png">
 
@@ -268,22 +268,75 @@ Now of course, as is the case in other areas of deep learning as well, there are
 Another algorithm that has some momentum in the NLP community is the GloVe (global vectors for word representation) algorithm. This is not used as much as the Word2Vec or the skip-gram models, but it has some enthusiasts. Because in part of its simplicity
 
 - We define $X_{ij}$ as the number of times that a word i appears in the context of word j (close to each other)
+    - i is playing the role of t (target)
+    - j is playing the role of c (context)
 - Depending on the definition of context and target words, you might have that $X_{ij}$ equals $X_{ji}$. And in fact, if you're defining context and target in terms of whether or not they appear within +/- 10 words of each other, then it would be a symmetric relationship (not symetric if your context was defined as the word immediately before the target word)
 
 
 > <img src="./images/w02-10-glove_word_vectors/img_2023-05-02_08-01-33.png">
+
+GloVe Word Vectors :
+- θ<sub>i</sub><sup>T</sup>e<sub>j</sub>&nbsp;plays the role of θ<sub>t</sub><sup>T</sup>e<sub>c</sub>&nbsp;in the [negative sampling alorithm](/#negative-sampling)
+- f(x<sub>ij</sub>) is a weighting term, used for 2 mains reasons:
+    - log(0) is not define, so by convention we define that f(0)=0 and 0*log(0)=0
+    - manage with difference offrequencies between :
+        - decrease importamce of **stop words**, that appears too frequently in the English language (`this`, `is`, `of`, `a`, ...)
+        - gives a meaningful amount of computation, even to the less frequent words like `durian`
+- Read paper if yuo need more detail on heuristics for choosing this weighting function f that neither gives these words too much weight nor gives the infrequent words too little weight
+- θ<sub>i</sub> and e<sub>j</sub> are symetric, so one way to train th algorithm is :
+    - to initialize θ<sub>i</sub> and e<sub>j</sub> both uniformly random
+    - run gradient descent to minimize its objective,
+    - and then take the average
+
+One confusing part of this algorithm is, if you look at this equation, it seems almost too simple. How could it be that just minimizing a square cost function like this allows you to learn meaningful word embeddings? But it turns out that this works. And the way that the inventors end up with this algorithm was, they were building on the history of much more complicated algorithms and then this came later. And we really hope to simplify all of the earlier algorithms.
+
 > <img src="./images/w02-10-glove_word_vectors/img_2023-05-02_08-01-35.png">
+
+- In the GloVe algorithm you cannot guarantee that the individual components of the embeddings are interpretable
+- You even cannot guarantee that axis are orthogonal
+- Mathematically, you could easily find invertible matrix A that proves that you can't guarantee that the axis used to represent the features will be well-aligned with what might be easily humanly interpretable axis
+-  But despite this type of linear transformation, the parallelogram map that we worked out when we were describing analogies, that still works. And so, despite this potentially arbitrary linear transformation of the features, you end up learning the parallelogram map for figure analogies still works.
+
 > <img src="./images/w02-10-glove_word_vectors/img_2023-05-02_08-01-37.png">
 
 # Applications Using Word Embeddings
 
 ## Sentiment Classification
 
+- Sentiment classification map a text sequence into an integer that represents rating (from 1 to 5)
+- One of the challenges of sentiment classification is you might not have a huge label training set for it.
+- But with word embeddings, you're able to build good sentiment classifiers even with only modest-size label training sets
+
 > <img src="./images/w02-12-sentiment_classification/img_2023-05-02_08-09-41.png">
+
+- embedding matrix may have been trained on say 100 billion words.
+- 300 number of features in word embedding
+- we can use sum or average given all the words then pass it to a softmax classifier
+    - works for short or long sentences
+    - but ignores word order and so have a bad interpreation (`lacking in good taste` is bad evev ig `good` word is present)
+
 > <img src="./images/w02-12-sentiment_classification/img_2023-05-02_08-09-43.png">
+
+- A more sophisticated model consoists in using a RNN for sentiment classification (many-to-one RNN architecture)
+- it will be much better at taking word sequence into account and realize that `things are lacking in good taste` is a negative review
+- it will be much better with `Completely absent of good taste, good service, and good ambiance` or something, then even if the word `absent` is not in your label training set (similarity with `lacking` word in the training set)
+
 > <img src="./images/w02-12-sentiment_classification/img_2023-05-02_08-09-45.png">
 
 ## Debiasing Word Embeddings
 
+Machine learning and AI algorithms are increasingly trusted to help with, or to make, extremely important decisions. They're influencing everything ranging from college admissions, to the way people find jobs, to loan applications.
+
+Word embeddings algorithm can pick up the biases of the text used to train the model and so the biases they pick up or tend to reflect the biases in text as is written by people.
+
+We want to reduce or ideally eliminate undesirable biases (gender, ethnicity, sexual orientation bias)
+
 > <img src="./images/w02-13-debiasing_word_embeddings/img_2023-05-02_08-10-01.png">
+
+- The first thing we're going to do is to identify the direction corresponding to a particular bias we want to reduce or eliminate
+    - calculating e<sub>she</sub> - e<sub>he</sub>...
+    - this help to find the bias and not bias axis
+- For each word (`babysitter`) that should not be definitional linked to for example the gender, project words on the non-bias axis
+- Equalize the distance of gender-specific words (`grand mother`, `grand father`)
+
 > <img src="./images/w02-13-debiasing_word_embeddings/img_2023-05-02_08-10-03.png">
