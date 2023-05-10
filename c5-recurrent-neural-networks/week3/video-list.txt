@@ -1,0 +1,10 @@
+w03-01-basic_models
+w03-02-picking_the_most_likely_sentence
+w03-03-beam_search
+w03-04-refinements_to_beam_search
+w03-05-error_analysis_in_beam_search
+w03-06-bleu_score
+w03-07-attention_model_intuition
+w03-08-attention_model
+w03-09-speech_recognition
+w03-10-trigger_word_detection
