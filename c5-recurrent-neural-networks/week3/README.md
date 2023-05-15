@@ -163,12 +163,11 @@ We implment step 3, similary at step 2
 > <img src="./images/w03-04-refinements_to_beam_search/img_2023-05-10_17-38-17.png">
 
 How can we choose best `B`?
-- If the beam width is very large, then you consider a lot of possibilities and so you tend to get a better result because you're consuming a lot of different options, but it will be slower. 
-- Whereas if you use a very small beam width, then you get a worse result because you are just keeping less possibilities in mind as the algorithm is running, but you get a result faster and the memory requirements will also be lower.
-- it's not uncommon to see a beam width maybe around 10
-- beam width of 100 would be considered very large for a production system
-- B=1000 or B=3000 is not uncommon for research systems.
-- but when beam is very large, there is often diminishing returns
+- B very large, then you consider a lot of possibilities, you get better result because you're consuming a lot of different options, but it will be slower. 
+- B very small, you get a worse result because you are just keeping less possibilities in mind as the algorithm is running, but you get a result faster and the memory requirements will also be lower
+- B=10, it's not uncommon 
+- B=100, considered very large for a production system
+- B=1000 or B=3000 is not uncommon for research systems, but when beam is very large, there is often diminishing returns
 
 > <img src="./images/w03-04-refinements_to_beam_search/img_2023-05-10_17-38-19.png">
 
