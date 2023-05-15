@@ -218,6 +218,13 @@ So the error analysis process looks as follows. You go through the development s
 
 ##  Bleu Score (Optional)
 
+How do you evaluate a machine translation system if there are multiple equally good answers?
+
+BLEU (bilingual evaluation understudy) is an algorithm for evaluating the quality of text which has been machine-translated from one natural language to another.
+
+The intuition is so long as the machine generated translation is pretty close to any of the references provided by humans, then it will get a high BLEU score
+
+
 > <img src="./images/w03-06-bleu_score/img_2023-05-10_17-38-44.png">
 > <img src="./images/w03-06-bleu_score/img_2023-05-10_17-38-45.png">
 > <img src="./images/w03-06-bleu_score/img_2023-05-10_17-38-46.png">
