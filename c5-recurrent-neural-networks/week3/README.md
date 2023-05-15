@@ -104,13 +104,72 @@ So, to summarize:
 
 ##  Beam Search
 
+Let's just try Beam Search using our running example of the French sentence, `"Jane visite l'Afrique en Septembre"`. Hopefully being translated into, `"Jane, visits Africa in September"`. 
+
+Whereas greedy search will pick only the one most likely words and move on, Beam Search instead can consider multiple alternatives. The algorithm has a parameter beam width. Lets take B = 3 which means the algorithm will get 3 outputs at a time.
+
+- Run the input French sentence through this encoder network 
+- First step of Beam search
+    - decode the network, this is a softmax output overall 10,000 possibilities. 
+    - then you would take those 10,000 possible outputs and keep in memory which were the top 3 (`in`, `Jane`, `September`)
+
 > <img src="./images/w03-03-beam_search/img_2023-05-10_17-38-03.png">
+
+- Second step, having picked `in`, `Jane` and `September` as the 3 most likely choice of the first word, what Beam search will do now, is for each of these three choices consider what should be the second word
+    - For the first word `in`, we have the following, we compute the probability to find the second word : p(y<sup>&lt;2&gt;</sup>&nbsp;| x, &quot;in&quot; ) = p(y<sup>&lt;1&gt;</sup>|x) * p(y<sup>&lt;2&gt;</sup>|x,y<sup>&lt;1&gt;</sup>)
+    - Notice that we need to find the probability to find the pair of the first and second words that is most likely, p(y<sup>&lt;1&gt;</sup>,y<sup>&lt;2&gt;</sup>|x)
+    - By the rules of conditional probability, it can be expressed as p(y<sup>&lt;1&gt;</sup>,y<sup>&lt;2&gt;</sup>|x) = p(y<sup>&lt;1&gt;</sup>|x) * p(y<sup>&lt;2&gt;</sup>|x,y<sup>&lt;1&gt;</sup>)
+
+
+> <img src="./images/w03-03-beam_search/img_2023-05-14_07-42-36.png">
+
+We do the same thing for the first word `Jane` and `september`.
+
+So for this second step of beam search because we're continuing to use a B=3, and because there are 10,000 words in the vocabulary you'd end up considering 30'000 options according to the probably the first and second words and then pick the top three:
+- in september
+- Jane is
+- Jane visit
+
+Note that 
+- you can reject `september` as candidate for the first word (because not selected in top 3)
+- every step you instantiate 3 copies of the network to evaluate these partial sentence fragments and the output, but these 3 copies of the network can be very efficiently used to evaluate all 30,000 options for the second word
+
 > <img src="./images/w03-03-beam_search/img_2023-05-10_17-38-04.png">
+
+Let's just quickly illustrate one more step of beam search. 
+
+So said that the most likely choices for first two words were `in September`, `Jane is`, and `Jane visits`. And for each of these pairs of words, we have p(y<sup>&lt;1&gt;</sup>,y<sup>&lt;2&gt;</sup>|x), the probability of having y<sup>&lt;1&gt;</sup> and y<sup>&lt;2&gt;</sup> given the the French sentence X
+
+We implment step 3, similary at step 2
+
+
 > <img src="./images/w03-03-beam_search/img_2023-05-10_17-38-05.png">
 
 ##  Refinements to Beam Search
 
+- Beam search consists to maximize the probability P(y<sup>&lt;1&gt;</sup>&nbsp;| x) * P(y<sup>&lt;2&gt;</sup>&nbsp;| x, y<sup>&lt;1&gt;</sup>) * ... * P(y<sup>&lt;t&gt;</sup>&nbsp;| x, y<sup>&lt;y(t-1)&gt;</sup>) (formalized in a mathematical language below)
+- But multiplying a lot of numbers less than 1 will result in a very tiny number, which can result in numerical underflow
+- Idea is to maximize the logaithmin of that product :
+    - logarithmic function is a strictly monotonically increasing function
+    - log of a product becomes a sum of a log
+- Problem remaining for long sentences, there si an undesirable to tends to prefer unnaturally very short translations : 
+    - first objective function is a mulliplication of small numbers, so is sentence size increase, function will decrease
+    - same with second objective function : addition of negative numbers
+- To tackle that problem we normalize with T<sub>y</sub><sup>α</sup>
+    - α is another hyperparameter
+    - α = 0, no normalization
+    - α = 1, full normalization
+
 > <img src="./images/w03-04-refinements_to_beam_search/img_2023-05-10_17-38-17.png">
+
+How can we choose best `B`?
+- If the beam width is very large, then you consider a lot of possibilities and so you tend to get a better result because you're consuming a lot of different options, but it will be slower. 
+- Whereas if you use a very small beam width, then you get a worse result because you are just keeping less possibilities in mind as the algorithm is running, but you get a result faster and the memory requirements will also be lower.
+- it's not uncommon to see a beam width maybe around 10
+- beam width of 100 would be considered very large for a production system
+- B=1000 or B=3000 is not uncommon for research systems.
+- but when beam is very large, there is often diminishing returns
+
 > <img src="./images/w03-04-refinements_to_beam_search/img_2023-05-10_17-38-19.png">
 
 ##  Error Analysis in Beam Search
