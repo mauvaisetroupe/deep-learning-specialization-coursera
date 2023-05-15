@@ -169,12 +169,51 @@ How can we choose best `B`?
 - B=100, considered very large for a production system
 - B=1000 or B=3000 is not uncommon for research systems, but when beam is very large, there is often diminishing returns
 
+Unlike exact search algorithms like BFS (Breadth First Search) or DFS (Depth First Search), Beam Search runs faster but is not guaranteed to find the exact solution.
+
 > <img src="./images/w03-04-refinements_to_beam_search/img_2023-05-10_17-38-19.png">
 
 ##  Error Analysis in Beam Search
 
+We already seen in [Error analysis](../../c3-structuring-ml-projects/week2/README.md#error-analysis) in "Structuring Machine Learning Projects" course. 
+
+Beam search is an approximate search algorithm, also called a heuristic search algorithm. And so it doesn't always output the most likely sentence.
+
+In this video, you'll learn how error analysis interacts with beam search and how you can figure out whether 
+- it is the beam search algorithm that's causing problems (and worth spending time on)
+- or whether it might be your RNN model that is causing problems (and worth spending time on)
+
+It's always tempting to collect more data (as seen in other courses) and similary it's always tempting to increase bean width
+But how do you decide whether or not improving the search algorithm is a good use of your time? Idea is to compare `p(y*|x)` and `p(ŷ|x)`
+
+
+Let's take an example:
+- "`Jane visite l’Afrique en septembre.`", French sentence to translate
+- "`Jane visits Africa in September.`" - right answer given by human, in your DEV data set, called `y*`
+- "`Jane visited Africa last September.`" - answer produced by model, called `ŷ` 
+
+
 > <img src="./images/w03-05-error_analysis_in_beam_search/img_2023-05-10_17-38-32.png">
+
+We compute `p(y*|x)` and `p(ŷ|x)` as output of the RNN model
+
+Case 1 - p(y*|x) > p(ŷ|x):
+- RNN computing P(y|x)
+- beam search's job was to try to find a value of y that gives that arg max
+- y* attains a higher value, so ŷ is not the higer value
+- So Beam Search is failing its job 
+
+
+Case 2 - p(y*|x) < p(ŷ|x):
+- y* is a better translation (it's the one given by human in training set)
+- RNN predict p(y*|x) < p(ŷ|x)
+- RNN model is at fault
+
 > <img src="./images/w03-05-error_analysis_in_beam_search/img_2023-05-10_17-38-33.png">
+
+
+So the error analysis process looks as follows. You go through the development set and find the mistakes that the algorithm made in the development set. Following the reasonment of previous slide, you will get counts and decide what to work on next
+
 > <img src="./images/w03-05-error_analysis_in_beam_search/img_2023-05-10_17-38-34.png">
 
 ##  Bleu Score (Optional)
