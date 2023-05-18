@@ -75,9 +75,9 @@ So, when you're using this model for machine translation, you're not trying to s
 
 > <img src="./images/w03-02-picking_the_most_likely_sentence/img_2023-05-10_17-37-36.png">
 
-But, before moving on to describe beam search, you might wonder, why not just use greedy search? So, what is greedy search? 
+But, before moving on to describe beam search, you might wonder, why not just use greedy search? So, what is greedy search?
 
-Greedy search is an algorithm from computer science which says to  
+Greedy search is an algorithm from computer science which says to
 - generate the first word just pick whatever is the most likely first word according to your conditional language model
 - you then pick whatever is the second word that seems most likely
 - and so on
@@ -88,7 +88,7 @@ The first sentence "Jane is visiting Africa in September." i sa better solution 
 
 But, if the algorithm has picked "Jane is" as the first two words, because "going" is a more common English word, probably the chance of "Jane is going," given the French input, this might actually be higher than the chance of "Jane is visiting," given the French sentence.
 
-I know this was may be a slightly hand-wavey argument, but, 
+I know this was may be a slightly hand-wavey argument, but,
 - this is an example of a broader phenomenon, where if you want to find the sequence of words, y1, y2, ... that together maximize the probability, it's not always optimal to just pick one word at a time.
 - the total number of combinations of words in the English sentence is exponentially larger (10'000 vocabulary, 10 words in sentence, so you have 10'000<sup>10</sup> possible sentences) and it's impossible to rate them all, which is why the most common thing to do is use an approximate search algorithm
 
@@ -96,7 +96,7 @@ I know this was may be a slightly hand-wavey argument, but,
 > <img src="./images/w03-02-picking_the_most_likely_sentence/img_2023-05-10_17-37-37.png">
 
 
-So, to summarize: 
+So, to summarize:
 - machine translation can be posed as a conditional language modeling problem
 - one major difference between this and the earlier language modeling problems is rather than wanting to generate a sentence at random, you may want to try to find the most likely English sentence, most likely English translation
 - but the set of all English sentences of a certain length is too large to exhaustively enumerate
@@ -104,13 +104,13 @@ So, to summarize:
 
 ##  Beam Search
 
-Let's just try Beam Search using our running example of the French sentence, `"Jane visite l'Afrique en Septembre"`. Hopefully being translated into, `"Jane, visits Africa in September"`. 
+Let's just try Beam Search using our running example of the French sentence, `"Jane visite l'Afrique en Septembre"`. Hopefully being translated into, `"Jane, visits Africa in September"`.
 
 Whereas greedy search will pick only the one most likely words and move on, Beam Search instead can consider multiple alternatives. The algorithm has a parameter beam width. Lets take B = 3 which means the algorithm will get 3 outputs at a time.
 
-- Run the input French sentence through this encoder network 
+- Run the input French sentence through this encoder network
 - First step of Beam search
-    - decode the network, this is a softmax output overall 10,000 possibilities. 
+    - decode the network, this is a softmax output overall 10,000 possibilities.
     - then you would take those 10,000 possible outputs and keep in memory which were the top 3 (`in`, `Jane`, `September`)
 
 > <img src="./images/w03-03-beam_search/img_2023-05-10_17-38-03.png">
@@ -130,13 +130,13 @@ So for this second step of beam search because we're continuing to use a B=3, an
 - Jane is
 - Jane visit
 
-Note that 
+Note that
 - you can reject `september` as candidate for the first word (because not selected in top 3)
 - every step you instantiate 3 copies of the network to evaluate these partial sentence fragments and the output, but these 3 copies of the network can be very efficiently used to evaluate all 30,000 options for the second word
 
 > <img src="./images/w03-03-beam_search/img_2023-05-10_17-38-04.png">
 
-Let's just quickly illustrate one more step of beam search. 
+Let's just quickly illustrate one more step of beam search.
 
 So said that the most likely choices for first two words were `in September`, `Jane is`, and `Jane visits`. And for each of these pairs of words, we have p(y<sup>&lt;1&gt;</sup>,y<sup>&lt;2&gt;</sup>|x), the probability of having y<sup>&lt;1&gt;</sup> and y<sup>&lt;2&gt;</sup> given the the French sentence X
 
@@ -152,7 +152,7 @@ We implment step 3, similary at step 2
 - Idea is to maximize the logaithmin of that product :
     - logarithmic function is a strictly monotonically increasing function
     - log of a product becomes a sum of a log
-- Problem remaining for long sentences, there si an undesirable to tends to prefer unnaturally very short translations : 
+- Problem remaining for long sentences, there is an undesirable to tends to prefer unnaturally very short translations :
     - first objective function is a mulliplication of small numbers, so is sentence size increase, function will decrease
     - same with second objective function : addition of negative numbers
 - To tackle that problem we normalize with T<sub>y</sub><sup>α</sup>
@@ -163,9 +163,9 @@ We implment step 3, similary at step 2
 > <img src="./images/w03-04-refinements_to_beam_search/img_2023-05-10_17-38-17.png">
 
 How can we choose best `B`?
-- B very large, then you consider a lot of possibilities, you get better result because you're consuming a lot of different options, but it will be slower. 
+- B very large, then you consider a lot of possibilities, you get better result because you're consuming a lot of different options, but it will be slower.
 - B very small, you get a worse result because you are just keeping less possibilities in mind as the algorithm is running, but you get a result faster and the memory requirements will also be lower
-- B=10, it's not uncommon 
+- B=10, it's not uncommon
 - B=100, considered very large for a production system
 - B=1000 or B=3000 is not uncommon for research systems, but when beam is very large, there is often diminishing returns
 
@@ -175,11 +175,11 @@ Unlike exact search algorithms like BFS (Breadth First Search) or DFS (Depth Fir
 
 ##  Error Analysis in Beam Search
 
-We already seen in [Error analysis](../../c3-structuring-ml-projects/week2/README.md#error-analysis) in "Structuring Machine Learning Projects" course. 
+We already seen in [Error analysis](../../c3-structuring-ml-projects/week2/README.md#error-analysis) in "Structuring Machine Learning Projects" course.
 
 Beam search is an approximate search algorithm, also called a heuristic search algorithm. And so it doesn't always output the most likely sentence.
 
-In this video, you'll learn how error analysis interacts with beam search and how you can figure out whether 
+In this video, you'll learn how error analysis interacts with beam search and how you can figure out whether
 - it is the beam search algorithm that's causing problems (and worth spending time on)
 - or whether it might be your RNN model that is causing problems (and worth spending time on)
 
@@ -190,7 +190,7 @@ But how do you decide whether or not improving the search algorithm is a good us
 Let's take an example:
 - "`Jane visite l’Afrique en septembre.`", French sentence to translate
 - "`Jane visits Africa in September.`" - right answer given by human, in your DEV data set, called `y*`
-- "`Jane visited Africa last September.`" - answer produced by model, called `ŷ` 
+- "`Jane visited Africa last September.`" - answer produced by model, called `ŷ`
 
 
 > <img src="./images/w03-05-error_analysis_in_beam_search/img_2023-05-10_17-38-32.png">
@@ -201,7 +201,7 @@ Case 1 - p(y*|x) > p(ŷ|x):
 - RNN computing P(y|x)
 - beam search's job was to try to find a value of y that gives that arg max
 - y* attains a higher value, so ŷ is not the higer value
-- So Beam Search is failing its job 
+- So Beam Search is failing its job
 
 
 Case 2 - p(y*|x) < p(ŷ|x):
@@ -224,21 +224,85 @@ BLEU (bilingual evaluation understudy) is an algorithm for evaluating the qualit
 
 The intuition is so long as the machine generated translation is pretty close to any of the references provided by humans, then it will get a high BLEU score
 
+(paper has been incredibly influential and quite readable)
+
+One way to measure how good the machine translation output is, is to look at each the words in the output and see if it appears in the references. With that approach the sentence "`the the the the the the the the`" would have a precision of `7/7`
+
+So instead, what we're going to use is a modified precision measure in which we will give each word credit only up to the maximum number of times it appears in the reference sentences: `the` appears twice in reference 1, and once in reference 2, so modified precision is `2/7`
 
 > <img src="./images/w03-06-bleu_score/img_2023-05-10_17-38-44.png">
+
+So far, we've been looking at words in isolation. In the BLEU score, you don't want to just look at isolated words. You maybe want to look at pairs of words as well. Let's define a portion of the BLEU score on bigrams (bigrams just means pairs of words appearing next to each other)
+
+- Bigrams in MT output are `The cat`, `cat the`, `the cat`, `cat on`, ...
+- For each Bigram, we count the maximum number of times a bigram (`The cat`) appears in either Reference 1 or Reference 2
+- we sum up the number of counts of bigrams over the sum of total bigrams
+
 > <img src="./images/w03-06-bleu_score/img_2023-05-10_17-38-45.png">
+
+Mathematic formulation below.
+
+And one thing that you could probably convince yourself of is if the MT output is exactly the same as either Reference 1 or Reference 2, then all of these values P1 (unigram), and P2 (bigram) and so on, they'll all be equal to 1.0. So to get a modified precision of 1.0
+
 > <img src="./images/w03-06-bleu_score/img_2023-05-10_17-38-46.png">
+
+Finally, let's put this together to form the final BLEU score. We compute P1, P2, P3 and P4, and combine them together using the following formula.
+
+In order to punish candidate strings that are too short, define the **brevity penalty** to be
+
 > <img src="./images/w03-06-bleu_score/img_2023-05-10_17-38-47.png">
+
+In practice, few people would implement a BLEU score from scratch. There are open source implementations that you can download and just use to evaluate your own system.
+
+Today, BLEU score is used to evaluate many systems that generate text, such as machine translation systems, as well as image captioning systems.
 
 ##  Attention Model Intuition
 
+For most of this week, you've been using a **Encoder-Decoder** architecture for machine translation (one RNN reads in a sentence and then different RNN outputs a sentence). There's a modification to this called the **Attention Model**, that makes all this work much better.
+
+The attention algorithm has been one of the most influential ideas in deep learning.
+
+Get a very long French sentence like this.
+
+What we are asking this green encoder in your network to do is :
+- to read in the whole sentence
+- then memorize the whole sentences
+- and store it in the activations conveyed here.
+
+Then for the purple network, the decoder network till then generate the English translation.
+
+Now, the way a human translator would translate this sentence is different. Thee human translator would read the first part of the sentence, and generate part of the translation. Look at the second part, generate a few more words, and so on. He would work part by part through the sentence, because it's just really difficult to memorize the whole long sentence like that.
+
+Encoder-Decoder architecture above is that, it works quite well for short sentences, so we might achieve a relatively high Bleu score, but for very long sentences (longer than 30 or 40 words) the performance decreases
+
+The Attention Model which translates maybe a bit more like humans might, looking at part of the sentence at a time.
+
 > <img src="./images/w03-07-attention_model_intuition/img_2023-05-10_17-38-58.png">
+
+- We use a [Bidirectional RNN](../week1/README.md#bidirectional-rnn) to encode the French sentence to translate
+- We use another [RNN](../week1/README.md#recurrent-neural-network-model) to generate the English translations
+- We define **attention weights** that explain how much you should pay attention to this each French words when tranlating:
+    - `𝛼<1,1>`  denote how much should you be paying attention to this first French word when generating the first english words
+    - `𝛼<1,2>`  denote how much should you be paying attention to this 2nd French word when generating the first english words
+    - ...
+    - `𝛼<2,1>`  denote how much should you be paying attention to this first French word when generating the 2nd english words
+    - ...
+    - `𝛼<t,t'>` the attention weighs that tells how much should you be paying attention to the t'-th French word when generating the t-th English word
+- When generating the 2nd Eglish word, and so computing activation `S<2>`,  we define the **context** denoted `c` putting together:
+    - `𝛼<1,1>`, `𝛼<1,2>`, ...
+    - `S<1>`
+
 > <img src="./images/w03-07-attention_model_intuition/img_2023-05-10_17-39-00.png">
 
 ##  Attention Model
 
 > <img src="./images/w03-08-attention_model/img_2023-05-10_17-39-09.png">
 > <img src="./images/w03-08-attention_model/img_2023-05-10_17-39-10.png">
+
+Two examples :
+- date transcription (cf. exercice)
+- machine learning
+
 > <img src="./images/w03-08-attention_model/img_2023-05-10_17-39-11.png">
 
 # Speech Recognition - Audio Data
