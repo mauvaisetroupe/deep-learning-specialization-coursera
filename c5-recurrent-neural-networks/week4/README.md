@@ -40,6 +40,17 @@ The major innovation of the transformer architecture is combining
 - and a CNN convolutional neural network style of processing. 
 
 An RNN processes one output at the time. This is a very sequential way of processing tokens. It contrasts with a CNN or ConvNet that can take input a lot of pixels. Yeah, or maybe a lot of words and can compute representations for them in parallel
+
+ To understand the attention network, there will be two key ideas 
+ - Self attention
+    - The goal of self attention is, if you have a sentence of 5 words, to compute 5 representations for these five words
+    - In an attention based way of computing representations for all the words in your sentence in parallel 
+ - Multi headed attention 
+    - It's basically a for loop over the self attention process
+    - So you end up with multiple versions of these representations
+    
+And it turns out that these representations, which will be very rich representations, can be used for machine translation or other NLP tasks to create effectiveness
+
 > <img src="./images/w04-01-Transformer_Network_Intuition/img_2023-05-15_14-50-32.png">
 
 ## Self-Attention
