@@ -1,3 +1,9 @@
+---
+layout: home
+title: Specialization summary
+nav_order: 1
+---
+
 # deep-learning-specialization-coursera
 
 https://www.coursera.org/specializations/deep-learning
