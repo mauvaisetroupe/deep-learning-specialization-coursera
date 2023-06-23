@@ -29,17 +29,17 @@ Machine Translation:
     - until end of sequence.
 - One of the most remarkable recent results in deep learning is that this model works.
     - Given enough pairs of French and English sentences, if you train a model to input a French sentence and output the corresponding English translation, this will actually work decently well.
-    - This model simply uses an encoding network whose job it is to find an encoding of the input French sentence, and then use a decoding network to then generate the corresponding English translatio
+    - This model simply uses an encoding network whose job it is to find an encoding of the input French sentence, and then use a decoding network to then generate the corresponding English translation
 
 > <img src="./images/w03-01-basic_models/img_2023-05-10_17-34-56.png">
 
 Image captioning:
 - An architecture very similar to this also works for image captioning.
-- First a pretrained CNN (AlexNet) as an encoder for the image,
+- First a pre-trained CNN (AlexNet) as an encoder for the image,
     - we get rid of this final Softmax unit,
     - so the pre-trained AlexNet can give you a 4096-dimensional feature vector than encodes and represents the image
 - Then the decoder (RNN)
-    - similary at the translation machine
+    - similarly at the translation machine
 - Model works pretty well for captioning
 
 > <img src="./images/w03-01-basic_models/img_2023-05-10_17-35-00.png">
@@ -149,11 +149,11 @@ We implment step 3, similary at step 2
 
 - Beam search consists to maximize the probability P(y<sup>&lt;1&gt;</sup>&nbsp;| x) * P(y<sup>&lt;2&gt;</sup>&nbsp;| x, y<sup>&lt;1&gt;</sup>) * ... * P(y<sup>&lt;t&gt;</sup>&nbsp;| x, y<sup>&lt;y(t-1)&gt;</sup>) (formalized in a mathematical language below)
 - But multiplying a lot of numbers less than 1 will result in a very tiny number, which can result in numerical underflow
-- Idea is to maximize the logaithmin of that product :
+- Idea is to maximize the logarithmic of that product :
     - logarithmic function is a strictly monotonically increasing function
     - log of a product becomes a sum of a log
 - Problem remaining for long sentences, there is an undesirable to tends to prefer unnaturally very short translations :
-    - first objective function is a mulliplication of small numbers, so is sentence size increase, function will decrease
+    - first objective function is a multiplication of small numbers, so is sentence size increase, function will decrease
     - same with second objective function : addition of negative numbers
 - To tackle that problem we normalize with T<sub>y</sub><sup>α</sup>
     - α is another hyperparameter
@@ -183,7 +183,7 @@ In this video, you'll learn how error analysis interacts with beam search and ho
 - it is the beam search algorithm that's causing problems (and worth spending time on)
 - or whether it might be your RNN model that is causing problems (and worth spending time on)
 
-It's always tempting to collect more data (as seen in other courses) and similary it's always tempting to increase bean width
+It's always tempting to collect more data (as seen in other courses) and similarly it's always tempting to increase bean width
 But how do you decide whether or not improving the search algorithm is a good use of your time? Idea is to compare `p(y*|x)` and `p(ŷ|x)`
 
 
@@ -200,7 +200,7 @@ We compute `p(y*|x)` and `p(ŷ|x)` as output of the RNN model
 Case 1 - p(y*|x) > p(ŷ|x):
 - RNN computing P(y|x)
 - beam search's job was to try to find a value of y that gives that arg max
-- y* attains a higher value, so ŷ is not the higer value
+- y* attains a higher value, so ŷ is not the higher value
 - So Beam Search is failing its job
 
 
@@ -212,7 +212,7 @@ Case 2 - p(y*|x) < p(ŷ|x):
 > <img src="./images/w03-05-error_analysis_in_beam_search/img_2023-05-10_17-38-33.png">
 
 
-So the error analysis process looks as follows. You go through the development set and find the mistakes that the algorithm made in the development set. Following the reasonment of previous slide, you will get counts and decide what to work on next
+So the error analysis process looks as follows. You go through the development set and find the mistakes that the algorithm made in the development set. Following the reasoning of previous slide, you will get counts and decide what to work on next
 
 > <img src="./images/w03-05-error_analysis_in_beam_search/img_2023-05-10_17-38-34.png">
 
@@ -283,7 +283,7 @@ The Attention Model which translates maybe a bit more like humans might, looking
 
 - We use a [Bidirectional RNN](../week1/README.md#bidirectional-rnn) to encode the French sentence to translate
 - We use another [RNN](../week1/README.md#recurrent-neural-network-model) to generate the English translations
-- We define **attention weights** that explain how much you should pay attention to this each French words when tranlating:
+- We define **attention weights** that explain how much you should pay attention to this each French words when translating:
     - `α<1,1>`  denote how much should you be paying attention to this first French word when generating the first english words
     - `α<1,2>`  denote how much should you be paying attention to this 2nd French word when generating the first english words
     - ...
@@ -371,8 +371,31 @@ Two examples :
 
 ##  Speech Recognition
 
+So, what is the speech recognition problem? You're given an audio clip, and your job is to automatically find a text transcript
+If you plot an audio clip :
+- The horizontal axis is time 
+- The vertical is changes in air pressure 
+
+The human ear has physical structures that measures the amounts of intensity of different frequencies, and similarly a common pre-processing step for audio data is to run your raw audio clip and generate a spectrogram
+- The horizontal axis is time, 
+- The vertical axis is frequencies, and intensity of different colors shows the amount of energy
+
+
+Once upon a time, speech recognition systems used to be built using phonemes. But with end-to-end deep learning, we're finding that phonemes representations are no longer necessary. You can built systems that input an audio clip and directly output a transcript without needing to use hand-engineered representations 
+
+One of the things that made this possible was going to much larger data sets, 
+- 300 hours for academic, 3000 h for academia
+- 10,000 hours and sometimes over a 100,000 hours of audio for commercial systems
+
 > <img src="./images/w03-09-speech_recognition/img_2023-05-10_17-39-20.png">
+
+In the last video, we're talking about the attention model. So, one thing you could do is actually do that, where on the horizontal axis, you take in different time frames of the audio input, and then you have an attention model try to output the transcript like, "the quick brown fox", or what it was said
+
 > <img src="./images/w03-09-speech_recognition/img_2023-05-10_17-39-21.png">
+
+One other method that seems to work well is to use the CTC (Connection Temporal Classification) cost for speech recognition  
+Note that `space` anf `blank` is different 
+
 > <img src="./images/w03-09-speech_recognition/img_2023-05-10_17-39-22.png">
 
 ##  Trigger Word Detection
