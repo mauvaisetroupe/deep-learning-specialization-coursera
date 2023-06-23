@@ -28,18 +28,14 @@ twitter_username: mauvaisetroupe
 github_username:  mauvaisetroupe
 
 # Build settings
-#theme: minima
-#theme: jekyll-theme-leap-day
-theme: just-the-docs/just-the-docs
-#minima:
-#  skin: dark
+theme: just-the-docs
 
 #logo: "assets/images/logo-ea-design.svg"
 heading_anchors: true
 
 # Aux links for the upper right navigation
 aux_links:
-  "View on GitHub": "//github.com/mauvaisetroupe/deep-learning-specialization-coursera"
+  Template Repository: https://github.com/just-the-docs/just-the-docs-template
 aux_links_new_tab: true
 
 
