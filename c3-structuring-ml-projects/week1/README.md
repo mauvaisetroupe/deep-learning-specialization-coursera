@@ -1,3 +1,10 @@
+---
+layout: page
+title: "W1 - ML Strategy"
+permalink: /c3-structuring-ml-projects/week1
+parent: "C3 - Structuring Machine Learning Projects"
+---
+
 # ML Strategy
 
 Streamline and optimize your ML production workflow by implementing strategic guidelines for goal-setting and applying human-level performance to help define key priorities.

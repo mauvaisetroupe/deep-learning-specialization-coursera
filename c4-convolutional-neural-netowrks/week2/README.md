@@ -1,3 +1,10 @@
+---
+layout: page
+title: "W2 - Deep Convolutional Models: Case Studies"
+permalink: /c4-convolutional-neural-netowrks/week2/
+parent: "C4 - Convolutional Neural Networks"
+---
+
 # Deep Convolutional Models: Case Studies
 
 Discover some powerful practical tricks and methods used in deep CNNs, straight from the research papers, then apply transfer learning to your own deep CNN.
@@ -17,7 +24,7 @@ Learning Objectives
 ## Why look at case studies?
 
 
-[Last week](../week1/README.md) we learned about the basic building blocks, such as convolutional layers, pooling layers, and fully connected layers of convnet. 
+[Last week](../week1/ we learned about the basic building blocks, such as convolutional layers, pooling layers, and fully connected layers of convnet. 
 
 In the past few years, a lot of computer vision research has been done to put together these basic building blocks to form effective convolutional neural networks. 
 

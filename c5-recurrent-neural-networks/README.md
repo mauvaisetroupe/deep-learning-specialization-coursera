@@ -1,3 +1,11 @@
+---
+layout: page
+title: "C5 - Sequence Models"
+permalink: /c5-recurrent-neural-networks/
+has_toc: true
+has_children: true
+---
+
 # Sequence Models
 
 In the fifth course of the Deep Learning Specialization, you will become familiar with sequence models and their exciting applications such as speech recognition, music synthesis, chatbots, machine translation, natural language processing (NLP), and more.
@@ -13,7 +21,7 @@ SKILLS YOU WILL GAIN
 - Recurrent Neural Network
 - Attention Models
 
-## [Week 1 - Recurrent Neural Networks](./week1/README.md)
+## [Week 1 - Recurrent Neural Networks](./week1/)
 
 Discover recurrent neural networks, a type of model that performs extremely well on temporal data, and several of its variants, including LSTMs, GRUs and Bidirectional RNNs,
 
@@ -35,7 +43,7 @@ Learning Objectives
 - Generate your own jazz music with deep learning
 - Apply an LSTM to a music generation task
 
-## [Week 2  - Natural Language Processing & Word Embeddings](./week2/README.md)
+## [Week 2  - Natural Language Processing & Word Embeddings](./week2/)
 
 Natural language processing with deep learning is a powerful combination. Using word vector representations and embedding layers, train recurrent neural networks with outstanding performance across a wide variety of applications, including sentiment analysis, named entity recognition and neural machine translation.
 
@@ -51,7 +59,7 @@ Learning Objectives
 - Build a sentiment classifier using word embeddings
 - Build and train a more sophisticated classifier using an LSTM
 
-## [Week 3 - Sequence Models & Attention Mechanism](./week3/README.md)
+## [Week 3 - Sequence Models & Attention Mechanism](./week3/)
 
 Augment your sequence models using an attention mechanism, an algorithm that helps your model decide where to focus its attention given a sequence of inputs. Then, explore speech recognition and how to deal with audio data.
 
@@ -66,7 +74,7 @@ Learning Objectives
 - Synthesize and process audio recordings to create train/dev datasets
 - Structure a speech recognition project
 
-## [Week 4 - Transformer Network](./week4/README.md)
+## [Week 4 - Transformer Network](./week4/)
 
 Learning Objectives
 - Create positional encodings to capture sequential relationships in data

@@ -1,3 +1,10 @@
+---
+layout: page
+title: "W3 - Hyperparameter Tuning, Batch Normalization and Programming Frameworks"
+permalink: /c2-improving-deep-neural-networks/week3
+parent: "C2 - Improving Deep Neural Networks"
+---
+
 # Hyperparameter Tuning, Batch Normalization and Programming Frameworks
 
 Explore TensorFlow, a deep learning framework that allows you to build neural networks quickly and easily, then train a neural network on a TensorFlow dataset.

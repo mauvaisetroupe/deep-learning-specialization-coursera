@@ -1,3 +1,10 @@
+---
+layout: page
+title: "W2 - ML Strategy"
+permalink: /c3-structuring-ml-projects/week2
+parent: "C3 - Structuring Machine Learning Projects"
+---
+
 # ML Strategy
 
 Develop time-saving error analysis procedures to evaluate the most worthwhile options to pursue and gain intuition for how to split your data and when to use multi-task, transfer, and end-to-end deep learning.

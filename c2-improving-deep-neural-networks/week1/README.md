@@ -1,3 +1,9 @@
+---
+layout: page
+title: "W1 - Practical Aspects of Deep Learning"
+permalink: /c2-improving-deep-neural-networks/week1
+parent: "C2 - Improving Deep Neural Networks"
+---
 # Practical Aspects of Deep Learning
 
 Discover and experiment with a variety of different initialization methods, apply L2 regularization and dropout to avoid model overfitting, then apply gradient checking to identify errors in a fraud detection model.

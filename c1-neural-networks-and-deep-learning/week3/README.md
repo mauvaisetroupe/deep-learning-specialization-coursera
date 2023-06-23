@@ -1,3 +1,10 @@
+---
+layout: page
+title: W3 - Shallow Neural Networks
+permalink: /c1-neural-networks-and-deep-learning/week3/
+parent: "C1 - Neural Networks and Deep Learning"
+---
+
 # Shallow Neural Networks
 
 Build a neural network with one hidden layer, using forward propagation and backpropagation.

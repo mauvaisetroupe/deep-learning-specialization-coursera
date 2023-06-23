@@ -1,3 +1,9 @@
+---
+layout: page
+title: "W4 - Transformer Network"
+permalink: /c5-recurrent-neural-networks/week4/
+parent: "C5 - Sequence Models"
+---
 # Transformer Network
 
 Learning Objectives

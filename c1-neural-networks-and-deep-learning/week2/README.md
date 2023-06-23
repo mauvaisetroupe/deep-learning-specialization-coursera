@@ -1,3 +1,10 @@
+---
+layout: page
+title: W2 - Neural networks Basics
+permalink: /c1-neural-networks-and-deep-learning/week2/
+parent: "C1 - Neural Networks and Deep Learning"
+---
+
 # Neural networks Basics
 
 Set up a machine learning problem with a neural network mindset and use vectorization to speed up your models.

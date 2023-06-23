@@ -1,3 +1,10 @@
+---
+layout: page
+title: "W4 - Special Applications: Face recognition & Neural Style Transfer"
+permalink: /c4-convolutional-neural-netowrks/week4/
+parent: "C4 - Convolutional Neural Networks"
+---
+
 # Special Applications: Face recognition & Neural Style Transfer
 
 Explore how CNNs can be applied to multiple fields, including art generation and face recognition, then implement your own algorithm to generate art and recognize faces!
@@ -260,7 +267,7 @@ For 1D data we take example like ECG signal (electrocardiogram). It's 1D data be
 |2D convolution |14 x 14 x 3|16 filters|5 x 5 x 3|10 x 10 x 16|32|5 x 5 x 16|6 x 6 x 32|
 |1D convolution |14 x 1|16 filters|5 x 1|10 x 16|32|5 x 16|6 x 32|
 
-With 1D data applications, we actually use a [recurrent neural network](../../c5-recurrent-neural-networks/README.md) (see course for detail on pro and cons of using ConvNets instead of recurent models)
+With 1D data applications, we actually use a [recurrent neural network](../../c5-recurrent-neural-networks/ (see course for detail on pro and cons of using ConvNets instead of recurent models)
 
 
 > <img src="./images/w04-11-1d_and_3d_generalizations/img_2023-04-14_22-09-36.png">

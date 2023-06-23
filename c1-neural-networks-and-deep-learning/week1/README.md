@@ -1,4 +1,12 @@
-# Introduction to deep leatning
+---
+layout: page
+title: W1 - Introduction to deep learning
+permalink: /c1-neural-networks-and-deep-learning/week1/
+parent: "C1 - Neural Networks and Deep Learning"
+---
+
+
+# Introduction to deep learning
 
 
 Analyze the major trends driving the rise of deep learning, and give examples of where and how it is applied today.

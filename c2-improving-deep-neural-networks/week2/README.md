@@ -1,3 +1,10 @@
+---
+layout: page
+title: "W2 - Optimization Algorithms"
+permalink: /c2-improving-deep-neural-networks/week2
+parent: "C2 - Improving Deep Neural Networks"
+---
+
 # Optimization Algorithms
 
 Develop your deep learning toolbox by adding more advanced optimizations, random minibatching, and learning rate decay scheduling to speed up your models.

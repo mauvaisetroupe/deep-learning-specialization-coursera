@@ -1,3 +1,10 @@
+---
+layout: page
+title: W4 - Deep L-layer Neural Network
+permalink: /c1-neural-networks-and-deep-learning/week4/
+parent: "C1 - Neural Networks and Deep Learning"
+---
+
 # Deep L-layer Neural Network
 
 Analyze the key computations underlying deep learning, then use them to build and train deep neural networks for computer vision tasks.

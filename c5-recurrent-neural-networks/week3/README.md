@@ -1,3 +1,9 @@
+---
+layout: page
+title: "W3 - Sequence Models & Attention Mechanism"
+permalink: /c5-recurrent-neural-networks/week3/
+parent: "C5 - Sequence Models"
+---
 # Sequence Models & Attention Mechanism
 
 Augment your sequence models using an attention mechanism, an algorithm that helps your model decide where to focus its attention given a sequence of inputs. Then, explore speech recognition and how to deal with audio data.
@@ -54,7 +60,7 @@ Let's see in the next video how you go about generating that.
 
 The machine translation is very similar to a **conditional language model**.
 
-- In language modeling (network we had built in the [first week](../week1/README.md)), the model allows you to estimate the probability of a sentence. That's what a language model does (schema upper in the slide)
+- In language modeling (network we had built in the [first week](../week1/), the model allows you to estimate the probability of a sentence. That's what a language model does (schema upper in the slide)
 - The decoder part of the machine translation model is identical to the language model,
     - except that instead of always starting along with the vector of all zeros,
     - it has an encoder network that figures out some representation for the input sentence

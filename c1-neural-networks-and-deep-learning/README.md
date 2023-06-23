@@ -1,7 +1,9 @@
 ---
 layout: page
-title: Course 1 - Neural Networks and Deep Learning
-permalink: /home/course1/
+title: "C1 - Neural Networks and Deep Learning"
+permalink: /c1-neural-networks-and-deep-learning/
+has_toc: true
+has_children: true
 ---
 
 
@@ -22,7 +24,7 @@ SKILLS YOU WILL GAIN
 - Python Programming
 - Neural Network Architecture
 
-## [Week1 - Introduction to deep leatning](./week1/README.md)
+## [Week1 - Introduction to deep leatning](./week1/)
 
 
 Analyze the major trends driving the rise of deep learning, and give examples of where and how it is applied today.
@@ -35,7 +37,7 @@ Learning Objectives
 
 
 
-## [Week 2 - Neural networks Basics](./week2/README.md)
+## [Week 2 - Neural networks Basics](./week2/)
 
 Set up a machine learning problem with a neural network mindset and use vectorization to speed up your models.
 
@@ -50,7 +52,7 @@ Implement computationally efficient and highly vectorized versions of models
 - Explain the concept of broadcasting
 
 
-## [Week 3 - Shallow Neural Networks](./week3/README.md)
+## [Week 3 - Shallow Neural Networks](./week3/)
 
 Build a neural network with one hidden layer, using forward propagation and backpropagation.
 
@@ -63,7 +65,7 @@ Learning Objectives
 - Implement a 2-class classification neural network with a single hidden layer
 - Compute the cross entropy loss
 
-## [Week 4 - Deep L-layer Neural Network](./week4/README.md)
+## [Week 4 - Deep L-layer Neural Network](./week4/)
 
 Analyze the key computations underlying deep learning, then use them to build and train deep neural networks for computer vision tasks.
 

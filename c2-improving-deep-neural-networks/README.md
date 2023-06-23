@@ -1,3 +1,10 @@
+---
+layout: page
+title: "C2 - Improving Deep Neural Networks"
+permalink: /c2-improving-deep-neural-networks/
+has_toc: true
+has_children: true
+---
 # Course 2 - Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization
 
 https://www.coursera.org/learn/deep-neural-network
@@ -12,7 +19,7 @@ SKILLS YOU WILL GAIN
 - Mathematical Optimization
 - Hyperparameter Tuning
 
-## [Week 1 - Practical Aspects of Deep Learning](./week1/README.md)
+## [Week 1 - Practical Aspects of Deep Learning](./week1/)
 
 Discover and experiment with a variety of different initialization methods, apply L2 regularization and dropout to avoid model overfitting, then apply gradient checking to identify errors in a fraud detection model.
 
@@ -27,7 +34,7 @@ Learning Objectives
 - Apply zeros initialization, random initialization, and He initialization
 - Apply regularization to a deep learning model
 
-## [Week 2 - Optimization Algorithms](./week2/README.md)
+## [Week 2 - Optimization Algorithms](./week2/)
 
 Develop your deep learning toolbox by adding more advanced optimizations, random minibatching, and learning rate decay scheduling to speed up your models.
 
@@ -36,7 +43,7 @@ Learning Objectives
 - Use random minibatches to accelerate convergence and improve optimization
 - Describe the benefits of learning rate decay and apply it to your optimization
 
-## [Week 3 - Hyperparameter Tuning, Batch Normalization and Programming Frameworks](./week3/README.md)
+## [Week 3 - Hyperparameter Tuning, Batch Normalization and Programming Frameworks](./week3/)
 
 Explore TensorFlow, a deep learning framework that allows you to build neural networks quickly and easily, then train a neural network on a TensorFlow dataset.
 

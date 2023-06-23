@@ -1,3 +1,11 @@
+---
+layout: page
+title: "W3 - Object Detection"
+permalink: /c4-convolutional-neural-netowrks/week3/
+parent: "C4 - Convolutional Neural Networks"
+---
+
+
 # Object Detection
 
 Apply your new knowledge of CNNs to one of the hottest (and most challenging!) fields in computer vision: object detection.
@@ -24,7 +32,7 @@ Different algorithms :
 
 > <img src="./images/w03-01-object_localization/img_2023-04-10_09-15-30.png">
 
-- We already seen classification during [week1](../week1/README.md) and [week2](../week2/README.md) and the result is a vector fed by a softmax function with predicted categories (or classes).
+- We already seen classification during [week1](../week1/ and [week2](../week2/ and the result is a vector fed by a softmax function with predicted categories (or classes).
 - We add 4 numbers(bx, by, bh and bw) that define localization rectangle
 
 By convention, we define
