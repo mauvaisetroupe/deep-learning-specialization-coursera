@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "W2 - Optimization Algorithms"
-permalink: /c2-improving-deep-neural-networks/week2
+permalink: /c2-improving-deep-neural-networks/week2/
 parent: "C2 - Improving Deep Neural Networks"
 ---
 

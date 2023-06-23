@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "W3 - Hyperparameter Tuning, Batch Normalization and Programming Frameworks"
-permalink: /c2-improving-deep-neural-networks/week3
+permalink: /c2-improving-deep-neural-networks/week3/
 parent: "C2 - Improving Deep Neural Networks"
 ---
 

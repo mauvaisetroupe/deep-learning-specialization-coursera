@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "W1 - ML Strategy"
-permalink: /c3-structuring-ml-projects/week1
+permalink: /c3-structuring-ml-projects/week1/
 parent: "C3 - Structuring Machine Learning Projects"
 ---
 

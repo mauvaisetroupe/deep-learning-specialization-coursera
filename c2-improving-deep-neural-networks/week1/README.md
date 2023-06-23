@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "W1 - Practical Aspects of Deep Learning"
-permalink: /c2-improving-deep-neural-networks/week1
+permalink: /c2-improving-deep-neural-networks/week1/
 parent: "C2 - Improving Deep Neural Networks"
 ---
 # Practical Aspects of Deep Learning
