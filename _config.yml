@@ -30,8 +30,7 @@ github_username:  mauvaisetroupe
 # Build settings
 #theme: minima
 #theme: jekyll-theme-leap-day
-remote_theme: pmarsceill/just-the-docs
-
+theme: just-the-docs
 #minima:
 #  skin: dark
 
