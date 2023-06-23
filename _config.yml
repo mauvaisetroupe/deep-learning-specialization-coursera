@@ -40,8 +40,7 @@ heading_anchors: true
 
 # Aux links for the upper right navigation
 aux_links:
-  "View on GitHub": "//github.com/mauvaisetroupe/ea-design-it"
-  "Demo": "//ea-design-it.herokuapp.com/"
+  "View on GitHub": "//github.com/mauvaisetroupe/deep-learning-specialization-coursera"
 aux_links_new_tab: true
 
 
