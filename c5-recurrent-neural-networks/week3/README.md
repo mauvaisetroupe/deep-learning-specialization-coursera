@@ -400,5 +400,16 @@ Note that `space` anf `blank` is different
 
 ##  Trigger Word Detection
 
+The literature on trigger detection algorithm is still evolving so there isn't wide consensus yet on what's the best algorithm for triggered word detection. So I'm just going to show you one example of an algorithm you can use :
+
+
 > <img src="./images/w03-10-trigger_word_detection/img_2023-05-10_17-39-31.png">
+
+1. Process audio clip `X` to obtain `x<1>`, `x<2>`, ...
+2. Label `Y` 
+    - `0` represents the non-trigger word, 
+    - `1` detected trigger words
+
+One slight disadvantage of this is it creates a very imbalanced training set to have a lot more `0` than `1`. So one other thing you could do (little bit of a hack), but could make the model easier to train is to generate multiple `1` for a fixed period of time before reverting back to `0`.
+
 > <img src="./images/w03-10-trigger_word_detection/img_2023-05-10_17-39-32.png">
