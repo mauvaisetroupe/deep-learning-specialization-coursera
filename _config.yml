@@ -10,6 +10,9 @@ github_username:  mauvaisetroupe
 # Build settings
 theme: just-the-docs
 
+math: mathjax
+
+
 #logo: "assets/images/logo-ea-design.svg"
 heading_anchors: true
 
