@@ -284,14 +284,14 @@ The Attention Model which translates maybe a bit more like humans might, looking
 - We use a [Bidirectional RNN](../week1/README.md#bidirectional-rnn) to encode the French sentence to translate
 - We use another [RNN](../week1/README.md#recurrent-neural-network-model) to generate the English translations
 - We define **attention weights** that explain how much you should pay attention to this each French words when tranlating:
-    - `𝛼<1,1>`  denote how much should you be paying attention to this first French word when generating the first english words
-    - `𝛼<1,2>`  denote how much should you be paying attention to this 2nd French word when generating the first english words
+    - `α<1,1>`  denote how much should you be paying attention to this first French word when generating the first english words
+    - `α<1,2>`  denote how much should you be paying attention to this 2nd French word when generating the first english words
     - ...
-    - `𝛼<2,1>`  denote how much should you be paying attention to this first French word when generating the 2nd english words
+    - `α<2,1>`  denote how much should you be paying attention to this first French word when generating the 2nd english words
     - ...
-    - `𝛼<t,t'>` the attention weighs that tells how much should you be paying attention to the t'-th French word when generating the t-th English word
+    - `α<t,t'>` the attention weighs that tells how much should you be paying attention to the t'-th French word when generating the t-th English word
 - When generating the 2nd Eglish word, and so computing activation `S<2>`,  we define the **context** denoted `c` putting together:
-    - `𝛼<1,1>`, `𝛼<1,2>`, ...
+    - `α<1,1>`, `α<1,2>`, ...
     - `S<1>`
 
 > <img src="./images/w03-07-attention_model_intuition/img_2023-05-10_17-39-00.png">
@@ -302,7 +302,7 @@ Attention model allows a neural network to pay attention to only part of an inpu
 
 Let's now formalize that intuition into the exact details of how you would implement an attention model
 
-### Encoder 
+### Time 1 - Encoder 
 
 Assuming an input sentence, a bidirectional RNN (bidirectional GRU or more commonly a bidirectional LSTM) is used to compute features for each word. The features from both forward and backward occurrences are concatenated into a feature vector for each time step. A forward-only RNN generates the translation, considering a context vector influenced by attention parameters.
 
@@ -312,10 +312,10 @@ And then to simplify the notation going forwards at every time step, even though
 
 > <img src="./images/w03-08-attention_model/img_2023-06-23_11-42-50.png">
 
-### Decoder
+### Decoder s<1>
 
 Next, we have our forward only single direction RNN with state `S` to generate the translation. 
-`S<1>` generates `y<1>` with the context `c<1>` denoted `c` that depends on the attention parameters `𝛼<1,1>`, `𝛼<1,2>`... that tells us how much the context would depend on the activations we're getting from the different time steps. 
+`S<1>` generates `y<1>` with the context `c<1>` denoted `c` that depends on the attention parameters `α<1,1>`, `α<1,2>`... that tells us how much the context would depend on the activations we're getting from the different time steps. 
 
 > <img src="./images/w03-08-attention_model/img_2023-06-23_11-50-49.png">
 
@@ -323,14 +323,47 @@ The context is the sum of the features from the different time steps weighted by
 
 > <img src="./images/w03-08-attention_model/img_2023-06-23_12-38-52.png">
 
-`𝛼<t,t'>` is the amount of attention that's `y<t>` should pay to `a<t'>`. So in other words, when you're generating the t-th output words, how much you should be paying attention to the t'-th input word
+`α<t,t'>` is the amount of attention that's `y<t>` should pay to `a<t'>`. So in other words, when you're generating the t-th output words, how much you should be paying attention to the t'-th input word
 
-> <img src="./images/w03-08-attention_model/img_2023-05-10_17-39-09.png">
+### Decoder s<2>
+
+So that's one step of generating the output and then at the next time step, you generate the second output (in green below)
+
+> <img src="./images/w03-08-attention_model/img_2023-06-23_12-52-15.png">
+
+If we isolate that part of the network, we have a standard RNN using context as vector `c<1>`, `c<2>`...
+
+> <img src="./images/w03-08-attention_model/img_2023-06-23_12-51-01.png">
+
+<!-- > <img src="./images/w03-08-attention_model/img_2023-05-10_17-39-09.png"> -->
+
+So the only remaining thing to do is to define how to actually compute these attention weights `α<t,t'>` 
+
+We are going to softmax the attention weights so that their sum is 1:
+> <img src="./images/w03-08-attention_model/img_2023-06-23_13-18-04.png">
+
+We compute `e<t,t'>` using a small neural network (usually, one hidden layer in neural network because computed a lot), with inputs :
+- `s<t-1>` the neural network state from the previous time step
+- `a<t'>` the features from time step t'
+
+It seems pretty natural that `𝛼<t,t'>` and `e<t,t'>` should depend on :
+- the previous activation state `s<t-1>` 
+- and `a<t'>`. 
+
+And it turns out that if you implemented this whole model and train it with gradient descent, the whole thing actually works.
+
+One downside to this algorithm is that it does take quadratic time or quadratic cost to run this algorithm. If you have `Tx` word in input and generate `Ty` words, then the total number of these attention parameters are going to be `Tx * Ty`. Although in machine translation applications where neither input nor output sentences is usually that long maybe quadratic cost is actually acceptable. Although, there is some research work on trying to reduce costs as well.
+
+Now, so far up in describing the attention idea in the context of machine translation. Without going too much into detail this idea has been applied to other problems as well like image captioning (look at the picture and write a caption for that picture)
+
+> <img src="./images/w03-08-attention_model/img_2023-06-23_13-19-53.png">
+
+
 > <img src="./images/w03-08-attention_model/img_2023-05-10_17-39-10.png">
 
 Two examples :
-- date transcription (cf. exercice)
-- machine learning
+- Generate normalized format for a Date (cf. exercice)
+- Visualization of the attention weights
 
 > <img src="./images/w03-08-attention_model/img_2023-05-10_17-39-11.png">
 
