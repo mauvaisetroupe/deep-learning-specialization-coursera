@@ -262,14 +262,16 @@ For most of this week, you've been using a **Encoder-Decoder** architecture for 
 
 The attention algorithm has been one of the most influential ideas in deep learning.
 
-Get a very long French sentence like this.
+Get a very long French sentence like this :
+> <img src="./images/w03-07-attention_model_intuition/img_2023-06-23_11-24-08.png">
+
 
 What we are asking this green encoder in your network to do is :
 - to read in the whole sentence
 - then memorize the whole sentences
 - and store it in the activations conveyed here.
 
-Then for the purple network, the decoder network till then generate the English translation.
+Then for the purple network, the decoder network,  then generate the English translation.
 
 Now, the way a human translator would translate this sentence is different. Thee human translator would read the first part of the sentence, and generate part of the translation. Look at the second part, generate a few more words, and so on. He would work part by part through the sentence, because it's just really difficult to memorize the whole long sentence like that.
 
@@ -295,6 +297,27 @@ The Attention Model which translates maybe a bit more like humans might, looking
 > <img src="./images/w03-07-attention_model_intuition/img_2023-05-10_17-39-00.png">
 
 ##  Attention Model
+
+Attention model allows a neural network to pay attention to only part of an input sentence while it's generating a translation, much like a human translator might.
+
+Let's now formalize that intuition into the exact details of how you would implement an attention model
+
+### Encoder 
+
+Assuming an input sentence, a bidirectional RNN (bidirectional GRU or more commonly a bidirectional LSTM) is used to compute features for each word. The features from both forward and backward occurrences are concatenated into a feature vector for each time step. A forward-only RNN generates the translation, considering a context vector influenced by attention parameters.
+
+> <img src="./images/w03-08-attention_model/img_2023-06-23_11-52-53.png">
+
+And then to simplify the notation going forwards at every time step, even though you have the features computed from the forward occurrence and from the backward occurrence in the bidirectional RNN
+
+> <img src="./images/w03-08-attention_model/img_2023-06-23_11-42-50.png">
+
+### Decoder
+
+
+> <img src="./images/w03-08-attention_model/img_2023-06-23_11-50-49.png">
+
+
 
 > <img src="./images/w03-08-attention_model/img_2023-05-10_17-39-09.png">
 > <img src="./images/w03-08-attention_model/img_2023-05-10_17-39-10.png">
