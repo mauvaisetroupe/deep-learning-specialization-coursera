@@ -314,10 +314,16 @@ And then to simplify the notation going forwards at every time step, even though
 
 ### Decoder
 
+Next, we have our forward only single direction RNN with state `S` to generate the translation. 
+`S<1>` generates `y<1>` with the context `c<1>` denoted `c` that depends on the attention parameters `𝛼<1,1>`, `𝛼<1,2>`... that tells us how much the context would depend on the activations we're getting from the different time steps. 
 
 > <img src="./images/w03-08-attention_model/img_2023-06-23_11-50-49.png">
 
+The context is the sum of the features from the different time steps weighted by these attention weights. 
 
+> <img src="./images/w03-08-attention_model/img_2023-06-23_12-38-52.png">
+
+`𝛼<t,t'>` is the amount of attention that's `y<t>` should pay to `a<t'>`. So in other words, when you're generating the t-th output words, how much you should be paying attention to the t'-th input word
 
 > <img src="./images/w03-08-attention_model/img_2023-05-10_17-39-09.png">
 > <img src="./images/w03-08-attention_model/img_2023-05-10_17-39-10.png">
