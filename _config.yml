@@ -2,7 +2,7 @@ title: Deep Learning Specialization
 email: lionel.brol@gmail.com.com
 description: >- # this means to ignore newlines until "baseurl:"
   Deep Learning Specialization
-baseurl: "/deep-learning-specialization-courser" # the subpath of your site, e.g. /blog
+baseurl: "/deep-learning-specialization-coursera" # the subpath of your site, e.g. /blog
 url: "https://mauvaisetroupe.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: mauvaisetroupe
 github_username:  mauvaisetroupe
