@@ -204,11 +204,11 @@ With 2 filters, we have :
 
 |Step|Description|Size (2 filters)|size (10 filters)|NN similarity|
 |--|--|--|--|--|
-|step 0|Input image|6x6x3|6x6x3|$a^{[0]}$|
-|step 1|2 filters|2 (3x3x3)|10 (3x3x3)|$W^{[1]}$|
-|step 2|2 images after filters|4 x 4 x 2|4 x 4 x 10|$W^{[1]}.a^{[1]}$|
-|step 3|2 additional real b1, b2|4 x 4 x 2|4 x 4 x 10|$z^{[1]} = W^{[1]}.a^{[1]} + b^{[1]}$|
-|step 4|Apply ReLU on the 2 4 x 4 images|4 x 4 x 2|4 x 4 x 10|$a^{[1]} = g(z^{[1]})$|
+|step 0|Input image|6x6x3|6x6x3|$$a^{[0]}$$|
+|step 1|2 filters|2 (3x3x3)|10 (3x3x3)|$$W^{[1]}$$|
+|step 2|2 images after filters|4 x 4 x 2|4 x 4 x 10|$$W^{[1]}.a^{[1]}$$|
+|step 3|2 additional real b1, b2|4 x 4 x 2|4 x 4 x 10|$$z^{[1]} = W^{[1]}.a^{[1]} + b^{[1]}$$|
+|step 4|Apply ReLU on the 2 4 x 4 images|4 x 4 x 2|4 x 4 x 10|$$a^{[1]} = g(z^{[1]})$$|
 
 > <img src="./images/w01-07-One_Layer_of_a_Convolutional_Network/img_2023-04-01_09-47-26.png">
 
@@ -223,27 +223,27 @@ Notice one nice thing about this, is that no matter how big the input image is, 
 > <img src="./images/w01-07-One_Layer_of_a_Convolutional_Network/img_2023-04-01_09-47-27.png">
 
 Summary on notation :
-- $f^{[l]}$ : filter size
-- $p^{[l]}$ : padding (default is zero)
-- $s^{[l]}$ : stride
-- Input $n_H^{[l-1]}$ x $n_W^{[l-1]}$ x  $n_c^{[l-1]}$ with:
-    - $n_H^{[l-1]}$ : input height,
-    - $n_W^{[l-1]}$ : input width,
-    - $n_c^{[l-1]}$ : number of channels
-- Output $n_H^{[l]}$ x $n_W^{[l]}$ x  $n_c^{[l]}$ with:
-    - $n_H^{[l]}$ : input height,
-    - $n_W^{[l]}$ : input width,
-    - $n_c^{[l]}$ : number of channels
+- $$f^{[l]}$$ : filter size
+- $$p^{[l]}$$ : padding (default is zero)
+- $$s^{[l]}$$ : stride
+- Input $$n_H^{[l-1]}$$ x $$n_W^{[l-1]}$$ x  $$n_c^{[l-1]}$$ with:
+    - $$n_H^{[l-1]}$$ : input height,
+    - $$n_W^{[l-1]}$$ : input width,
+    - $$n_c^{[l-1]}$$ : number of channels
+- Output $$n_H^{[l]}$$ x $$n_W^{[l]}$$ x  $$n_c^{[l]}$$ with:
+    - $$n_H^{[l]}$$ : input height,
+    - $$n_W^{[l]}$$ : input width,
+    - $$n_c^{[l]}$$ : number of channels
 
 
 
 |Description|Equation|
 |--|--|
-|Number of channnels of the output = number of filters|#filters = $n_c^{[l]}$|
-|The depth of each filter need to correspond to the number of channel of input|filer -> $f^{[l]}$  x $f^{[l]}$  x $n_c^{[l-1]}$|
-|Activation dimensions for one example are the same as the output dimensions|$a^{[l]}$ -> $n_H^{[l]}$ x $n_W^{[l]}$ x  $n_c^{[l]}$$|
-|Activation dimensions for m examples dimensions|$A^{[l]}$ -> $m$ x $n_H^{[l]}$ x $n_W^{[l]}$ x  $n_c^{[l]}$|
-|Bias dimensions is equals to number of filters| $b^{[l]}$ -> $n_c^{[l]}$|
+|Number of channnels of the output = number of filters|#filters = $$n_c^{[l]}$$|
+|The depth of each filter need to correspond to the number of channel of input|filer -> $$f^{[l]}$$  x $$f^{[l]}$$  x $$n_c^{[l-1]}$$|
+|Activation dimensions for one example are the same as the output dimensions|$$a^{[l]}$$ -> $$n_H^{[l]}$$ x $$n_W^{[l]}$$ x  $$n_c^{[l]}$$|
+|Activation dimensions for m examples dimensions|$$A^{[l]}$$ -> $$m$$ x $$n_H^{[l]}$$ x $$n_W^{[l]}$$ x  $$n_c^{[l]}$$|
+|Bias dimensions is equals to number of filters| $$b^{[l]}$$ -> $$n_c^{[l]}$$|
 
 
 

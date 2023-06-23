@@ -36,9 +36,9 @@ If you've done the past couple weeks homework, you've also implemented and seen 
 
 Notation for deep neural network:
 - l the number of layer
-- $n^{[l]}$ = number of unit in layer l
-- $a^{[l]}$ = activation layer in layer l 
-- $a^{[l]} = g^{[l]}(z^{[l]})$  with g the activation function
+- $$n^{[l]}$$ = number of unit in layer l
+- $$a^{[l]}$$ = activation layer in layer l 
+- $$a^{[l]} = g^{[l]}(z^{[l]})$$  with g the activation function
 > <img src="./images/w02-01-Deep_L-layer_Neural_Network/img_2023-03-18_09-00-50.png">
 
 ## Forward Propagation in a Deep Network

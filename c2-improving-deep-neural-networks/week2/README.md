@@ -124,9 +124,9 @@ If we start with the following
 
 > <img src="./images/w02-04-understanding_exponentially_weighted_averages/img_2023-03-25_16-19-11.png">
 
-The exponentially weighted average adds a fraction β of the current value to the some of past values with a decay factor that gives more weight to recent values than to past values. The contribution from the t−nth value is wighted by $\beta^n(1-\beta)$
+The exponentially weighted average adds a fraction β of the current value to the some of past values with a decay factor that gives more weight to recent values than to past values. The contribution from the t−nth value is wighted by $$\beta^n(1-\beta)$$
 
-$\lim_{a->0}(1-a)^{1/a} = 1/e \approx 0.35$ explains that we for β = 0.9, 0.9^10 = (1-0.1)^10 = (1-0.1)^(1/0.1) -> 1/e, so negligeable 
+$$\lim_{a->0}(1-a)^{1/a} = 1/e \approx 0.35$$ explains that we for β = 0.9, 0.9^10 = (1-0.1)^10 = (1-0.1)^(1/0.1) -> 1/e, so negligeable 
 
 https://en.wikipedia.org/wiki/E-folding
 
