@@ -1,3 +1,10 @@
+---
+layout: page
+title: Course 1 - Neural Networks and Deep Learning
+permalink: /home/course1/
+---
+
+
 # Course 1 - Neural Networks and Deep Learning
 
 

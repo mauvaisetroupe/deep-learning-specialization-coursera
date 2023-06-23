@@ -1,7 +1,7 @@
 ---
 layout: home
 title: Specialization summary
-nav_order: 1
+permalink: /home/
 ---
 
 # deep-learning-specialization-coursera
