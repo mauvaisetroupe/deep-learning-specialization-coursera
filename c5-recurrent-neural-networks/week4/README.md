@@ -114,8 +114,6 @@ So what are these query, key and value vectors supposed to do? They come from a 
 
 Let's jump in and learn about the multi head attention mechanism. The notation gets a little bit complicated, but the thing to keep in mind is basically just a big four loop over the self attention mechanism that you learned about in the last video.
 
-> <img src="./images/w04-03-Multi-Head_Attention/img_2023-05-15_14-51-07.png">
-
 Each time you calculate self attention for a sequence is called a `head`.
 
 ### First head
@@ -124,23 +122,42 @@ For the sake of intuition, you might find it useful to think of $W_1^Q$, $W_1^K$
 
 We could see on diagram that word `visite` gives the best answer (highlighted blue arrow)
 
-> <img src="./images/w04-02-Self-Attention/img_2023-06-24_11-53-20.png">
+> <img src="./images/w04-03-Multi-Head_Attention/img_2023-06-24_11-53-20.png">
+
+### Second head
 
 $W_2^Q$, $W_2^K$ and $W_2^V$ as being learned to help ask and answer the question, `when ?` 
 
 We could see on diagram that word `septembre` gives the best answer (highlighted red arrow)
 
-> <img src="./images/w04-02-Self-Attention/img_2023-06-24_11-54-14.png">
+> <img src="./images/w04-03-Multi-Head_Attention/img_2023-06-24_11-54-14.png">
+
+### Third head
 
 $W_3^Q$, $W_3^K$ and $W_3^V$ as being learned to help ask and answer the question, `who ?` 
 
 We could see on diagram that word `Jane` gives the best answer (highlighted black arrow)
 
-> <img src="./images/w04-02-Self-Attention/img_2023-06-24_11-54-53.png">
+> <img src="./images/w04-03-Multi-Head_Attention/img_2023-06-24_11-54-53.png">
 
+### Multi-head together
+
+In the literature, the number of heads is usually represented by the lower case letter `h`.
+
+And you can think of each of these `heads` as a different feature. And when you pass these features to a new network you can calculate a very rich representation of the sentence. 
+
+Calculating the output of the multi headed attention is :
+1. computing the `h` heads 
+2. then using the concatenation 
+3. And then finally multiplied by a matrix $W_0$
+
+> <img src="./images/w04-03-Multi-Head_Attention/img_2023-06-24_15-50-15.png">
 
 In this conceptual description of multi head attention, I described computing these different values for the different heads as if you would do them in a big `for loop`. But in practice you can actually compute these different heads values in parallel because no one has value depends on the value of any other head.
 
+In the next slide, we use the following formalism to represent all the components described in this section
+
+> <img src="./images/w04-03-Multi-Head_Attention/img_2023-06-24_16-38-03.png">
 
 
 ## Transformer Network
