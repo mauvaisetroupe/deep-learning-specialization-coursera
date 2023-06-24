@@ -7,7 +7,7 @@ nav_order: 1
 
 # deep-learning-specialization-coursera
 
-https://www.coursera.org/specializations/deep-learning
+[https://www.coursera.org/specializations/deep-learning](https://www.coursera.org/specializations/deep-learning)
 
 
 The Deep Learning Specialization is a foundational program that will help you understand the capabilities, challenges, and consequences of deep learning and prepare you to participate in the development of leading-edge AI technology. 
@@ -19,7 +19,7 @@ AI is transforming many industries. The Deep Learning Specialization provides a 
 
 ## [Course 1 - Neural Networks and Deep Learning](./c1-neural-networks-and-deep-learning)
 
-https://www.coursera.org/learn/neural-networks-deep-learning
+[https://www.coursera.org/learn/neural-networks-deep-learning](https://www.coursera.org/learn/neural-networks-deep-learning)
 
 In the first course of the Deep Learning Specialization, you will study the foundational concept of neural networks and deep learning. 
 
@@ -53,7 +53,7 @@ Analyze the key computations underlying deep learning, then use them to build an
 
 ## [Course 2 - Improving Deep Neural Networks: Hyperparameter Tuning, Regularization and Optimization](./c2-improving-deep-neural-networks)
 
-[https://www.coursera.org/learn/deep-neural-network](./c2-improving-deep-neural-networks)
+[https://www.coursera.org/learn/deep-neural-network](https://www.coursera.org/learn/deep-neural-network)
 
 In the second course of the Deep Learning Specialization, you will open the deep learning black box to understand the processes that drive performance and generate good results systematically. 
 
@@ -83,7 +83,7 @@ Explore TensorFlow, a deep learning framework that allows you to build neural ne
 
 # [Course 3 - Structuring Machine Learning Projects](./c3-structuring-ml-projects)
 
-https://www.coursera.org/learn/machine-learning-projects
+[https://www.coursera.org/learn/machine-learning-projects](https://www.coursera.org/learn/machine-learning-projects)
 
 In the fourth course of the Deep Learning Specialization, you will understand how computer vision has evolved and become familiar with its exciting applications such as autonomous driving, face recognition, reading radiology images, and more.
 
@@ -108,7 +108,7 @@ Develop time-saving error analysis procedures to evaluate the most worthwhile op
 
 # [Course 4 - Convolutional Neural Networks](./c4-convolutional-neural-netowrks)
 
-https://www.coursera.org/learn/convolutional-neural-networks
+[https://www.coursera.org/learn/convolutional-neural-networks](https://www.coursera.org/learn/convolutional-neural-networks)
 
 In the fourth course of the Deep Learning Specialization, you will understand how computer vision has evolved and become familiar with its exciting applications such as autonomous driving, face recognition, reading radiology images, and more.
 
@@ -141,7 +141,7 @@ Explore how CNNs can be applied to multiple fields, including art generation and
 
 # [Course 5 - Sequence Models](./c5-recurrent-neural-networks)
 
-https://www.coursera.org/learn/nlp-sequence-models
+[https://www.coursera.org/learn/nlp-sequence-models](https://www.coursera.org/learn/nlp-sequence-models)
 
 In the fifth course of the Deep Learning Specialization, you will become familiar with sequence models and their exciting applications such as speech recognition, music synthesis, chatbots, machine translation, natural language processing (NLP), and more. 
 
