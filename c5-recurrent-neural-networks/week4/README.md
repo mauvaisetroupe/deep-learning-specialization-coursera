@@ -55,7 +55,59 @@ And it turns out that these representations, which will be very rich representat
 
 ## Self-Attention
 
+
+To use attention with a style more like CNNs, you need to calculate **self-attention**, where you compute **attention-based representations** for each of the words in your input sentence : 
+
+|1|2|3|4|5|
+|-|-|-|-|-|
+|Jane|Visite|l'Afrique|en|septembre|
+|`A<1>`|`A<2>`|`A<3>`|`A<4>`|`A<5>`|
+
+
+One way to represent `l'Afrique` would be to just use [word embeddings](../week2/#word-representation) we've learn previously.  
+
+But depending on the context, we could think Africa as :
+- a site of historical interests 
+- or as a holiday destination, 
+- or as the world's second largest continent. 
+
+Depending on how you're thinking of `l'Afrique`, you may choose to represent it differently, and that's what this representation `A<3>` will do.  
+
+It will look at the surrounding words to try to figure out what's actually going on in how we're talking about Africa in this sentence, and find the most appropriate representation for this.
+
+> <img src="./images/w04-02-Self-Attention/img_2023-06-24_10-24-33.png">
+
+In terms of the actual calculation, it won't be too different from the [attention mechanism](../week3/#attention-model) you saw previously as applied in the context of RNNs, except we'll compute these representations in parallel for all five words in a sentence. 
+
+You can see the equations have some similarities :
+- both based on softmax
+- you can think of the exponent terms `q.k<i>` as being a kind of attention values.
+
+For each word, example `A<3>` you have 3 vectors that are input values to compute the attention value for each words :
+- `q<3>` called **query**
+- `k<3>` called **key**
+- `v<3>` called **value**
+
 > <img src="./images/w04-02-Self-Attention/img_2023-05-15_14-50-55.png">
+
+Let's step through the computations you need to go from the words `l'Afrique` to the self-attention representation `A<3>`.
+
+- `x<3>` is the word embedding for `l'Afrique,`
+- We use 3 matrices, `Wq`, `Wk`, and `Wv` that are parameters of the learning algorithm that will allow to compute these query, key, and value vectors for each word. 
+
+> <img src="./images/w04-02-Self-Attention/img_2023-06-24_10-52-44.png">
+
+So what are these query, key and value vectors supposed to do? They come from a loose analogy to a databases concepts where you can have queries and also key-value pairs
+- `q<3>` is a question that you get to ask about l'Afrique, like : "what's happening there? "
+- we compute the inner product between `q<3>` and `k<1>`, between `Query 3` and `Key 1`, and this will tell us how good word<1> (`Jane`) is to answer to the question of what's happening in Africa. 
+- in our example, for intuition, we find out that `k<1>` is a person, and `k<2>` is an action, then you may find that `q<3>.k<2>` has the largest value, and this may be intuitive example that suggests that `visite`, gives you the most relevant contexts for what's happening about `l'Afrique`. 
+
+> <img src="./images/w04-02-Self-Attention/img_2023-06-24_11-12-28.png">
+
+- then we compute a softmax function over these 5 values
+- then multiply by `v<i>`
+- and sum them over `i`
+
 > <img src="./images/w04-02-Self-Attention/img_2023-05-15_14-50-57.png">
 
 ## Multi-Head Attention
