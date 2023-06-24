@@ -1,5 +1,8 @@
 // Copied from https://docs.mathjax.org/en/latest/upgrading/v2.html#changes-in-the-mathjax-api
 MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']]
+  },  
     options: {
       renderActions: {
         findScript: [10, function (doc) {

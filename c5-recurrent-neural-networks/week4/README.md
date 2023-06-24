@@ -120,19 +120,19 @@ Each time you calculate self attention for a sequence is called a `head`.
 
 ### First head
 
-For the sake of intuition, you might find it useful to think of $W_1^Q$, $$W_1^K$$ and $$W_1^V$$ as being learned to help ask and answer the question, `what's happening ?` 
+For the sake of intuition, you might find it useful to think of $W_1^Q$, $W_1^K$ and $W_1^V$ as being learned to help ask and answer the question, `what's happening ?` 
 
 We could see on diagram that word `visite` gives the best answer (highlighted blue arrow)
 
 > <img src="./images/w04-02-Self-Attention/img_2023-06-24_11-53-20.png">
 
-$$W_2^Q$$, $$W_2^K$$ and $$W_2^V$$ as being learned to help ask and answer the question, `when ?` 
+$W_2^Q$, $W_2^K$ and $W_2^V$ as being learned to help ask and answer the question, `when ?` 
 
 We could see on diagram that word `septembre` gives the best answer (highlighted red arrow)
 
 > <img src="./images/w04-02-Self-Attention/img_2023-06-24_11-54-14.png">
 
-$W_3^Q$, $$W_3^K$$ and $$W_3^V$$ as being learned to help ask and answer the question, `who ?` 
+$W_3^Q$, $W_3^K$ and $W_3^V$ as being learned to help ask and answer the question, `who ?` 
 
 We could see on diagram that word `Jane` gives the best answer (highlighted black arrow)
 
