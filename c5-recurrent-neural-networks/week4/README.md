@@ -162,7 +162,87 @@ In the next slide, we use the following formalism to represent all the component
 
 ## Transformer Network
 
+### Encoder
+
+You've learned about self attention, you've learned about multi headed attention. Let's put it all together to build a transformer network.
+
+Up until this point, for the sake of simplicity, I've only been talking about the embeddings for the words in the sentence. But in many sequences sequence translation task, will be useful to also at the start of sentence or the `<SOS>` and the end of sentence or the `<EOS>` tokens which I have in this example.
+
+So this is exactly what you saw on the last slide where you feed in the values Q K and V computed from the embeddings and the weight matrices W. This layer then produces a matrix that can be passed into a feed forward neural network. Which helps determine what interesting features there are in the sentence. In the transformer paper, this block, this encoding block is repeated N times and a typical value for N is six.
+
+This layer then produces a matrix that can be passed into a **feed forward neural network** which helps determine what interesting features there are in the sentence. In the transformer paper, this block, this encoding block is repeated N times and a typical value for N is 6.
+
+> <img src="./images/w04-04-Transformer_Network/img_2023-06-24_16-50-27.png">
+
+So after, maybe about six times through this block, we will then feed the output of the encoder into a decoder block. 
+
+### Decoder
+
+The decoders block's job is output the English translation.
+
+- First multi-headed attention block
+   - When we're just getting started, the only thing we know is that the translation will start with `<SOS>` token that is used to compute `Q`, `K` and `V` for first multi-headed attention block.
+- Second multi-headed attention block
+   - This first blocks, output is used to generate the `Q` matrix for the next multi head attention block.
+   - And the output of the encoder is used to generate `K` and `V`. 
+- the multi- head detention block outputs the values which are fed to feed for neural network. 
+
+This decoder block is also going to be repeated N times, maybe 6 times where you take the output and feed it back to the input. And the job of this new network is to predict the next word in the sentence that will be taken as input
+
+> <img src="./images/w04-04-Transformer_Network/img_2023-06-24_17-26-02.png">
+
+### Connecting Encoder and Decoder
+
+> <img src="./images/w04-04-Transformer_Network/img_2023-06-24_17-27-34.png">
+
+But beyond these main ideas, there are a few extra bells and whistles to transform it. Let me brief these steps through these extra bells and whistles that makes the transformer network work even better.
+
+#### Positional encoding of the input
+
+If you recall the self attention equations, there's nothing that indicates the position of a word. Is this word, the first word in the sentence, in the middle of the last word in the sentence. But the position within the sentence can be extremely important to translation. 
+
+> <img src="./images/w04-04-Transformer_Network/img_2023-06-24_17-33-01.png">
+
+So let's say for example that your word embedding is a vector with 4 values. We create a positional encoding vector of the same dimension p<1> for x<1>
+
+In this equation, 
+- `pos` denotes the numerical position of the word (Jane, `pos` is equal to `1`)
+- `i` refers to the different dimensions of the encoding 
+- `d` is equal to 4 as the dimension of this factor. 
+
+The position encoding is unique for each word
+
+In addition to adding these position encodings to the embeddings, you'd also pass them through the network with **residual connections**. These residual connections are similar to those you previously seen in the [resNet](../../c4-convolutional-neural-netowrks/week2/#resnets). And their purpose in this case is to pass along positional information through the entire architecture.
+
+#### Add and norm
+
+In addition to positional encoding, the transformer network also uses a layer very similar to a [batch norm](../../c2-improving-deep-neural-networks/week3/#why-does-batch-norm-work). 
+
+That is very similar to the batch norm layer that you're already familiar with. For the purpose of this video, don't worry about the differences. Think of it as playing a role very similar to the batch norm and just helps speed up learning. 
+
+#### Output Linear and softmax layer
+
+And finally for the output of the decoder block, there's actually also a linear and then a softmax layer to predict the next word one word at a time.
+
+
 > <img src="./images/w04-04-Transformer_Network/img_2023-05-15_14-51-16.png">
+
+### Masked multi-head attention
+
+In case you read the literature on the transformer network, you may also hear something called the **masked multi-head attention**. We should only draw it over here. Mast multi -head attention is important only during the training process 
+
+> <img src="./images/w04-04-Transformer_Network/img_2023-06-24_17-56-39.png">
+
+Masked multi-head attention is important only during the training process where you're using a data set of correct french to English translations to train your transformer.
+
+So previously we step through how the transformer performs prediction, one word at the time, but how does it train?
+
+Let's say your data set has the correct french to English translation, `Jane Visite freak on September` and `Jane visits Africa in September`. When training you have access to the entire correct English translation. And because you have the full correct output you don't actually have to generate the words one at a time during training. Instead, what masking does is it blocks out the last part of the sentence to mimic what the network will need to do at test time or during prediction. 
+
+In other words, all that masked multi-head attention does is repeatedly pretends that the network had perfectly translated the first few words and hides the remaining words to see if, given a perfect first part of the translation, the neural network can predict the next word in the sequence accurately.
+
+Since the paper attention is all you need came out, there have been many other iterations of this model such as BERT or DistilBERT, which you get to explore yourself this week.
+
 
 # Conclusion
 
