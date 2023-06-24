@@ -27,7 +27,7 @@ Learning Objectives
 NLP (Natural Language Processing) has been revolutionized by deep learning. One of the key ideas is word embeddings, which is a way of representing words that let your algorithms automatically understand analogies like that, man is to woman, as king is to queen.
 
 - [Previously](../week1/README.md#notation), we use one-hot representation and vocabulary to encode words.
-- we use $$O_{5391}$$ to denote the one-hot vector with `1` in position `5391` (and `0` elseweher)
+- we use $O_{5391}$ to denote the one-hot vector with `1` in position `5391` (and `0` elseweher)
 - One of the weaknesses of this representation is that it treats each word as a thing in itself, and that it does not allow an algorithm to find common senses
     - even if algorithm has learned `I want a glass of orange juice`, algorithm cannot complete `I want a glass of apple ...` because there is no specific proximity between apple and orange (disatnce is the same between any pair of vectors)
 
@@ -273,10 +273,10 @@ Now of course, as is the case in other areas of deep learning as well, there are
 
 Another algorithm that has some momentum in the NLP community is the GloVe (global vectors for word representation) algorithm. This is not used as much as the Word2Vec or the skip-gram models, but it has some enthusiasts. Because in part of its simplicity
 
-- We define $$X_{ij}$$ as the number of times that a word i appears in the context of word j (close to each other)
+- We define $X_{ij}$ as the number of times that a word i appears in the context of word j (close to each other)
     - i is playing the role of t (target)
     - j is playing the role of c (context)
-- Depending on the definition of context and target words, you might have that $$X_{ij}$$ equals $$X_{ji}$$. And in fact, if you're defining context and target in terms of whether or not they appear within +/- 10 words of each other, then it would be a symmetric relationship (not symetric if your context was defined as the word immediately before the target word)
+- Depending on the definition of context and target words, you might have that $X_{ij}$ equals $X_{ji}$. And in fact, if you're defining context and target in terms of whether or not they appear within +/- 10 words of each other, then it would be a symmetric relationship (not symetric if your context was defined as the word immediately before the target word)
 
 
 > <img src="./images/w02-10-glove_word_vectors/img_2023-05-02_08-01-33.png">

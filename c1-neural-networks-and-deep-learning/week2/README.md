@@ -29,25 +29,25 @@ Here's an example of a binary classification problem : image contains a cat (out
 > <img src="./images/w02-01-w02-01-Binary_Classification/img_2023-03-11_12-51-22.png">
 
 - A single training example is represented by a pair, (x,y) where 
-    - x is an $$n_x$$-dimensional feature vector 
+    - x is an $n_x$-dimensional feature vector 
     - y, the label, is either 0 or 1
-- Training example is $$(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), ... (x^{(m)}, y^{(m)})$$
-- $$m$$ or $$m_{train}$$ the number of train examples
-- $$m_{test}$$ the number of test examples
+- Training example is $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), ... (x^{(m)}, y^{(m)})$
+- $m$ or $m_{train}$ the number of train examples
+- $m_{test}$ the number of test examples
 
 > <img src="./images/w02-01-w02-01-Binary_Classification/img_2023-03-11_12-51-25.png">
 
 Finally, to output all of the training examples into a more compact notation, we're going to define a matrix, X with :
-- $$m$$ columns (number of train examples)
-- $$n_x$$ rows, where $$n_x$$ is the dimemsion of the input feature x
+- $m$ columns (number of train examples)
+- $n_x$ rows, where $n_x$ is the dimemsion of the input feature x
 
-In python $$Y.shape=(n_x,m)$$
+In python $Y.shape=(n_x,m)$
 
 > <img src="./images/w02-01-w02-01-Binary_Classification/img_2023-03-11_14-26-29.png">
 
 Notice that in other causes, you might see the matrix capital X defined by stacking up the train examples in rows, X1 transpose down to Xm transpose. Implementing neural networks using this first convention makes the implementation much easier.
 
-Concenring label we also use matrix notation. The dimension of the matrix is (1 x m), in python $$Y.shape = (1,m)$$
+Concenring label we also use matrix notation. The dimension of the matrix is (1 x m), in python $Y.shape = (1,m)$
 
 > <img src="./images/w02-01-w02-01-Binary_Classification/img_2023-03-11_14-38-07.png">
 
@@ -57,10 +57,10 @@ Concenring label we also use matrix notation. The dimension of the matrix is (1 
  > <img src="./images/w02-02-Logistic_Regression/img_2023-03-11_14-47-23.png">
 
 
-$$\hat{y}$$ (y hat) is the prediction of y, is the probability of of y=1, given the input x
+$\hat{y}$ (y hat) is the prediction of y, is the probability of of y=1, given the input x
 > <img src="./images/w02-02-Logistic_Regression/img_2023-03-11_14-52-53.png">
 
-With w ($$n_x$$ dimension vector) and b (real number) as parameter, $$\hat{y} = w^T.x + b$$, with $$w^T$$ the w transpose (column instead of line for matrix multiplication compataibility)
+With w ($n_x$ dimension vector) and b (real number) as parameter, $\hat{y} = w^T.x + b$, with $w^T$ the w transpose (column instead of line for matrix multiplication compataibility)
 
 > <img src="./images/w02-02-Logistic_Regression/img_2023-03-11_14-59-28.png">
 
@@ -68,7 +68,7 @@ This is linear regression, that is not correct for binary classification (0 < y 
 
 > <img src="./images/w02-02-Logistic_Regression/img_2023-03-11_15-04-02.png">
 
-When we programmed neural networks, we'll usually keep the parameter W and parameter B separate, but there is another convention in which you merge w and b, introducing an extra feature $$x_0=1$$
+When we programmed neural networks, we'll usually keep the parameter W and parameter B separate, but there is another convention in which you merge w and b, introducing an extra feature $x_0=1$
 
 > <img src="./images/w02-02-Logistic_Regression/img_2023-03-11_15-03-05.png">
 

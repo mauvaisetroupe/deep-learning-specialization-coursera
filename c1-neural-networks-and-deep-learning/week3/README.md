@@ -29,19 +29,19 @@ Learning Objectives
 
 - Input layer / Hidden Layer / Output layer
 - The term hidden layer refers to the fact that in the training set, the true values for these nodes in the middle are not observed
-- Input is vector $$x = a^{[0]}$$, a is stands for activation
+- Input is vector $x = a^{[0]}$, a is stands for activation
 
 > <img src="./images/w03-02-Neural_Network_Representation/img_2023-03-12_19-52-28.png">
 
 ## Computing a Neural Network's Output
 
 Each unit or node of our neural network compute a linear regression :
-- $$z=w^Tx+b$$
-- $$a=\sigma(z)$$
+- $z=w^Tx+b$
+- $a=\sigma(z)$
 
-By convention, we denote $$a_i^{[l]}$$ and $$z_i^{[l]}$$ where :
-- $$i$$ is the unit number
-- and $$l$$ the layer number
+By convention, we denote $a_i^{[l]}$ and $z_i^{[l]}$ where :
+- $i$ is the unit number
+- and $l$ the layer number
 
 > <img src="./images/w03-03-Computing_a_Neural_Networks_Output/img_2023-03-13_18-53-50.png">
 
@@ -49,7 +49,7 @@ Vectorization using vectr and matrix for hidden layer
 
 > <img src="./images/w03-03-Computing_a_Neural_Networks_Output/img_2023-03-13_21-17-59.png">
 
-Vectorization using vectr and matrix for output layer with $$x = a^{[0]}$$
+Vectorization using vectr and matrix for output layer with $x = a^{[0]}$
 
 
 > <img src="./images/w03-03-Computing_a_Neural_Networks_Output/img_2023-03-13_21-18-01.png">
@@ -57,8 +57,8 @@ Vectorization using vectr and matrix for output layer with $$x = a^{[0]}$$
 ## Vectorizing Across Multiple Examples
 
 We define :
-- $$x^{(i)}$$ the example # i 
-- and $$a^{[2] (i)}$$ the prediction # i 
+- $x^{(i)}$ the example # i 
+- and $a^{[2] (i)}$ the prediction # i 
 
 > <img src="./images/w03-04-Vectorizing_Across_Multiple_Examples/img_2023-03-13_21-22-09.png">
 
@@ -85,7 +85,7 @@ Rules of thumb for choosing activation functions :
 - never use sigmoid activation function except for the output layer of binomial classification
 - prefere hyperbolic tangent
 - ReLU is the default choice (but )
-- or try Leaky ReLu $$max(0.01*z,z)$$
+- or try Leaky ReLu $max(0.01*z,z)$
 
 > <img src="./images/w03-06-Activation_Functions/img_2023-03-13_22-17-21.png">
 

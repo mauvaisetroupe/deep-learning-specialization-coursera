@@ -124,9 +124,9 @@ If we start with the following
 
 > <img src="./images/w02-04-understanding_exponentially_weighted_averages/img_2023-03-25_16-19-11.png">
 
-The exponentially weighted average adds a fraction β of the current value to the some of past values with a decay factor that gives more weight to recent values than to past values. The contribution from the t−nth value is wighted by $$\beta^n(1-\beta)$$
+The exponentially weighted average adds a fraction β of the current value to the some of past values with a decay factor that gives more weight to recent values than to past values. The contribution from the t−nth value is wighted by $\beta^n(1-\beta)$
 
-$$\lim_{a->0}(1-a)^{1/a} = 1/e \approx 0.35$$ explains that we for β = 0.9, 0.9^10 = (1-0.1)^10 = (1-0.1)^(1/0.1) -> 1/e, so negligeable 
+$\lim_{a->0}(1-a)^{1/a} = 1/e \approx 0.35$ explains that we for β = 0.9, 0.9^10 = (1-0.1)^10 = (1-0.1)^(1/0.1) -> 1/e, so negligeable 
 
 https://en.wikipedia.org/wiki/E-folding
 
@@ -142,15 +142,15 @@ Because we implement the exponentially weighted moving average with V0=0, the st
 
 This can be corrected dividing the previous formulaith (1-β^t) that becomes close to 1 after the first iterations.
 
-$$
+$
 V_t = \beta * V_{t-1} + (1-\beta) * \theta_t
-$$
+$
 
 becomes :
 
-$$
+$
 V_t = \frac{\beta * V_{t-1} + (1-\beta) * \theta_t}{1-\beta^t}
-$$
+$
 
 > <img src="./images/w02-05-bias_correction_in_exponentially_weighted_averages/img_2023-03-25_16-19-29.png">
 

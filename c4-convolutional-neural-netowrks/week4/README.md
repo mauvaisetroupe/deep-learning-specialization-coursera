@@ -191,7 +191,7 @@ Layer 5, even more sophisticated things
 
 ## Cost Function
 
-$$J(G) = \alpha * J_{content}(C, G) + \beta * J_{style}(S, G)$$ :
+$J(G) = \alpha * J_{content}(C, G) + \beta * J_{style}(S, G)$ :
 - first part (content component) measures how similar is the contents of the generated image G to the content of the content image C
 - second part (style component) measures how similar is the contents of the generated image G to the style of the style image J
 
@@ -205,7 +205,7 @@ Algorithm to train the network :
 
 We use a specific hidden layer l to compute the content part of the cost function. Usually, choose some layer in the middle, neither too shallow nor too dee. If l is to be small (like layer 1), we will force the network to get similar output to the original content image.
 
-We define $$J_{content}(C,G)$$ as the element-wise difference between these hidden unit activations in layer l for content image and generated image (use norm-2 as activation are considered as vectors)
+We define $J_{content}(C,G)$ as the element-wise difference between these hidden unit activations in layer l for content image and generated image (use norm-2 as activation are considered as vectors)
 
 
 > <img src="./images/w04-09-content_cost_function/img_2023-04-14_22-09-07.png">
@@ -234,10 +234,10 @@ If we use the degree of correlation between channels as a measure of the style, 
 So let's now formalize this intuition. 
 
 Matrix G, called style matrix or Gram matrix:
-- G is matrix of shape $$n_c^{[l]}$$ x $$n_c^{[l]}$$ (numbre of channels)
-- $$G_{k,k'}$$ is the cell of the matrix G that tell how correlated is a channel k to another channel k'
-    - if both of activations $$a_{i,j,k}^{[l]}$$ and $$a_{i,j,k´}^{[l]}$$ tend to be lashed together then $$G_{k,k'}$$ will be large, 
-    - whereas if they are uncorrelated then $$G_{k,k'}$$ might be small.
+- G is matrix of shape $n_c^{[l]}$ x $n_c^{[l]}$ (numbre of channels)
+- $G_{k,k'}$ is the cell of the matrix G that tell how correlated is a channel k to another channel k'
+    - if both of activations $a_{i,j,k}^{[l]}$ and $a_{i,j,k´}^{[l]}$ tend to be lashed together then $G_{k,k'}$ will be large, 
+    - whereas if they are uncorrelated then $G_{k,k'}$ might be small.
 
 The term correlation has been used to convey intuition but this is actually the unnormalized cross-correlation because we're not subtracting out the mean (here just a elements-wide multiplication).
 

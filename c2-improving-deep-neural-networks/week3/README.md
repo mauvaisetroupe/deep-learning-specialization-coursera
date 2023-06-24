@@ -274,18 +274,18 @@ Some examples of multi-class classification that is a generalization of binary c
 It's a form of maximum likelyhood estimation in statistics.
 
 Loss function :
-$$
+$
 L(y,\hat{y}) = -\sum_{j=1}^C y_j\log(\hat{y}_j)
-$$
+$
 
 The cost function is based on the sum for all training example of the loss function.
 
 > <img src="./images/w03-09-training_a_softmax_classifier/img_2023-03-27_19-14-31.png">
 
 If you are an expert in calculus, you can derive this yourself.
-$$
+$
 dz^{[l]} = \hat{y} - y
-$$
+$
 
 When using a deep learning program frameworks, usually you just need to focus on getting the forward prop right. The framework will figure out how to do the backward pass for you.
 

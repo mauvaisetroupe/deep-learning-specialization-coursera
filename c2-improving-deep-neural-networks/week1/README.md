@@ -85,14 +85,14 @@ Training a bigger neural network is a viable option to consider.
 
 For logistic regression
 
-- L2 regularization : $$Loss = Error(Y - \widehat{Y}) +  \frac{\lambda}{2m}   \sum_1^n w_i^{2}$$
-- L1 regularization : $$Loss = Error(Y - \widehat{Y}) +  \frac{\lambda}{2m}   \sum_1^n |w_i|$$
+- L2 regularization : $Loss = Error(Y - \widehat{Y}) +  \frac{\lambda}{2m}   \sum_1^n w_i^{2}$
+- L1 regularization : $Loss = Error(Y - \widehat{Y}) +  \frac{\lambda}{2m}   \sum_1^n |w_i|$
 
 Lambda is a reserved keyword in python (use lambd instead)
 
 > <img src="./images/w01-04-Regularization/img_2023-03-19_09-56-34.png">
 
-We introduce the frobenius norm  : $$\sum_{i=1}^{n^{[l]}}\sum_{j=1}^{n^{l-1}}(w_{ij}^{[l]})^2$$
+We introduce the frobenius norm  : $\sum_{i=1}^{n^{[l]}}\sum_{j=1}^{n^{l-1}}(w_{ij}^{[l]})^2$
 L2 regularization has an impact onthe calculation od dW
 L2 regularization is sometimes also called **weight decay** because it's just like the ordinary gradient descent, where you update w by subtracting alpha, times the original gradient you got from backprop. But now you're also, you know, multiplying w by a factor little bit less than 1
 
@@ -256,7 +256,7 @@ This variance parameter could be another thing that you could tune with your hyp
 Some explanation about variance :
 - python function ```numpy.random.randn(d0, d1, ..., dn)``` generates an array of shape (d0, d1, ..., dn), filled with random floats sampled from a univariate “normal” (Gaussian) distribution of mean 0 and variance 1
 - for random samples from the normal distribution with mean mu and standard deviation sigma, use ```sigma * np.random.randn(...) + mu```
-- if $$\sigma$$  is its standard deviation, the variance of the distribution is $$\sigma ^{2}$$
+- if $\sigma$  is its standard deviation, the variance of the distribution is $\sigma ^{2}$
 - So ```np.random.randn(shape) * np.sqrt(2/n)``` give a variance of ```2/n```
 
 
@@ -289,7 +289,7 @@ For each i (i is the size(θ)= size(w1) + size(b1) + size (W2) + ...) ):
 - dθ_approx[i] = (J(θ1,θ2,...,***θi+ε***,...)-J(θ1,θ2,...,***θi-ε***,...))/(2ε), we are using **two-side** approximation
 - check that ```dθ_approx[i] ≈ dθ[i]```       
 
-In order to check equality, we use $$diff = \lVert d\theta_{approx}-d\theta \rVert / ( \lVert d\theta_{approx} \rVert  +  \lVert d\theta \rVert  )$$  with the 2-norm (or Euclidean norm)
+In order to check equality, we use $diff = \lVert d\theta_{approx}-d\theta \rVert / ( \lVert d\theta_{approx} \rVert  +  \lVert d\theta \rVert  )$  with the 2-norm (or Euclidean norm)
 
 1. diff ≈ 10^-7, great, backprop is very likely correct.
 2. diff ≈ 10^-5, maybe OK, better check no component of this difference is particularly large.
