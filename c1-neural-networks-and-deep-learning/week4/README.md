@@ -64,17 +64,30 @@ Notation for deep neural network:
 ## Building Blocks of Deep Neural Networks
 
 
-Let's put together basic building blocks, forward propagation and back propagation to implement a deep neural network. 
+In the earlier videos from this week, as well as from the videos from the past several weeks, you've already seen the basic building blocks of forward propagation and back propagation, the key components you need to implement a deep neural network. Let's see how you can put these components together to build your deep net.
+
+Explanation on layer `l`.
 
 > <img src="./images/w02-05-Building_Blocks_of_Deep_Neural_Networks/img_2023-03-18_10-42-11.png">
 
+Note that during forward, we cache `Z[l]`, but also `W[l]` and `b[l]`
+
 > <img src="./images/w02-05-Building_Blocks_of_Deep_Neural_Networks/img_2023-03-18_10-42-16.png">
+
+ So you've now seen what are the basic building blocks for implementing a deep neural network. In each layer there's a forward propagation step and there's a corresponding backward propagation step. And has a cache to pass information from one to the other. In the next video, we'll talk about how you can actually implement these building blocks
 
 ## Forward and Backward Propagation
 
 > <img src="./images/w02-06-Forward_and_Backward_Propagation/img_2023-03-18_14-56-35.png">
 
+In addition to input value, we have cached values :
+- `Z[l]` but also `W[l]` and `b[l]`
+- I didn't explicitly put `a[l-1]` in the cache, but it turns out you need this as well 
+
 > <img src="./images/w02-06-Forward_and_Backward_Propagation/img_2023-03-18_14-58-45.png">
+
+- For the forward recursion, we will initialize it with the input data X
+- For backward loop, when using logistic regression (for binary classification), we initialize `da[] = -y/a + (1-y)/1-a)` (see [logistic regression recap](../week2/#logistic-regression-gradient-descent)) 
 
 > <img src="./images/w02-06-Forward_and_Backward_Propagation/img_2023-03-18_15-13-33.png">
 
