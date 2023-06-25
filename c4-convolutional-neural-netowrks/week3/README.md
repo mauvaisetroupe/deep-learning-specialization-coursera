@@ -7,6 +7,7 @@ parent: "C4 - Convolutional Neural Networks"
 
 
 # Object Detection
+{: .no_toc}
 
 Apply your new knowledge of CNNs to one of the hottest (and most challenging!) fields in computer vision: object detection.
 
@@ -20,6 +21,15 @@ Learning Objectives
 - Implement semantic image segmentation on the CARLA self-driving car dataset
 - Explain the difference between a regular CNN and a U-net
 - Build a U-Net
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Detection Algorithms
 

@@ -6,12 +6,22 @@ parent: "C3 - Structuring Machine Learning Projects"
 ---
 
 # ML Strategy
+{: .no_toc}
 
 Develop time-saving error analysis procedures to evaluate the most worthwhile options to pursue and gain intuition for how to split your data and when to use multi-task, transfer, and end-to-end deep learning.
 
 Learning Objectives
 - Describe multi-task learning and transfer learning
 - Recognize bias, variance and data-mismatch by looking at the performances of your algorithm on train/dev/test sets
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Error Analysis
 

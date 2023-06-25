@@ -6,6 +6,7 @@ parent: "C4 - Convolutional Neural Networks"
 ---
 
 # Foundations of Convolutional Neural Networks
+{: .no_toc}
 
 Implement the foundational layers of CNNs (pooling, convolutions) and stack them properly in a deep network to solve multi-class image classification problems.
 
@@ -22,6 +23,15 @@ Learning Objectives
 - Build and train a ConvNet in TensorFlow for a multiclass classification problem
 - Explain different use cases for the Sequential and Functional APIs
 
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Convolutional Neural Networks
 

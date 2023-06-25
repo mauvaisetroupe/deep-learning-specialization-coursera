@@ -5,6 +5,7 @@ permalink: /c5-recurrent-neural-networks/week3/
 parent: "C5 - Sequence Models"
 ---
 # Sequence Models & Attention Mechanism
+{: .no_toc}
 
 Augment your sequence models using an attention mechanism, an algorithm that helps your model decide where to focus its attention given a sequence of inputs. Then, explore speech recognition and how to deal with audio data.
 
@@ -18,6 +19,16 @@ Learning Objectives
 - Train a trigger word detection model and make predictions
 - Synthesize and process audio recordings to create train/dev datasets
 - Structure a speech recognition project
+
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Various Sequence To Sequence Architectures
 

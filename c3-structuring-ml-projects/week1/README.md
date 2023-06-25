@@ -6,6 +6,7 @@ parent: "C3 - Structuring Machine Learning Projects"
 ---
 
 # ML Strategy
+{: .no_toc}
 
 Streamline and optimize your ML production workflow by implementing strategic guidelines for goal-setting and applying human-level performance to help define key priorities.
 
@@ -16,6 +17,15 @@ Learning Objectives
 - Define human-level performance
 - Use human-level performance to define key priorities in ML projects
 - Take the correct ML Strategic decision based on observations of performances and dataset
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Introduction to ML Strategy
 

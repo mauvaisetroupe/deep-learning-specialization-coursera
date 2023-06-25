@@ -6,6 +6,7 @@ parent: "C1 - Neural Networks and Deep Learning"
 ---
 
 # Shallow Neural Networks
+{: .no_toc}
 
 Build a neural network with one hidden layer, using forward propagation and backpropagation.
 
@@ -18,6 +19,15 @@ Learning Objectives
 - Implement a 2-class classification neural network with a single hidden layer
 - Compute the cross entropy loss
 
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Shallow Neural Networks
 

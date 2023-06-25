@@ -5,6 +5,7 @@ permalink: /c5-recurrent-neural-networks/week4/
 parent: "C5 - Sequence Models"
 ---
 # Transformer Network
+{: .no_toc}
 
 Learning Objectives
 - Create positional encodings to capture sequential relationships in data
@@ -16,6 +17,15 @@ Learning Objectives
 - Implement a QA model in TensorFlow and PyTorch
 - Fine-tune a pre-trained transformer model to a custom dataset
 - Perform extractive Question Answering
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Transformers
 

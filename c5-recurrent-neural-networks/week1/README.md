@@ -6,6 +6,7 @@ parent: "C5 - Sequence Models"
 ---
 
 # Recurrent Neural Networks
+{: .no_toc}
 
 Discover recurrent neural networks, a type of model that performs extremely well on temporal data, and several of its variants, including LSTMs, GRUs and Bidirectional RNNs,
 
@@ -26,6 +27,15 @@ Learning Objectives
 - Use the flexible Functional API to create complex models
 - Generate your own jazz music with deep learning
 - Apply an LSTM to a music generation task
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Recurrent Neural Networks
 

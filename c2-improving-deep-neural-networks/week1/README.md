@@ -5,6 +5,7 @@ permalink: /c2-improving-deep-neural-networks/week1/
 parent: "C2 - Improving Deep Neural Networks"
 ---
 # Practical Aspects of Deep Learning
+{: .no_toc }
 
 Discover and experiment with a variety of different initialization methods, apply L2 regularization and dropout to avoid model overfitting, then apply gradient checking to identify errors in a fraud detection model.
 
@@ -19,6 +20,14 @@ Learning Objectives
 - Apply zeros initialization, random initialization, and He initialization
 - Apply regularization to a deep learning model
 
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Setting up your Machine Learning Application
 

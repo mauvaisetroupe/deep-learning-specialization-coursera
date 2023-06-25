@@ -7,7 +7,7 @@ parent: "C1 - Neural Networks and Deep Learning"
 
 
 # Introduction to deep learning
-
+{: .no_toc}
 
 Analyze the major trends driving the rise of deep learning, and give examples of where and how it is applied today.
 
@@ -17,6 +17,14 @@ Learning Objectives
 - List the major categories of models (CNNs, RNNs, etc.), and when they should be applied
 - Assess appropriate use cases for deep learning
 
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Welcome
 

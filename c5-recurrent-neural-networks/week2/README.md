@@ -5,6 +5,7 @@ permalink: /c5-recurrent-neural-networks/week2/
 parent: "C5 - Sequence Models"
 ---
 # Natural Language Processing & Word Embeddings
+{: .no_toc}
 
 Natural language processing with deep learning is a powerful combination. Using word vector representations and embedding layers, train recurrent neural networks with outstanding performance across a wide variety of applications, including sentiment analysis, named entity recognition and neural machine translation.
 
@@ -19,6 +20,16 @@ Learning Objectives
 - Explain the advantages and disadvantages of the GloVe algorithm
 - Build a sentiment classifier using word embeddings
 - Build and train a more sophisticated classifier using an LSTM
+
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Introduction to Word Embeddings
 

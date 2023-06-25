@@ -6,6 +6,7 @@ parent: "C2 - Improving Deep Neural Networks"
 ---
 
 # Hyperparameter Tuning, Batch Normalization and Programming Frameworks
+{: .no_toc}
 
 Explore TensorFlow, a deep learning framework that allows you to build neural networks quickly and easily, then train a neural network on a TensorFlow dataset.
 
@@ -19,7 +20,14 @@ Learning Objectives
 - Apply TensorFlow decorators to speed up code
 - Explain the difference between a variable and a constant
 
-
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Hyperparameter Tuning
 

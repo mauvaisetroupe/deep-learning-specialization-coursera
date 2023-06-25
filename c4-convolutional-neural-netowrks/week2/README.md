@@ -6,6 +6,7 @@ parent: "C4 - Convolutional Neural Networks"
 ---
 
 # Deep Convolutional Models: Case Studies
+{: .no_toc}
 
 Discover some powerful practical tricks and methods used in deep CNNs, straight from the research papers, then apply transfer learning to your own deep CNN.
 
@@ -18,6 +19,14 @@ Learning Objectives
 - Adapt a pretrained model to new data and train a classifier using the Functional API and MobileNet
 - Fine-tine a classifier's final layers to improve accuracy
 
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Case Studies
 

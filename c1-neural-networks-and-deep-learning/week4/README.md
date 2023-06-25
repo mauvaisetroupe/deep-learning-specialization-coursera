@@ -6,6 +6,7 @@ parent: "C1 - Neural Networks and Deep Learning"
 ---
 
 # Deep L-layer Neural Network
+{: .no_toc }
 
 Analyze the key computations underlying deep learning, then use them to build and train deep neural networks for computer vision tasks.
 
@@ -17,6 +18,14 @@ Learning Objectives
 - Explain the role of hyperparameters in deep learning
 - Build a 2-layer neural network
 
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Deep L-layer Neural Network
 

@@ -6,6 +6,7 @@ parent: "C4 - Convolutional Neural Networks"
 ---
 
 # Special Applications: Face recognition & Neural Style Transfer
+{: .no_toc}
 
 Explore how CNNs can be applied to multiple fields, including art generation and face recognition, then implement your own algorithm to generate art and recognize faces!
 
@@ -20,6 +21,15 @@ Learning Objectives
 - Generate novel artistic images using Neural Style Transfer
 - Define the style cost function for Neural Style Transfer
 - Define the content cost function for Neural Style Transfer
+
+<details open markdown="block">
+  <summary>
+    Table of contents
+  </summary>
+  {: .text-delta }
+1. TOC
+{:toc}
+</details>
 
 # Face Recognition
 
