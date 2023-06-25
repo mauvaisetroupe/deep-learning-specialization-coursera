@@ -138,18 +138,32 @@ Python convention, dJ/da is denoted da, dJ/dv is denoted dv
 
 > <img src="./images/w02-08-Derivatives_with_a_Computation_Graph/img_2023-03-11_16-10-43.png">
 
+In summary :
+
+> <img src="./images/w02-08-Derivatives_with_a_Computation_Graph/img_2023-06-25_07-03-26.png">
 
 ## Logistic Regression Gradient Descent
 
-**This demo don't use backward propagation**, but use calculus derivatives, especially chain derivative rules.
+**This demo don't use backward propagation** (adding a epsilon and check how much computed value increase), but use calculus derivatives, especially chain derivative rules.
 
 > <img src="./images/w02-09-Logistic_Regression_Gradient_Descent/img_2023-03-11_16-18-28.png">
 
 
-> <img src="./images/w02-09-Logistic_Regression_Gradient_Descent/img_2023-03-11_16-18-31.png">
+<!-- > <img src="./images/w02-09-Logistic_Regression_Gradient_Descent/img_2023-03-11_16-18-31.png"> -->
 
+We calculate the partial derivatives and apply chain derivatives rules
 
 > <img src="./images/w02-09-Logistic_Regression_Gradient_Descent/img_2023-03-11_17-34-10.png">
+
+
+$dz = a - y$
+
+$dw_1 = x_1 . dz,  \quad   dw_2 = x_2 . dz$
+
+If we put derivatives on the computation graph (summary)
+
+
+> <img src="./images/w02-09-Logistic_Regression_Gradient_Descent/img_2023-06-25_07-32-47.png">
 
 
 ## Gradient Descent on m Examples
@@ -157,6 +171,9 @@ Python convention, dJ/da is denoted da, dJ/dv is denoted dv
 > <img src="./images/w02-10-Gradient_Descent_on_m_Examples/img_2023-03-11_17-36-35.png">
 
 One single step of gradient descent, with 2 loops (one for the training example, and another one for the features). This will be avoided by vectorization
+
+Remember :
+$dz = a - y, \quad  dw_1 = x_1 . dz, \quad  dw_2 = x_2 . dz$
 
 > <img src="./images/w02-10-Gradient_Descent_on_m_Examples/img_2023-03-11_17-36-37.png">
 
