@@ -237,8 +237,8 @@ The ability of python to allow you to use broadcasting operations and more gener
 
 > <img src="./images/w02-18-Explanation_of_Logistic_Regression_Cost_Function/img_2023-03-12_18-51-33.png">
 
-- log(p(y|x)) = - Loss Function
-- Minimizing the loss corresponds with maximizing log(p(y|x))
+- `log(p(y|x))` = - Loss Function
+- Minimizing the loss corresponds with maximizing `log(p(y|x))`
 
 > <img src="./images/w02-18-Explanation_of_Logistic_Regression_Cost_Function/img_2023-03-12_18-12-06.png">
 
