@@ -57,6 +57,10 @@ for t = 1:nb_batches
 
 Unlike the batch gradient descent, the cost function in mini-batch algorithm may not decrease with each step and may exhibit some fluctuations. However, in general, it is expected to decrease over time.
 
+With batch gradient descent on every iteration you go through the entire training set and you'd expect the cost to go down on every single iteration.
+
+On mini batch gradient descent though, if you plot progress on your cost function, then it may not decrease on every iteration. In particular, on every iteration you're processing some `X{t}`, `Y{t}` and so if you plot the cost function `J{t}`, which is computer using just `X{t}`, `Y{t}`. Then it's as if on every iteration you're training on a different training set or really training on a different mini batch
+
 > <img src="./images/w02-02-understanding_mini-batch_gradient_descent/img_2023-03-25_16-18-22.png">
 
 <table>
