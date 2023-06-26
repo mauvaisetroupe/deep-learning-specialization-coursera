@@ -95,7 +95,7 @@ Training a bigger neural network is a viable option to consider.
 For logistic regression
 
 - L2 regularization : $Loss = Error(Y - \widehat{Y}) +  \frac{\lambda}{2m}   \sum_1^n w_i^{2}$
-- L1 regularization : $Loss = Error(Y - \widehat{Y}) +  \frac{\lambda}{2m}   \sum_1^n |w_i|$
+- L1 regularization : $Loss = Error(Y - \widehat{Y}) +  \frac{\lambda}{2m}   \sum_1^n \lvert w_i \rvert$
 
 Lambda is a reserved keyword in python (use lambd instead)
 
