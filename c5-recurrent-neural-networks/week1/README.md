@@ -237,7 +237,7 @@ After you train a sequence model, one of the ways you can informally get a sense
 
 1. First time step
     - we first pass a<0> = x<1> = 0 vector
-    - we randomly generate a sample according to the softmax distribution using the numpy command  `np.random.choice`
+    - we randomly generate a sample according to the softmax distribution $\hat{y}^{<1>}$ using the numpy command  `np.random.choice`
     - we get for example the word `the`
 2. Second step
     - the second time step is expecting y<1> as input, we use ŷ<1> (the word `the`) that you just sampled in the first step as the input to the second timestep
