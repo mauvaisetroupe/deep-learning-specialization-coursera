@@ -245,6 +245,12 @@ After you train a sequence model, one of the ways you can informally get a sense
     - we use the probability with the numpy command  `np.random.choice` to generate the second word...
 3. until you get &lt;EOS>
 
+
+Note that :
+- Note that  𝑦̂⟨t+1⟩ is a (softmax) probability vector (its entries are between 0 and 1 and sum to 1).
+- 𝑦̂⟨t+1⟩ represents the probability that the character indexed by "i" is the next character.
+- if you select the most probable word, the model will always generate the same result given a starting word. To make the results more interesting, we use np.random.choice to select a next letter that is likely, but not always the same.
+
 > <img src="./images/w01-07-sampling_novel_sequences/img_2023-04-25_20-52-15.png">
 
 So far we have to build a word-level language model but we can also build a character-level language model.
